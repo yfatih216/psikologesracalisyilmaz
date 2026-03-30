@@ -16,28 +16,27 @@
             --pastel-pink: #f9e2e4;
             --primary: #4a6372;
             --text-dark: #2d3436;
-            --text-light: #636e72;
             --white: #ffffff;
             --transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; line-height: 1.8; color: var(--text-dark); background-color: var(--white); scroll-behavior: smooth; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.8; color: var(--text-dark); background-color: var(--white); scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         /* --- Navigasyon --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 8%; background: rgba(255, 255, 255, 0.95);
             position: fixed; width: 100%; top: 0; z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03); backdrop-filter: blur(10px);
         }
         .logo { font-size: 1.2rem; color: var(--primary); letter-spacing: 1px; }
-        nav ul { display: flex; list-style: none; gap: 35px; }
-        nav a { text-decoration: none; color: var(--text-dark); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: var(--text-dark); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; transition: var(--transition); }
+        nav a:hover { color: var(--pastel-blue); }
 
-        /* --- Hero (Doğa Manzaralı) --- */
+        /* --- Hero --- */
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center;
             text-align: center; 
@@ -45,11 +44,10 @@
                         url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop');
             background-size: cover; background-position: center; padding: 0 10%;
         }
-        .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: #2c3e50; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .hero-content p { font-size: 1.2rem; color: #4b6584; max-width: 700px; margin: 0 auto 40px; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: #2c3e50; margin-bottom: 20px; }
         
         .btn {
-            padding: 18px 45px; background-color: var(--primary); color: var(--white);
+            padding: 16px 40px; background-color: var(--primary); color: var(--white);
             text-decoration: none; border-radius: 50px; font-weight: 600;
             transition: var(--transition); display: inline-block;
         }
@@ -57,56 +55,45 @@
 
         /* --- Hakkımda --- */
         section { padding: 120px 10%; }
-        .about { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-        .about-img img { 
-            width: 100%; border-radius: 20px; 
-            box-shadow: 25px 25px 0 var(--pastel-peach); 
-        }
-        .badge { background: var(--pastel-blue); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 10px; display: inline-block; }
-
-        /* --- Seans Bölümü --- */
-        .seans-panel {
-            display: grid; grid-template-columns: 1fr 1fr; background: #fdfaf7;
-            min-height: 600px; align-items: center;
-        }
-        .seans-text { padding: 80px; }
-        .seans-img { 
-            height: 100%; min-height: 600px;
-            background: url('Psk Esra Çalış Yılmaz Seans.JPG') center/cover;
-        }
-
-        /* --- Doğa Galerisi (Yeni) --- */
-        .nature-gallery {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 10% 120px;
-        }
-        .nature-gallery img {
-            width: 100%; height: 250px; object-fit: cover; border-radius: 15px;
-            transition: var(--transition); opacity: 0.9;
-        }
-        .nature-gallery img:hover { transform: scale(1.05); opacity: 1; }
-
-        /* --- Hizmetler --- */
-        .services { text-align: center; background: var(--white); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
-        .card { padding: 50px; background: #fff; border-radius: 15px; border: 1px solid #f0f0f0; transition: var(--transition); }
-        .card i { font-size: 2.5rem; color: var(--pastel-blue); margin-bottom: 25px; }
-
-        /* --- İletişim --- */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #f0f0f0; }
-        .contact-info { padding: 100px 15%; background: var(--pastel-pink); }
-        .map-box { height: 100%; min-height: 500px; }
-
-        footer { background: #f8f9fa; padding: 40px; text-align: center; color: var(--text-light); }
+        .about { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+        .about-img img { width: 100%; border-radius: 20px; box-shadow: 20px 20px 0 var(--pastel-peach); }
+        .badge { background: var(--pastel-blue); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-bottom: 15px; display: inline-block; }
         
+        .insta-follow {
+            display: inline-flex; align-items: center; gap: 10px; margin-top: 20px;
+            color: #E1306C; text-decoration: none; font-weight: 500; font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .insta-follow:hover { transform: translateX(5px); opacity: 0.8; }
+
+        /* --- Doğa Galerisi --- */
+        .nature-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 10% 100px; }
+        .nature-gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; opacity: 0.9; transition: var(--transition); }
+        .nature-gallery img:hover { transform: scale(1.03); opacity: 1; }
+
+        /* --- Seans Paneli --- */
+        .seans-panel { display: grid; grid-template-columns: 1fr 1fr; background: #fdfaf7; min-height: 550px; align-items: center; }
+        .seans-text { padding: 80px; }
+        .seans-img { height: 100%; min-height: 550px; background: url('Psk Esra Çalış Yılmaz Seans.JPG') center/cover; }
+
+        /* --- İletişim & Footer --- */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #f0f0f0; }
+        .contact-info { padding: 80px 15%; background: var(--pastel-pink); }
+        .map-box { height: 100%; min-height: 450px; }
+
+        footer { background: #f8f9fa; padding: 60px 20px; text-align: center; }
+        .footer-socials { margin-bottom: 20px; }
+        .footer-socials a { color: var(--primary); font-size: 1.8rem; transition: var(--transition); }
+        .footer-socials a:hover { color: #E1306C; transform: scale(1.2); }
+
         .whatsapp-float {
             position: fixed; right: 30px; bottom: 30px; background: #25D366; color: white;
-            width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 30px; z-index: 1000; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: var(--transition);
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 1000; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: var(--transition);
         }
 
         @media (max-width: 968px) {
             .about, .seans-panel, .contact-container, .nature-gallery { grid-template-columns: 1fr; }
-            .nature-gallery img { height: 200px; }
             nav ul { display: none; }
             section { padding: 80px 5%; }
         }
@@ -119,7 +106,6 @@
         <ul>
             <li><a href="#">Anasayfa</a></li>
             <li><a href="#about">Hakkımda</a></li>
-            <li><a href="#services">Hizmetler</a></li>
             <li><a href="#contact">İletişim</a></li>
         </ul>
     </nav>
@@ -128,8 +114,8 @@
         <div class="hero-content">
             <span class="badge">Uzman Klinik Psikolog</span>
             <h1>Doğa ile İç İçe, <br>Ruhunuzla Baş Başa.</h1>
-            <p>Göktürk'ün huzurlu atmosferinde, profesyonel destekle kendinizi keşfedin.</p>
-            <a class="btn" href="https://wa.me/905519893235">İLETİŞİME GEÇİN</a>
+            <p>Göktürk'te profesyonel rehberlikle kendinizi keşfedin.</p>
+            <a class="btn" href="https://wa.me/905519893235">RANDEVU OLUŞTUR</a>
         </div>
     </header>
 
@@ -140,60 +126,43 @@
         <div class="about-text">
             <span class="badge">Biyografi</span>
             <h2>Esra Çalış Yılmaz</h2>
-            <p>Eğitimlerimi Klinik Psikoloji üzerine tamamlayarak; EMDR, Hipnoterapi ve Oyun Terapisi gibi alanlarda derinleştim. Ruh sağlığı yolculuğunda her bireyin doğası gereği iyileşme potansiyeline sahip olduğuna inanıyorum.</p>
-            <p><strong>3 Oda Danışmanlık Göktürk</strong> bünyesinde çocuk, ergen ve yetişkinlerle profesyonel seanslarıma devam ediyorum.</p>
+            <p>Klinik Psikoloji uzmanlığım ile EMDR, Hipnoterapi ve Oyun Terapisi gibi güçlü yöntemleri harmanlayarak danışanlarıma eşlik ediyorum. 3 Oda Danışmanlık bünyesinde çalışmalarımı sürdürüyorum.</p>
+            <a href="https://instagram.com/psikologesracalis" target="_blank" class="insta-follow">
+                <i class="fab fa-instagram"></i> @psikologesracalis takip edin
+            </a>
         </div>
     </section>
 
     <div class="nature-gallery">
-        <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?q=80&w=800" alt="Göl Manzarası">
-        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800" alt="Sakin Orman">
-        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=800" alt="Yeşil Yaprak">
+        <img src="https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?q=80&w=800" alt="Huzur">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800" alt="Sakinlik">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=800" alt="Denge">
     </div>
 
     <div class="seans-panel">
         <div class="seans-text">
             <h2>Huzur Veren Bir Alan</h2>
-            <p>Sadece konuşmak değil, anlaşıldığınızı hissetmek için tasarlanan bu ortamda seanslarımızı gerçekleştiriyoruz.</p>
+            <p>Seanslarımızı, sadece profesyonel bir yaklaşım değil, aynı zamanda ruhsal bir ferahlık sunan ortamımızda gerçekleştiriyoruz.</p>
         </div>
         <div class="seans-img"></div>
     </div>
 
-    <section id="services" class="services">
-        <h2>Çalışma Alanlarım</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-leaf"></i>
-                <h3>Bireysel Terapi</h3>
-                <p>Kaygı, stres ve yaşam krizleriyle başa çıkma.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-wind"></i>
-                <h3>EMDR</h3>
-                <p>Geçmişin yüklerinden özgürleşme süreci.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-mountain"></i>
-                <h3>Çocuk & Ergen</h3>
-                <p>Gençlerin gelişim yolculuğuna rehberlik.</p>
-            </div>
-        </div>
-    </section>
-
     <section id="contact" class="contact-container">
         <div class="contact-info">
-            <h2>Randevu İçin</h2>
+            <h2>İletişim</h2>
             <p><strong>Telefon:</strong> 0551 989 32 35</p>
             <p><strong>Lokasyon:</strong> Göktürk, İstanbul</p>
-            <p><strong>WhatsApp ile hızlıca mesaj göndermek için sağ alttaki butona tıklayabilirsiniz.</strong></p>
         </div>
         <div class="map-box">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.288277209193!2d28.8921867!3d41.1717387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab0026e63283f%3A0x7d67876787678767!2zR8O2a3TDvHJrLCBJc3RhbmJ1bA!5e0!3m2!1str!2str!4v1711812000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="http://googleusercontent.com/maps.google.com/4" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Uzman Klinik Psikolog Esra Çalış Yılmaz</p>
+        <div class="footer-socials">
+            <a href="https://instagram.com/psikologesracalis" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>© 2026 Uzman Klinik Psikolog Esra Çalış Yılmaz | Göktürk</p>
     </footer>
 
     <a class="whatsapp-float" href="https://wa.me/905519893235" target="_blank">
