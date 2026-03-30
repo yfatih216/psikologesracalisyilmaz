@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{
 margin:0;
 padding:0;
@@ -18,302 +17,219 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#0f172a;
+background:linear-gradient(135deg,#5c7cfa,#748ffc);
 color:white;
-overflow-x:hidden;
-}
-
-/* ANIMATED GRADIENT BACKGROUND */
-
-.background{
-
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-
-background:linear-gradient(
-45deg,
-#5c7cfa,
-#7c3aed,
-#22c55e,
-#06b6d4
-);
-
-background-size:400% 400%;
-
-animation:gradientMove 12s ease infinite;
-}
-
-@keyframes gradientMove{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
 }
 
 /* HEADER */
-
 header{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
-padding:25px 10%;
-
-backdrop-filter:blur(10px);
-
+padding:20px 10%;
+background:rgba(0,0,0,0.2);
+backdrop-filter:blur(5px);
 }
 
 .logo{
-
 font-size:22px;
 font-weight:600;
-
 }
 
 nav a{
-
 margin-left:25px;
 text-decoration:none;
 color:white;
 font-weight:500;
+transition:0.3s;
+}
 
+nav a:hover{
+color:#ffdd57;
 }
 
 /* HERO */
-
 .hero{
-
-height:90vh;
+height:80vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-
 padding:20px;
-
 }
 
 .hero h1{
-
 font-size:48px;
 margin-bottom:20px;
-
 }
 
 .hero p{
-
-max-width:600px;
-opacity:0.8;
-
+max-width:700px;
+opacity:0.9;
 }
 
 .btn{
-
 margin-top:30px;
 padding:14px 30px;
-
 border-radius:30px;
-
 background:white;
 color:#111;
-
 text-decoration:none;
 font-weight:600;
-
 transition:0.3s;
-
 }
 
 .btn:hover{
-
 transform:translateY(-3px);
-
 }
 
-/* GLASS CARDS */
-
+/* SECTIONS */
 section{
-
-padding:100px 10%;
-
+padding:80px 10%;
 }
 
 .section-title{
-
 text-align:center;
 font-size:32px;
-margin-bottom:60px;
-
+margin-bottom:50px;
 }
 
-.services{
-
+/* HAKKIMDA */
+.about{
 display:grid;
+grid-template-columns:1fr 2fr;
+gap:40px;
+align-items:start;
+}
 
+.about img{
+width:100%;
+border-radius:15px;
+}
+
+/* HİZMETLER */
+.services{
+display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
 gap:30px;
-
 }
 
 .card{
-
-padding:35px;
-
-border-radius:20px;
-
+padding:30px;
+border-radius:15px;
 background:rgba(255,255,255,0.1);
-
-backdrop-filter:blur(12px);
-
+backdrop-filter:blur(8px);
 border:1px solid rgba(255,255,255,0.2);
-
 transition:0.3s;
-
 }
 
 .card:hover{
-
-transform:translateY(-10px);
-
+transform:translateY(-5px);
 }
 
-/* CONTACT */
-
+/* İLETİŞİM */
 .contact{
-
 text-align:center;
-
 }
 
 .contact a{
-
 display:inline-block;
-
 margin:10px;
-
 padding:14px 30px;
-
 border-radius:25px;
-
 background:white;
-
 color:black;
-
 text-decoration:none;
+transition:0.3s;
+}
 
+.contact a:hover{
+transform:translateY(-3px);
 }
 
 /* FOOTER */
-
 footer{
-
 text-align:center;
-
 padding:40px;
-
-opacity:0.6;
-
+opacity:0.8;
 }
 
+@media(max-width:900px){
+.about{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:36px;
+}
+}
 </style>
 
 </head>
-
 <body>
 
-<div class="background"></div>
-
 <header>
-
 <div class="logo">Psikolog Esra Çalış Yılmaz</div>
-
 <nav>
-
-<a href="#">Ana Sayfa</a>
-<a href="#">Hakkımda</a>
-<a href="#">Hizmetler</a>
-<a href="#">İletişim</a>
-
+<a href="#hero">Ana Sayfa</a>
+<a href="#about">Hakkımda</a>
+<a href="#services">Hizmetler</a>
+<a href="#contact">İletişim</a>
 </nav>
-
 </header>
 
-<section class="hero">
-
+<section class="hero" id="hero">
 <h1>Psikolojik Danışmanlık</h1>
-
-<p>
-
-Çocuk, ergen ve yetişkin danışanlar için profesyonel psikolojik destek hizmeti.
-
-</p>
-
-<a class="btn" href="#">Randevu Al</a>
-
+<p>Çocuk, ergen ve yetişkin danışanlar için profesyonel psikolojik destek hizmeti sunmaktayım.</p>
+<a class="btn" href="#contact">Randevu Al</a>
 </section>
 
-<section>
+<section id="about">
+<h2 class="section-title">Hakkımda</h2>
+<div class="about">
+<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" alt="Psikolog Esra Çalış Yılmaz">
+<div>
+<p>Uzman Klinik Psikolog Esra Çalış Yılmaz, lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü onur derecesiyle tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını “Prenatal (Doğum öncesi) Dönemin yetişkinlik yaşantısıyla ilişkisi” konulu çalışması ile tamamladı.</p>
 
+<p>EMDR Avrupa onaylı EMDR Eğitmeni Asena Yurtsever tarafından düzenlenen EMDR (Göz Hareketleriyle Duyarsızlaştırma ve Yeniden İşleme) 1. ve 2. Düzey eğitimini ve ardından ‘EMDR terapisi ile Yetişkinlerde Bağlanma Travmaları’ eğitimini tamamladı. Prof. Dr. Önder Kavakçı tarafından düzenlenen ‘Gebelik ve EMDR’ eğitimi ile gebelik sürecinde travmalar, doğum korkusu, kayıp deneyimleri ve annelik kaygılarıyla aktif olarak çalışmaktadır. Wellness Institute akredite eğitmeni Reyhana Seedat’tan “Kalp Merkezli Hipnoterapi” eğitimi alarak yetişkinler ve çocuklarla uygulamaya başladı.</p>
+
+<p>Oyun Terapileri Derneği tarafından düzenlenen, Association for Play Therapy (APT) onaylı Oyun Terapisti ve Eğitmeni Birgül Emiroğlu Bakay’ın “Çocuk Merkezli Oyun Terapisi” eğitimini ve (APT) onaylı terapist Dr. Mary Fry tarafından psiko-eğitimsel bir yaklaşım olan Filial Terapi eğitimini tamamladı. Marshall Lyles’ın Association for Play Therapy (APT) tarafından onaylı “Travma ve Bağlanma Odaklı İleri Seviye Kum Tepsisi Terapisi” eğitimini tamamladı. Rorschach ve Projektif Testler Derneğinde Neslihan Zabcı tarafından verilen ve 2 yıl süren Çocuğun Ruhsal İşleyişinin Değerlendirilmesi (Rorschach ve CAT) eğitimini tamamlamış olup süpervizyon sürecine devam etmektedir.</p>
+
+<p>İstanbul Üniversitesi Sürekli Eğitim Merkezi tarafından düzenlenen CAS Testi eğitimini tamamlayarak aktif olarak uygulamaktadır. Yine İstanbul Üniversitesi Sürekli Eğitim Merkezi’nde Tamer Ergin tarafından verilen “YBT-PASS Öğrenme Problemlerine Bilişsel Müdahale Programı” eğitimi aldı ve çocuklarla Bilişsel Müdahale Programı ile çalışmalarını sürdürmektedir. MOXO Türkiye tarafından Çeldiricili Dikkat Testi eğitimini tamamlamış ve aktif olarak uygulamaktadır.</p>
+
+<p>Sınavlara yönelik PERGEL programını Dr. Olcay Güner’den alarak sınav kaygısı yaşayan öğrencilerle aktif olarak çalışmalarını sürdürmektedir. Millî Eğitim Bakanlığı onaylı 450 saatlik Aile Danışmanlığı eğitimini tamamladı. Çocukların yaşlara göre gelişimlerini gözlemlemek amacıyla çeşitli anaokullarında stajlar yaptı. Bakırköy Adliyesi’nde suça sürüklenen çocukların topluma kazandırılması amacıyla çeşitli çalışmalar yürüttü. Lisans dönemi boyunca birçok sivil toplum kuruluşlarında gönüllü olarak yer aldı. Kanserli Çocuklara Umut Vakfı’nda gönüllü olarak çalıştı.</p>
+
+<p>Çocuk, ergen ve yetişkin bireyler ile ilişki ve bağlanma güçlükleri, panik bozuklukları, depresyon, stres, performans kaygıları, yas süreçleri, kronik ağrı rahatsızlıkları, bağımlılık sorunları, davranışsal zorluklar, özgüven eksiklikleri, çocuklarda oryantasyon ve okula uyum problemleri, kaygı, korku, öfke ve kompleks travmalar gibi konularda destek sağlamaktadır. Çocuk Merkezli Oyun Terapisi, Filial Terapi, Bilişsel Davranışçı Terapi, Kısa Süreli Çözüm Odaklı Terapi, EMDR, Kalp Merkezli Hipnoterapi, Kum Tepsisi Terapisi eğitim ve süpervizyonlarını tamamlayarak seanslarını eklektik biçimde sürdürmektedir.</p>
+</div>
+</div>
+</section>
+
+<section id="services">
 <h2 class="section-title">Hizmetler</h2>
-
 <div class="services">
-
 <div class="card">
-
 <h3>Çocuk Terapisi</h3>
-
-<p>Çocukların duygusal gelişimi ve davranış problemleri üzerine terapi.</p>
-
+<p>Çocukların duygusal ve davranışsal gelişimini destekleyen terapi hizmeti.</p>
 </div>
-
 <div class="card">
-
 <h3>Ergen Terapisi</h3>
-
-<p>Ergenlik döneminde yaşanan psikolojik süreçlere destek.</p>
-
+<p>Ergenlik döneminde yaşanan psikolojik sorunlara profesyonel destek.</p>
 </div>
-
 <div class="card">
-
 <h3>Yetişkin Terapisi</h3>
-
-<p>Kaygı, stres ve yaşam problemleri için danışmanlık.</p>
-
+<p>Kaygı, stres ve yaşam problemleri için psikolojik danışmanlık.</p>
 </div>
-
 </div>
-
 </section>
 
-<section class="contact">
-
+<section class="contact" id="contact">
 <h2 class="section-title">İletişim</h2>
-
-<a href="tel:05519893235">Telefon</a>
-
-<a href="https://wa.me/905519893235">WhatsApp</a>
-
+<a href="tel:05519893235">📞 Telefon</a>
+<a href="https://wa.me/905519893235">💬 WhatsApp</a>
 </section>
 
 <footer>
-
-© 2026 Psikolog Esra Çalış Yılmaz
-
+<p>© 2026 Psikolog Esra Çalış Yılmaz</p>
 </footer>
 
 </body>
