@@ -1,185 +1,306 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psikolog Esra ÇALIŞ YILMAZ | Uzman Psikolojik Danışmanlık</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #4a6372;
-            --secondary: #d4a373; 
-            --bg-light: #fdfaf7;
-            --text-dark: #2d3436;
-            --white: #ffffff;
-        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.8;
-            background-color: var(--white);
-            scroll-behavior: smooth;
-        }
+<title>Psikolog Esra Çalış Yılmaz | Psikolojik Danışmanlık</title>
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+<meta name="description" content="Psikolog Esra Çalış Yılmaz ile bireysel terapi, aile danışmanlığı ve ergen terapisi hizmetleri. İstanbul psikolojik danışmanlık.">
 
-        /* Navigasyon */
-        nav {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 1rem 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-        }
+<meta name="keywords" content="psikolog, terapi, istanbul psikolog, aile danışmanlığı, ergen terapisi">
 
-        .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); letter-spacing: 1px; }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-left: 30px; }
-        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--secondary); }
+<style>
 
-        /* Hero Bölümü */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 10%;
-        }
+:root{
+--primary:#4a6372;
+--secondary:#d4a373;
+--light:#f9f7f4;
+}
 
-        .hero h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; font-weight: 300; }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-        .btn-main {
-            background: var(--secondary);
-            color: var(--white);
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.4s;
-            border: 2px solid var(--secondary);
-        }
+body{
+font-family:Poppins;
+line-height:1.7;
+color:#333;
+}
 
-        .btn-main:hover { background: transparent; color: var(--white); border-color: var(--white); }
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:white;
+position:fixed;
+width:100%;
+top:0;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+z-index:999;
+}
 
-        /* Hakkımda */
-        .about { padding: 100px 10%; display: flex; align-items: center; gap: 60px; background: var(--bg-light); flex-wrap: wrap; }
-        .about-text { flex: 1; min-width: 300px; }
-        .about-text h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-        .about-img { flex: 1; min-width: 300px; border-radius: 20px; overflow: hidden; box-shadow: 20px 20px 0 var(--secondary); }
-        .about-img img { width: 100%; display: block; }
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
 
-        /* Hizmetler */
-        .services { padding: 100px 10%; text-align: center; }
-        .services h2 { font-size: 2.5rem; margin-bottom: 50px; color: var(--primary); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card {
-            padding: 40px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
-            border-bottom: 4px solid transparent;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--secondary); }
-        .card i { font-size: 3rem; color: var(--secondary); margin-bottom: 20px; }
+nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
 
-        /* İletişim */
-        .contact { padding: 80px 10%; background: var(--primary); color: var(--white); text-align: center; }
-        .contact h2 { margin-bottom: 30px; }
-        .contact-info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .contact-item { font-size: 1.1rem; }
-        .contact-item i { margin-right: 10px; color: var(--secondary); }
+.hero{
+height:100vh;
+background:linear-gradient(135deg,#4a6372,#6c8a9a);
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+color:white;
+padding:0 20px;
+}
 
-        footer { padding: 20px; text-align: center; font-size: 0.8rem; background: #3d515d; color: #ccc; }
+.hero img{
+width:200px;
+border-radius:50%;
+margin-bottom:30px;
+}
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* Basitlik adına mobilde menüyü gizledik */
-            .about { text-align: center; }
-            .about-img { order: -1; }
-        }
-    </style>
+.hero h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+.btn{
+padding:15px 35px;
+background:var(--secondary);
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+section{
+padding:100px 10%;
+}
+
+.about{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:40px;
+}
+
+.about img{
+width:250px;
+border-radius:20px;
+}
+
+.services{
+text-align:center;
+background:var(--light);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.contact{
+background:var(--primary);
+color:white;
+text-align:center;
+}
+
+.contact a{
+color:white;
+font-size:20px;
+text-decoration:none;
+}
+
+footer{
+background:#344955;
+color:#ddd;
+text-align:center;
+padding:20px;
+}
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:25px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">Esra ÇALIŞ YILMAZ</div>
-        <ul class="nav-links">
-            <li><a href="#">Anasayfa</a></li>
-            <li><a href="#about">Hakkımda</a></li>
-            <li><a href="#services">Hizmetler</a></li>
-            <li><a href="#contact">İletişim</a></li>
-        </ul>
-    </nav>
+<nav>
+<div><strong>Esra Çalış Yılmaz</strong></div>
+<ul>
+<li><a href="#">Anasayfa</a></li>
+<li><a href="#about">Hakkımda</a></li>
+<li><a href="#services">Hizmetler</a></li>
+<li><a href="#contact">İletişim</a></li>
+</ul>
+</nav>
 
-    <header class="hero">
-        <h1>İçsel Yolculuğunuzda Yanınızdayız</h1>
-        <p>Uzman psikolojik danışmanlık ile daha dengeli ve huzurlu bir yaşama doğru ilk adımı birlikte atalım.</p>
-        <a href="#contact" class="btn-main">Randevu Al</a>
-    </header>
+<header class="hero">
 
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=1000" alt="Psikolog Esra Çalış Yılmaz">
-        </div>
-        <div class="about-text">
-            <h2>Hakkımda</h2>
-            <p>Merhaba, ben Esra Çalış Yılmaz. Uzun yıllardır bireylerin ruhsal sağlık yolculuklarına rehberlik ediyorum. Terapi sürecinde güvenli, yargısız ve destekleyici bir alan oluşturmak en temel prensibimdir.</p>
-            <p>Eğitim hayatım boyunca bilişsel davranışçı terapi ve şema terapi gibi kanıta dayalı yöntemler üzerine uzmanlaştım.</p>
-        </div>
-    </section>
+<img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Esra" alt="anime avatar">
 
-    <section class="services" id="services">
-        <h2>Çalışma Alanlarım</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-user"></i>
-                <h3>Bireysel Terapi</h3>
-                <p>Kaygı, depresyon ve stres yönetimi gibi konularda kişiye özel çözümler.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-users"></i>
-                <h3>Aile Danışmanlığı</h3>
-                <p>Aile içi iletişimi güçlendirmek ve çatışmaları sağlıklı çözmek üzerine destek.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-child"></i>
-                <h3>Ergen Terapisi</h3>
-                <p>Gençlerin gelişim süreçlerinde karşılaştıkları duygusal zorluklara rehberlik.</p>
-            </div>
-        </div>
-    </section>
+<h1>İçsel Yolculuğunuzda Yanınızdayım</h1>
 
-    <section class="contact" id="contact">
-        <h2>İletişime Geçin</h2>
-        <div class="contact-info">
-            <div class="contact-item"><i class="fas fa-phone"></i> +90 (5xx) xxx xx xx</div>
-            <div class="contact-item"><i class="fas fa-envelope"></i> info@esracalisyilmaz.com</div>
-            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</div>
-        </div>
-    </section>
+<p>Daha dengeli ve huzurlu bir yaşam için psikolojik danışmanlık desteği.</p>
 
-    <footer>
-        &copy; 2024 Psikolog Esra Çalış Yılmaz. Tüm Hakları Saklıdır.
-    </footer>
+<br>
+
+<a class="btn" href="https://wa.me/905519893235">WhatsApp ile Randevu</a>
+
+</header>
+
+<section id="about" class="about">
+
+<img src="https://api.dicebear.com/7.x/adventurer/svg?seed=therapy">
+
+<div>
+
+<h2>Hakkımda</h2>
+
+<p>
+
+Merhaba, ben Psikolog Esra Çalış Yılmaz.
+
+Bireylerin duygusal zorluklarını anlamalarına ve daha sağlıklı bir yaşam kurmalarına yardımcı olmak amacıyla psikolojik danışmanlık hizmeti sunuyorum.
+
+</p>
+
+<p>
+
+Çalışmalarımda bilimsel temelli terapi yöntemlerini kullanarak danışanlarım için güvenli ve destekleyici bir alan oluşturmayı hedefliyorum.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="services" class="services">
+
+<h2>Çalışma Alanlarım</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<img width="120" src="https://api.dicebear.com/7.x/bottts/svg?seed=therapy1">
+
+<h3>Bireysel Terapi</h3>
+
+<p>Kaygı, stres, depresyon ve yaşam zorlukları için bireysel terapi.</p>
+
+</div>
+
+<div class="card">
+
+<img width="120" src="https://api.dicebear.com/7.x/bottts/svg?seed=therapy2">
+
+<h3>Aile Danışmanlığı</h3>
+
+<p>Aile içi iletişim ve ilişkileri güçlendirmek için danışmanlık.</p>
+
+</div>
+
+<div class="card">
+
+<img width="120" src="https://api.dicebear.com/7.x/bottts/svg?seed=therapy3">
+
+<h3>Ergen Terapisi</h3>
+
+<p>Gençlerin duygusal gelişim süreçlerinde destek.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>İletişim</h2>
+
+<br>
+
+<p>
+
+📞 Telefon:
+
+<br><br>
+
+<a href="tel:+905519893235">0551 989 32 35</a>
+
+</p>
+
+<br>
+
+<p>
+
+💬 WhatsApp:
+
+<br><br>
+
+<a href="https://wa.me/905519893235">Mesaj Gönder</a>
+
+</p>
+
+<br>
+
+<p>
+
+📍 İstanbul, Türkiye
+
+</p>
+
+</section>
+
+<footer>
+
+© 2026 Psikolog Esra Çalış Yılmaz
+
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905519893235">💬</a>
 
 </body>
 </html>
