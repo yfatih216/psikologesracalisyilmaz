@@ -1,141 +1,202 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Uzm. Klinik Psikolog Esra Çalış Yılmaz</title>
-<meta name="description" content="Uzm. Klinik Psikolog Esra Çalış Yılmaz – Çocuk, Ergen ve Yetişkin Terapisi, EMDR, Oyun Terapisi. Randevu ve WhatsApp ile iletişime geçin.">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-html { scroll-behavior: smooth; }
-.fade-in { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
-.fade-in.show { opacity: 1; transform: translateY(0); }
-#whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: transform 0.3s; }
-#whatsapp-btn:hover { transform: scale(1.1); }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzm. Klinik Psikolog Esra Çalış Yılmaz | Profesyonel Terapi</title>
+    <meta name="description" content="Çocuk, Ergen ve Yetişkin Terapisi, EMDR ve Oyun Terapisi uzmanlığı ile Göktürk'te klinik destek.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            600: '#475569', // Modern Slate
+                            800: '#1e293b',
+                            accent: '#8b5cf6' // Soft Purple
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        #whatsapp-float { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        #whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
+    </style>
 </head>
-<body class="font-Inter bg-gray-50 text-gray-800">
+<body class="bg-brand-50 text-brand-800 antialiased">
 
-<!-- Navbar -->
-<nav class="fixed top-0 w-full bg-white shadow z-50">
-  <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
-    <a href="#hero" class="font-bold text-xl text-purple-600">Esra Çalış Yılmaz</a>
-    <ul class="flex gap-6">
-      <li><a href="#hakkimda" class="hover:text-purple-600">Hakkımda</a></li>
-      <li><a href="#egitimler" class="hover:text-purple-600">Eğitimler</a></li>
-      <li><a href="#hizmetler" class="hover:text-purple-600">Hizmetler</a></li>
-      <li><a href="#iletisim" class="hover:text-purple-600">İletişim</a></li>
-    </ul>
-  </div>
-</nav>
+    <nav class="fixed top-0 w-full z-[100] glass border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl tracking-tight font-bold text-brand-800">
+                Esra Çalış <span class="text-brand-accent italic text-3xl">Yılmaz</span>
+            </a>
+            <div class="hidden md:flex gap-10 text-sm font-medium tracking-wide uppercase italic">
+                <a href="#hakkimda" class="hover:text-brand-accent transition">Hakkımda</a>
+                <a href="#hizmetler" class="hover:text-brand-accent transition">Hizmetler</a>
+                <a href="#egitimler" class="hover:text-brand-accent transition">Eğitimler</a>
+                <a href="#iletisim" class="hover:text-brand-accent transition">İletişim</a>
+            </div>
+            <a href="tel:+905519893235" class="hidden lg:block bg-brand-800 text-white px-6 py-2 rounded-full text-sm hover:bg-brand-accent transition">Randevu Al</a>
+        </div>
+    </nav>
 
-<!-- Hero Section -->
-<section id="hero" class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-300 via-pink-200 to-indigo-200 relative pt-16">
-  <h1 class="text-4xl md:text-6xl font-bold mb-4 text-center fade-in">Uzm. Klinik Psikolog<br>Esra Çalış Yılmaz</h1>
-  <p class="text-lg md:text-2xl mb-6 text-center fade-in">Çocuk, Ergen ve Yetişkin Terapisi | EMDR | Oyun Terapisi</p>
-  <div class="flex gap-4 fade-in">
-    <a href="tel:+905519893235" class="px-6 py-3 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700 transition">📞 Hemen Ara</a>
-    <a href="https://wa.me/905519893235" target="_blank" class="px-6 py-3 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition">💬 WhatsApp</a>
-  </div>
-  <img src="https://i.ibb.co/0GF2b4T/pastel-landscape-children-teen-adult.png" alt="Pastel Manzara ve Danışanlar" class="absolute bottom-0 w-2/3 md:w-1/3 fade-in">
-</section>
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="reveal active">
+                <span class="inline-block px-4 py-1 rounded-full bg-brand-100 text-brand-accent text-xs font-bold uppercase tracking-widest mb-6 italic">Uzm. Klinik Psikolog</span>
+                <h1 class="font-serif text-5xl md:text-7xl leading-tight mb-8">Ruhsal Dengede <br><span class="italic text-brand-accent">Yeni Bir Başlangıç.</span></h1>
+                <p class="text-lg text-brand-600 mb-10 max-w-lg leading-relaxed">Çocuk, ergen ve yetişkinler için bilimsel temelli, şefkat odaklı terapi yaklaşımlarıyla yanınızdayız.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#iletisim" class="px-8 py-4 bg-brand-800 text-white rounded-xl shadow-xl hover:shadow-2xl transition-all">İletişime Geç</a>
+                    <a href="https://wa.me/905519893235" target="_blank" class="px-8 py-4 border border-brand-800 rounded-xl hover:bg-brand-50 transition-all flex items-center gap-2">
+                        WhatsApp ile Yaz
+                    </a>
+                </div>
+            </div>
+            <div class="relative reveal active delay-200">
+                <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-100 rounded-full blur-3xl opacity-50"></div>
+                <img src="https://i.ibb.co/2y9yF4x/profile.png" alt="Esra Çalış Yılmaz" class="w-full max-w-md mx-auto rounded-3xl grayscale-[20%] hover:grayscale-0 transition duration-700 shadow-2xl">
+            </div>
+        </div>
+    </section>
 
-<!-- Hakkımda Section -->
-<section id="hakkimda" class="py-20 bg-white max-w-5xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-8 text-center fade-in">Hakkımda</h2>
-  <div class="md:flex gap-8 items-start fade-in">
-    <img src="https://i.ibb.co/2y9yF4x/profile.png" alt="Esra Çalış Yılmaz" class="w-32 h-32 rounded-full mb-4 md:mb-0">
-    <div class="text-justify">
-      <p>Uzman Klinik Psikolog Esra Çalış Yılmaz, lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü onur derecesiyle tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını “Prenatal (Doğum öncesi) Dönemin yetişkinlik yaşantısıyla ilişkisi” konulu çalışması ile tamamladı.</p>
-      <p class="mt-2">EMDR Avrupa onaylı EMDR Eğitmeni Asena Yurtsever tarafından düzenlenen EMDR 1. ve 2. Düzey eğitimlerini ve yetişkinlerde bağlanma travmaları eğitimini tamamladı. Prof. Dr. Önder Kavakçı tarafından düzenlenen ‘Gebelik ve EMDR’ eğitimi ile gebelik sürecinde travmalar, doğum korkusu, kayıp deneyimleri ve annelik kaygılarıyla aktif olarak çalışmaktadır. Wellness Institute akredite eğitmeni Reyhana Seedat’tan “Kalp Merkezli Hipnoterapi” eğitimi almıştır.</p>
-      <p class="mt-2">Oyun Terapileri Derneği ve APT onaylı eğitimler ile çocuk terapileri uygulamaktadır. Ayrıca Rorschach ve Projektif test eğitimleri, CAS Testi, MOXO testi ve PERGEL programını tamamlamıştır. Çocuk, ergen ve yetişkin bireylerle ilişkisel ve duygusal destek sağlamaktadır.</p>
-    </div>
-  </div>
-  <!-- Google Maps Embed -->
-  <div class="mt-8 w-full h-64 md:h-96 rounded-xl shadow-lg overflow-hidden fade-in">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.012430702634!2d28.906365415139417!3d41.16539187930586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7241e0a0f73%3A0x7248c2d80ed2e1b3!2sKoray%20Bianco%20Residence%2C%20Göktürk%20Merkez%2C%20Nazl%C4%B1%20Sk.%205%2C%2034077%20Ey%C3%BCpsultan%2F%C4%B0stanbul!5e0!3m2!1str!2str!4v1693214321234!5m2!1str!2str"
-      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </div>
-</section>
+    <section id="hakkimda" class="py-32 bg-brand-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-12 reveal">
+                    <h2 class="font-serif text-4xl mb-8 border-l-4 border-brand-accent pl-6">Uzmanlık ve Vizyon</h2>
+                    <div class="columns-1 md:columns-2 gap-10 space-y-6 text-brand-600 leading-relaxed text-lg">
+                        <p>Uzman Klinik Psikolog Esra Çalış Yılmaz, lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü onur derecesiyle tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını “Prenatal Dönemin yetişkinlik yaşantısıyla ilişkisi” teziyle bitirdi.</p>
+                        <p>EMDR Avrupa onaylı eğitimlerini tamamlayarak yetişkinlerde bağlanma travmaları ve gebelik süreci travmaları üzerine derinleşti. Doğum korkusu, kayıp deneyimleri ve annelik kaygıları aktif çalışma alanları arasındadır.</p>
+                        <p>Wellness Institute akredite eğitmeni Reyhana Seedat’tan “Kalp Merkezli Hipnoterapi” eğitimi alan Yılmaz, çocuk terapilerinde Oyun Terapileri Derneği onaylı metotlar kullanmaktadır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Eğitimler Section -->
-<section id="egitimler" class="py-20 bg-gray-50 max-w-5xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-8 text-center fade-in">Eğitimler</h2>
-  <ul class="list-disc list-inside space-y-2 fade-in text-justify">
-    <li>Nişantaşı Üniversitesi Psikoloji Lisans – Onur Derecesi</li>
-    <li>Arel Üniversitesi Klinik Psikoloji Yüksek Lisans</li>
-    <li>EMDR 1. ve 2. Düzey Eğitimleri, Gebelik ve EMDR Eğitimi</li>
-    <li>Kalp Merkezli Hipnoterapi</li>
-    <li>Oyun Terapisi ve Filial Terapi (APT onaylı)</li>
-    <li>Rorschach ve CAT Testleri</li>
-    <li>CAS Testi ve YBT-PASS Programları</li>
-    <li>MOXO Testi</li>
-    <li>PERGEL Sınav Kaygısı Programı</li>
-    <li>450 Saat Aile Danışmanlığı Eğitimi (MEB Onaylı)</li>
-  </ul>
-</section>
+    <section id="hizmetler" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-serif text-4xl mb-4 italic">Çalışma Alanları</h2>
+                <div class="w-20 h-1 bg-brand-accent mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group p-10 bg-brand-50 rounded-[2rem] hover:bg-brand-800 transition-all duration-500 reveal">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-brand-accent transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:text-white">Yetişkin Terapisi</h3>
+                    <p class="text-brand-600 group-hover:text-gray-300 leading-relaxed">Depresyon, kaygı bozuklukları, travma sonrası stres ve ilişki problemleri üzerine EMDR ve BDT temelli yaklaşımlar.</p>
+                </div>
+                <div class="group p-10 bg-brand-50 rounded-[2rem] hover:bg-brand-800 transition-all duration-500 reveal delay-100">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-brand-accent transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:text-white">Çocuk & Oyun Terapisi</h3>
+                    <p class="text-brand-600 group-hover:text-gray-300 leading-relaxed">Çocukların duygusal dünyalarını oyun aracılığıyla anlamlandırma ve davranışsal sorunlara profesyonel çözümler.</p>
+                </div>
+                <div class="group p-10 bg-brand-50 rounded-[2rem] hover:bg-brand-800 transition-all duration-500 reveal delay-200">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-brand-accent transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-4 group-hover:text-white">Ergen Terapisi</h3>
+                    <p class="text-brand-600 group-hover:text-gray-300 leading-relaxed">Sınav kaygısı (PERGEL), kimlik arayışı, sosyal uyum ve akademik performans odaklı bireysel destek.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Hizmetler Section -->
-<section id="hizmetler" class="py-20 bg-white max-w-5xl mx-auto px-4 text-center">
-  <h2 class="text-3xl font-bold mb-12 fade-in">Hizmetlerimiz</h2>
-  <div class="grid md:grid-cols-3 gap-8">
-    <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-xl transition fade-in">
-      <img src="https://i.ibb.co/0VbY7Vs/child-therapy.png" alt="Çocuk Terapisi" class="w-full h-40 object-cover rounded mb-4">
-      <h3 class="text-xl font-semibold mb-2">Çocuk Terapisi</h3>
-      <p>Oyun terapisi ve destek ile çocukların duygusal gelişimini destekliyoruz.</p>
-    </div>
-    <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-xl transition fade-in">
-      <img src="https://i.ibb.co/L0F4FZG/teen-therapy.png" alt="Ergen Terapisi" class="w-full h-40 object-cover rounded mb-4">
-      <h3 class="text-xl font-semibold mb-2">Ergen Terapisi</h3>
-      <p>Kaygı, sınav stresi ve sosyal sorunlar için terapi sunuyoruz.</p>
-    </div>
-    <div class="bg-gray-100 p-6 rounded-xl shadow hover:shadow-xl transition fade-in">
-      <img src="https://i.ibb.co/xh4Z2dq/adult-therapy.png" alt="Yetişkin Terapisi" class="w-full h-40 object-cover rounded mb-4">
-      <h3 class="text-xl font-semibold mb-2">Yetişkin Terapisi</h3>
-      <p>Kayıp, kaygı, depresyon ve ilişki sorunlarına yönelik destek sağlıyoruz.</p>
-    </div>
-  </div>
-</section>
+    <section id="egitimler" class="py-32 bg-brand-800 text-white">
+        <div class="max-w-4xl mx-auto px-6 reveal">
+            <h2 class="font-serif text-4xl mb-12 text-center italic">Akademik Özgeçmiş & Eğitimler</h2>
+            <div class="space-y-4">
+                <div class="flex gap-6 items-start border-b border-white/10 pb-6">
+                    <span class="text-brand-accent font-bold">01</span>
+                    <p class="text-lg opacity-80 italic">Arel Üniversitesi Klinik Psikoloji Yüksek Lisans</p>
+                </div>
+                <div class="flex gap-6 items-start border-b border-white/10 pb-6">
+                    <span class="text-brand-accent font-bold">02</span>
+                    <p class="text-lg opacity-80 italic">EMDR Avrupa Onaylı 1. ve 2. Düzey Uygulayıcı</p>
+                </div>
+                <div class="flex gap-6 items-start border-b border-white/10 pb-6">
+                    <span class="text-brand-accent font-bold">03</span>
+                    <p class="text-lg opacity-80 italic">Oyun Terapisi ve Filial Terapi (APT Onaylı)</p>
+                </div>
+                <div class="flex gap-6 items-start border-b border-white/10 pb-6">
+                    <span class="text-brand-accent font-bold">04</span>
+                    <p class="text-lg opacity-80 italic">CAS, MOXO ve Rorschach Testörlüğü</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- İletişim Section -->
-<section id="iletisim" class="py-20 bg-gray-50 max-w-3xl mx-auto px-4">
-  <h2 class="text-3xl font-bold mb-8 text-center fade-in">İletişim</h2>
-  <form class="bg-white p-8 rounded-xl shadow-md fade-in">
-    <div class="mb-4"><label class="block mb-2 font-semibold">Adınız</label><input type="text" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" required></div>
-    <div class="mb-4"><label class="block mb-2 font-semibold">E-posta</label><input type="email" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" required></div>
-    <div class="mb-4"><label class="block mb-2 font-semibold">Telefon</label><input type="tel" class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" required></div>
-    <div class="mb-4"><label class="block mb-2 font-semibold">Mesajınız</label><textarea class="w-full p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-400" rows="4" required></textarea></div>
-    <button type="submit" class="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Gönder</button>
-  </form>
-</section>
+    <section id="iletisim" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
+            <div class="reveal">
+                <h2 class="font-serif text-4xl mb-8 italic italic">Görüşme Talebi</h2>
+                <p class="text-brand-600 mb-12">Ofisimiz Göktürk'ün merkezinde, huzurlu bir ortamda hizmet vermektedir. Formu doldurarak asistanımızın size ulaşmasını sağlayabilirsiniz.</p>
+                
+                <div class="space-y-6 text-sm">
+                    <div class="flex items-center gap-4 uppercase tracking-widest font-semibold">
+                        <span class="w-10 h-10 bg-brand-50 flex items-center justify-center rounded-full text-brand-accent">📍</span>
+                        Koray Bianco, Göktürk / İstanbul
+                    </div>
+                    <div class="flex items-center gap-4 uppercase tracking-widest font-semibold">
+                        <span class="w-10 h-10 bg-brand-50 flex items-center justify-center rounded-full text-brand-accent">📞</span>
+                        +90 551 989 32 35
+                    </div>
+                </div>
+            </div>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white py-8 mt-8 text-center">
-  <p>📍 Koray Bianco Residence, Göktürk Merkez, Nazlı Sk. No:5, 34077 Eyüpsultan/İstanbul | 📞 +90 551 989 32 35</p>
-  <p class="mt-2">© 2026 Uzm. Klinik Psikolog Esra Çalış Yılmaz</p>
-</footer>
+            <form class="space-y-6 reveal">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Adınız" class="w-full bg-brand-50 border-none p-4 rounded-xl focus:ring-2 focus:ring-brand-accent outline-none italic">
+                    <input type="tel" placeholder="Telefonunuz" class="w-full bg-brand-50 border-none p-4 rounded-xl focus:ring-2 focus:ring-brand-accent outline-none italic">
+                </div>
+                <textarea rows="5" placeholder="Mesajınız (Opsiyonel)" class="w-full bg-brand-50 border-none p-4 rounded-xl focus:ring-2 focus:ring-brand-accent outline-none italic"></textarea>
+                <button class="w-full py-4 bg-brand-800 text-white rounded-xl font-bold hover:bg-brand-accent transition shadow-lg shadow-brand-800/20 italic">Gönder</button>
+            </form>
+        </div>
+    </section>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/905519893235" target="_blank" id="whatsapp-btn">💬</a>
+    <footer class="py-12 border-t border-gray-100 text-center text-xs uppercase tracking-[0.2em] text-gray-400">
+        <p>© 2026 Uzm. Klinik Psikolog Esra Çalış Yılmaz. Tüm Hakları Saklıdır.</p>
+    </footer>
 
-<script>
-// Fade-in animations
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('show');
-    appearOnScroll.unobserve(entry.target);
-  });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
+    <a href="https://wa.me/905519893235" target="_blank" id="whatsapp-float" class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl z-[1000]">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.652zm6.599-3.835c1.511.895 3.001 1.348 4.496 1.348 5.485 0 9.948-4.463 9.95-9.95 0-2.657-1.034-5.155-2.912-7.034-1.878-1.878-4.376-2.91-7.034-2.91-5.488 0-9.951 4.463-9.953 9.951-.001 1.832.5 3.55 1.448 4.965l-1.004 3.665 3.757-.985z"/></svg>
+    </a>
 
-// Sayfa açılır açılmaz en üste git
-window.onload = function() { window.scrollTo(0,0); };
-</script>
+    <script>
+        // Scroll Reveal Animation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
 
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
