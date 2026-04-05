@@ -3,1146 +3,1062 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Uzm. Klinik Psk. Esra Çalış Yılmaz - Çocuk, ergen ve yetişkin bireyler için profesyonel psikolojik danışmanlık ve terapi hizmetleri. İstanbul Göktürk.">
 <title>Uzm. Klinik Psk. Esra Çalış Yılmaz</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --olive: #4a5e3a;
-  --olive-light: #6b7f5a;
-  --olive-pale: #8a9e79;
-  --olive-mist: #c8d5bb;
-  --olive-cream: #eef2e8;
-  --cream: #f7f4ee;
-  --warm-white: #fdfcf8;
-  --dark: #2a2e24;
-  --text: #3d4235;
-  --text-muted: #7a8270;
-  --gold: #c9a96e;
-  --gold-light: #e8d5a8;
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --cream:       #F7F3EC;
+  --cream-deep:  #EDE8DE;
+  --cream-card:  rgba(255,253,248,0.72);
+  --olive:       #5C6B3A;
+  --olive-mid:   #7A8C52;
+  --olive-light: #96A86A;
+  --sand:        #B89B5E;
+  --sand-light:  #D0B878;
+  --ink:         #28261E;
+  --ink-60:      rgba(40,38,30,.60);
+  --ink-35:      rgba(40,38,30,.35);
+  --ink-15:      rgba(40,38,30,.15);
+  --ink-07:      rgba(40,38,30,.07);
+  --gold-line:   linear-gradient(90deg,transparent,#B89B5E,transparent);
+  --shadow-sm:   0 2px 12px rgba(40,38,30,.06);
+  --shadow-md:   0 8px 32px rgba(40,38,30,.09);
+  --shadow-lg:   0 20px 60px rgba(40,38,30,.12);
+  --shadow-xl:   0 32px 80px rgba(40,38,30,.14);
+  --glass:       rgba(255,253,248,.65);
+  --glass-border:rgba(255,253,248,.5);
+  --radius:      16px;
+  --radius-sm:   10px;
+  --radius-xs:   6px;
+  --ease:        cubic-bezier(.4,0,.2,1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
 
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Jost', sans-serif;
-  color: var(--text);
-  background: var(--warm-white);
-  overflow-x: hidden;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 0 5%;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 72px;
-  background: rgba(253,252,248,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(74,94,58,0.12);
-  transition: all 0.3s;
-}
-nav.scrolled {
-  height: 60px;
-  box-shadow: 0 2px 20px rgba(74,94,58,0.1);
-}
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--olive);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  line-height: 1.3;
-}
-.nav-logo span {
-  display: block;
-  font-size: 0.65rem;
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.15em;
-  color: var(--olive-pale);
-  text-transform: uppercase;
-}
-.nav-links {
-  display: flex; align-items: center; gap: 2.5rem;
-  list-style: none;
-}
-.nav-links a {
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 400;
-  transition: color 0.3s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute; bottom: -4px; left: 0; right: 0;
-  height: 1px; background: var(--olive);
-  transform: scaleX(0); transition: transform 0.3s;
-}
-.nav-links a:hover { color: var(--olive); }
-.nav-links a:hover::after { transform: scaleX(1); }
-.nav-cta {
-  background: var(--olive); color: #fff !important;
-  padding: 0.55rem 1.4rem;
-  border-radius: 2px;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.12em;
-}
-.nav-cta::after { display: none !important; }
-.nav-cta:hover { background: var(--olive-light) !important; color: #fff !important; }
-
-/* hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column; gap: 5px; cursor: pointer;
-  background: none; border: none; padding: 4px;
-}
-.hamburger span {
-  width: 24px; height: 1.5px;
-  background: var(--olive);
-  transition: all 0.3s;
-  display: block;
-}
-.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px,4.5px); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px,-4.5px); }
-
-/* mobile menu */
-.mobile-menu {
-  display: none;
-  position: fixed; top: 72px; left: 0; right: 0;
-  background: var(--warm-white);
-  border-bottom: 1px solid var(--olive-mist);
-  z-index: 999; padding: 1.5rem 5%;
-  flex-direction: column; gap: 1.2rem;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-size: 0.9rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text);
-  text-decoration: none; padding: 0.4rem 0;
-  border-bottom: 1px solid var(--olive-mist);
-}
-.mobile-menu a:last-child {
-  background: var(--olive); color: #fff;
-  text-align: center; padding: 0.8rem;
-  border: none; border-radius: 2px; margin-top: 0.5rem;
-}
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  position: relative;
-  display: flex; align-items: center;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background-image: url('Autumn.webp');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.35) saturate(0.8);
-}
-.hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(42,46,36,0.7) 0%, rgba(74,94,58,0.3) 60%, transparent 100%);
-}
-.hero-content {
-  position: relative; z-index: 2;
-  padding: 0 8%;
-  max-width: 700px;
-  padding-top: 80px;
-}
-.hero-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 1.5rem;
-  display: flex; align-items: center; gap: 1rem;
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 40px; height: 1px;
-  background: var(--gold);
-}
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 300;
-  color: #fff;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--gold-light);
-}
-.hero-sub {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-  font-weight: 300;
-  max-width: 480px;
-}
-.hero-actions {
-  display: flex; gap: 1rem; flex-wrap: wrap;
-}
-.btn-primary {
-  background: var(--olive);
-  color: #fff;
-  padding: 0.9rem 2.2rem;
-  border-radius: 2px;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: background 0.3s, transform 0.2s;
-  display: inline-flex; align-items: center; gap: 0.6rem;
-}
-.btn-primary:hover { background: var(--olive-light); transform: translateY(-1px); }
-.btn-ghost {
-  border: 1px solid rgba(255,255,255,0.4);
-  color: #fff;
-  padding: 0.9rem 2.2rem;
-  border-radius: 2px;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: all 0.3s;
-}
-.btn-ghost:hover { background: rgba(255,255,255,0.1); }
-.hero-scroll {
-  position: absolute; bottom: 2.5rem; left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  animation: bounce 2s infinite;
-}
-.hero-scroll span {
-  font-size: 0.65rem; letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.5); text-transform: uppercase;
-}
-.hero-scroll::after {
-  content: '';
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-}
-@keyframes bounce {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(6px); }
-}
-
-/* ── SECTION COMMONS ── */
-section { padding: 6rem 8%; }
-.section-tag {
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--olive-pale);
-  margin-bottom: 0.8rem;
-  display: flex; align-items: center; gap: 0.8rem;
-}
-.section-tag::before {
-  content: '';
-  width: 30px; height: 1px;
-  background: var(--olive-pale);
-}
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 300;
-  color: var(--dark);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-
-/* ── PROCESS ── */
-.process {
-  background: var(--cream);
-  position: relative; overflow: hidden;
-}
-.process::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 1px; background: linear-gradient(to right, transparent, var(--olive-mist), transparent);
-}
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 4rem;
-  background: var(--olive-mist);
-}
-.process-item {
-  background: var(--cream);
-  padding: 2.5rem 2rem;
-  position: relative;
-  transition: background 0.3s;
-}
-.process-item:hover { background: var(--olive-cream); }
-.process-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
-  font-weight: 300;
-  color: var(--olive-mist);
-  line-height: 1;
-  margin-bottom: 1rem;
-}
-.process-item h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--olive);
-  margin-bottom: 0.8rem;
-}
-.process-item p {
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-}
-
-/* ── ABOUT ── */
-.about {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
-}
-.about-img-wrap {
-  position: relative;
-}
-.about-img-main {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: 2px;
-  display: block;
-}
-.about-img-accent {
-  position: absolute;
-  bottom: -2rem; right: -2rem;
-  width: 55%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 2px;
-  border: 6px solid var(--warm-white);
-}
-.about-badge {
-  position: absolute;
-  top: 2rem; left: -2rem;
-  background: var(--olive);
-  color: #fff;
-  padding: 1.2rem 1.5rem;
-  border-radius: 2px;
-  text-align: center;
-}
-.about-badge strong {
-  display: block;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1;
-}
-.about-badge span {
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.8;
-}
-.about-text p {
-  font-size: 0.92rem;
-  line-height: 1.85;
-  color: var(--text-muted);
-  margin-bottom: 1.2rem;
-}
-.about-text p strong { color: var(--olive); font-weight: 500; }
-.about-features {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1rem; margin: 2rem 0;
-}
-.about-feature {
-  display: flex; align-items: flex-start; gap: 0.8rem;
-}
-.about-feature-icon {
-  width: 32px; height: 32px;
-  background: var(--olive-cream);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.about-feature-icon svg { width: 14px; height: 14px; color: var(--olive); }
-.about-feature p {
-  font-size: 0.8rem;
-  color: var(--text);
-  font-weight: 400;
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* ── SERVICES ── */
-.services-section {
-  background: var(--dark);
-  position: relative; overflow: hidden;
-}
-.services-section::before {
-  content: '';
-  position: absolute; inset: 0;
+/* ── ZEYTİN BG OVERLAY ── */
+body::after{
+  content:'';
+  position:fixed;inset:0;
   background-image: url('Esramanzara.webp');
   background-size: cover; background-position: center;
   opacity: 0.08;
-}
-.services-section .section-tag { color: var(--olive-pale); }
-.services-section .section-title { color: #fff; }
-.services-section .section-title em {
-  font-style: italic; color: var(--gold-light);
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  margin-top: 4rem;
-  background: rgba(255,255,255,0.06);
-}
-.service-card {
-  background: rgba(255,255,255,0.03);
-  padding: 2.5rem 2rem;
-  transition: background 0.3s;
-  position: relative; overflow: hidden;
-}
-.service-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0;
-  width: 0; height: 2px;
-  background: var(--gold);
-  transition: width 0.4s;
-}
-.service-card:hover { background: rgba(255,255,255,0.06); }
-.service-card:hover::before { width: 100%; }
-.service-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.1);
-  margin-bottom: 1.5rem;
-}
-.service-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #fff;
-  margin-bottom: 1rem;
-}
-.service-card p {
-  font-size: 0.83rem;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.5);
+  opacity:.05;
+  pointer-events:none;
+  z-index:0;
 }
 
-/* ── SEANS ── */
-.seans-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  min-height: 600px;
-}
-.seans-img-wrap {
-  position: relative; overflow: hidden;
-}
-.seans-img-wrap img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s;
-}
-.seans-img-wrap:hover img { transform: scale(1.03); }
-.seans-content {
-  background: var(--olive);
-  padding: 5rem 4rem;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; overflow: hidden;
-}
-.seans-content::before {
-  content: '';
-  position: absolute;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.08);
-  top: -100px; right: -100px;
-}
-.seans-content .section-tag { color: var(--olive-mist); }
-.seans-content .section-tag::before { background: var(--olive-mist); }
-.seans-content .section-title { color: #fff; font-size: 2.2rem; }
-.seans-list {
-  list-style: none;
-  margin: 1.5rem 0 2.5rem;
-  display: flex; flex-direction: column; gap: 0.8rem;
-}
-.seans-list li {
-  display: flex; align-items: center; gap: 0.8rem;
-  font-size: 0.88rem; color: rgba(255,255,255,0.8);
-}
-.seans-list li::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--gold-light);
-  flex-shrink: 0;
-}
-.btn-white {
-  background: #fff;
-  color: var(--olive);
-  padding: 0.9rem 2rem;
-  border-radius: 2px;
-  text-decoration: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  transition: all 0.3s;
-  display: inline-block;
-  align-self: flex-start;
-  font-weight: 500;
-}
-.btn-white:hover { background: var(--olive-cream); }
-
-/* ── TESTIMONIALS ── */
-.testimonials { background: var(--cream); }
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-}
-.testimonial-card {
-  background: var(--warm-white);
-  padding: 2rem;
-  border-radius: 2px;
-  border-left: 3px solid var(--olive);
-  position: relative;
-}
-.testimonial-card::before {
-  content: '"';
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 5rem;
-  color: var(--olive-cream);
-  position: absolute;
-  top: 0; right: 1rem;
-  line-height: 1;
-}
-.testimonial-text {
-  font-size: 0.88rem;
-  line-height: 1.75;
-  color: var(--text-muted);
-  font-style: italic;
-  margin-bottom: 1.2rem;
-}
-.testimonial-name {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--olive);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+/* ── LOGO WATERMARK ── */
+body::before{
+  content:'';
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:min(720px,90vw);height:min(720px,90vw);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%235C6B3A'/%3E%3Cstop offset='100%25' stop-color='%23B89B5E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='96' stroke='url(%23g)' stroke-width='.8' fill='none'/%3E%3Ccircle cx='100' cy='100' r='80' stroke='url(%23g)' stroke-width='.4' fill='none'/%3E%3Cpath d='M100 18Q132 60 162 100Q132 140 100 182Q68 140 38 100Q68 60 100 18Z' stroke='url(%23g)' stroke-width='.7' fill='none'/%3E%3Cpath d='M18 100Q60 68 100 38Q140 68 182 100Q140 132 100 162Q60 132 18 100Z' stroke='url(%23g)' stroke-width='.7' fill='none'/%3E%3Ccircle cx='100' cy='100' r='11' stroke='url(%23g)' stroke-width='.8' fill='none'/%3E%3Ccircle cx='100' cy='100' r='3.5' fill='url(%23g)'/%3E%3C/svg%3E") center/contain no-repeat;
+  opacity:.04;pointer-events:none;z-index:0;
 }
 
-/* ── CONTACT ── */
-.contact-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+/* ══ LOADING ══ */
+#ls{
+  position:fixed;inset:0;
+  background:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  z-index:9999;transition:opacity .7s var(--ease);
 }
-.contact-info {
-  background: var(--dark);
-  padding: 5rem 4rem;
-  position: relative; overflow: hidden;
-}
-.contact-info::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: url('Esramanzara.webp');
-  background-size: cover; background-position: center;
-  opacity: 0.12;
-}
-.contact-info > * { position: relative; z-index: 1; }
-.contact-info .section-tag { color: var(--olive-pale); }
-.contact-info .section-title { color: #fff; font-size: 2.2rem; margin-bottom: 2rem; }
-.contact-details { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; }
-.contact-item {
-  display: flex; align-items: flex-start; gap: 1rem;
-}
-.contact-icon {
-  width: 40px; height: 40px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.contact-icon svg { width: 16px; height: 16px; stroke: var(--olive-pale); }
-.contact-item-text { color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.6; }
-.contact-item-text strong { color: #fff; display: block; margin-bottom: 0.2rem; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.contact-item-text a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
-.contact-item-text a:hover { color: var(--gold-light); }
+#ls.out{opacity:0;pointer-events:none}
+.ls-inner{text-align:center}
+.ls-logo{width:88px;height:88px;margin-bottom:28px;animation:lsPulse 2s ease-in-out infinite}
+.ls-bar{width:180px;height:1.5px;background:var(--ink-07);border-radius:2px;overflow:hidden;margin:0 auto}
+.ls-fill{height:100%;background:linear-gradient(90deg,var(--olive),var(--sand));animation:lsFill 2s ease forwards}
+.ls-txt{margin-top:14px;font-size:10px;letter-spacing:4px;color:var(--ink-35)}
+@keyframes lsFill{from{width:0}to{width:100%}}
+@keyframes lsPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 
-/* social icons */
-.social-links { display: flex; gap: 0.8rem; }
-.social-link {
-  width: 40px; height: 40px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.3s;
-  text-decoration: none;
+/* ══ NAV ══ */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:1000;padding:0 32px;
+  transition:all .4s var(--ease);
 }
-.social-link:hover { background: var(--olive); border-color: var(--olive); }
-.social-link svg { width: 16px; height: 16px; }
-
-/* form */
-.contact-form-wrap {
-  background: var(--warm-white);
-  padding: 5rem 4rem;
+nav.scrolled{
+  background:rgba(247,243,236,.82);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  box-shadow:0 1px 0 var(--ink-07), var(--shadow-sm);
 }
-.contact-form-wrap .section-tag { color: var(--olive-pale); }
-.contact-form-wrap .section-title { font-size: 2.2rem; margin-bottom: 2rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-group { margin-bottom: 1.2rem; }
-.form-group label {
-  display: block;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
+.nav-c{
+  max-width:1360px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:76px;
 }
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  background: var(--cream);
-  border: 1px solid var(--olive-mist);
-  border-radius: 2px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.88rem;
-  color: var(--text);
-  transition: border-color 0.3s;
-  outline: none;
-  appearance: none;
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo svg{height:50px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{
+  text-decoration:none;color:var(--ink-60);
+  font-size:13px;font-weight:500;letter-spacing:.4px;
+  position:relative;transition:color .3s var(--ease);
 }
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--olive);
-  background: #fff;
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:50%;right:50%;
+  height:1px;background:var(--olive);
+  transition:left .3s var(--ease),right .3s var(--ease);
 }
-.form-group textarea { resize: vertical; min-height: 110px; }
-.form-submit {
-  width: 100%;
-  background: var(--olive);
-  color: #fff;
-  border: none;
-  padding: 1rem;
-  border-radius: 2px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s;
-  margin-top: 0.5rem;
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{left:0;right:0}
+.nav-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 22px;
+  border:1.5px solid rgba(92,107,58,.35);
+  border-radius:50px;
+  color:var(--olive);font-size:12.5px;font-weight:500;letter-spacing:.5px;
+  text-decoration:none;
+  background:rgba(92,107,58,.04);
+  backdrop-filter:blur(8px);
+  transition:all .3s var(--ease);
 }
-.form-submit:hover { background: var(--olive-light); }
-
-/* ── MAP ── */
-.map-section { padding: 0; }
-.map-section iframe {
-  width: 100%; height: 420px;
-  display: block; border: none;
-  filter: grayscale(30%) contrast(1.05);
+.nav-btn:hover{
+  background:var(--olive);color:#fff;
+  border-color:var(--olive);
+  box-shadow:0 4px 20px rgba(92,107,58,.25);
+  transform:translateY(-1px);
 }
+.nav-btn svg{width:13px;height:13px}
+.mob-btn{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.mob-btn svg{width:22px;height:22px;stroke:var(--ink)}
 
-/* ── FOOTER ── */
-footer {
-  background: var(--dark);
-  padding: 3rem 8%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
+/* ══ MOBILE MENU ══ */
+.mob-menu{
+  display:none;position:fixed;top:0;right:-100%;
+  width:290px;height:100vh;
+  background:rgba(247,243,236,.96);
+  backdrop-filter:blur(24px);
+  border-left:1px solid var(--ink-07);
+  z-index:1001;transition:right .35s var(--ease);
+  padding:96px 28px 28px;
+  box-shadow:-8px 0 40px rgba(40,38,30,.08);
 }
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  color: rgba(255,255,255,0.7);
-  font-weight: 400;
+.mob-menu.open{right:0}
+.mob-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(40,38,30,.18);
+  backdrop-filter:blur(3px);
+  z-index:1000;opacity:0;transition:opacity .3s var(--ease);
 }
-.footer-copy {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.3);
+.mob-overlay.open{display:block;opacity:1}
+.mob-menu a{
+  display:block;padding:15px 0;text-decoration:none;
+  color:var(--ink-60);font-family:'Playfair Display',serif;
+  font-size:20px;border-bottom:1px solid var(--ink-07);
+  transition:color .3s var(--ease),padding-left .3s var(--ease);
 }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.4);
-  text-decoration: none;
-  transition: color 0.3s;
+.mob-menu a:hover{color:var(--olive);padding-left:6px}
+.mob-menu .nav-btn{margin-top:28px;justify-content:center;width:100%}
+
+/* ══ HERO ══ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:110px 32px 80px;
+  position:relative;overflow:hidden;
 }
-.footer-links a:hover { color: rgba(255,255,255,0.8); }
-
-/* ── WHATSAPP FLOAT ── */
-.wa-float {
-  position: fixed; bottom: 2rem; right: 2rem;
-  z-index: 999;
-  width: 54px; height: 54px;
-  background: #25D366;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-  text-decoration: none;
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: pulse-wa 3s infinite;
+.hero-orbs{position:absolute;inset:0;pointer-events:none}
+.orb{
+  position:absolute;border-radius:50%;
+  filter:blur(80px);opacity:.18;
+  animation:orbFloat 12s ease-in-out infinite;
 }
-.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37,211,102,0.5); }
-@keyframes pulse-wa {
-  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-  50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7); }
+.orb-1{width:500px;height:500px;background:radial-gradient(circle,#7A8C52,transparent);top:-10%;right:-5%;animation-delay:0s}
+.orb-2{width:400px;height:400px;background:radial-gradient(circle,#B89B5E,transparent);bottom:-5%;left:-10%;animation-delay:-4s}
+.orb-3{width:300px;height:300px;background:radial-gradient(circle,#5C6B3A,transparent);top:40%;left:20%;animation-delay:-8s;opacity:.1}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(20px,-30px) scale(1.05)}66%{transform:translate(-15px,20px) scale(.97)}}
+
+.hero-c{
+  max-width:1360px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+  position:relative;z-index:1;
 }
-.wa-float svg { width: 28px; height: 28px; fill: #fff; }
-
-/* ── FADE IN ── */
-.fade-in {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 16px;
+  background:rgba(92,107,58,.08);
+  border:1px solid rgba(92,107,58,.2);
+  border-radius:50px;
+  font-size:11px;letter-spacing:2.5px;
+  color:var(--olive);margin-bottom:24px;
+  text-transform:uppercase;
 }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  .process-grid { grid-template-columns: repeat(2, 1fr); }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-  .about { gap: 3rem; }
-  section { padding: 5rem 6%; }
+.hero-tag svg{width:12px;height:12px;fill:var(--olive)}
+.hero-title{
+  font-size:clamp(44px,5.5vw,72px);
+  line-height:1.04;margin-bottom:12px;
+  color:var(--ink);
 }
-
-@media (max-width: 768px) {
-  nav { padding: 0 5%; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-
-  section { padding: 4rem 5%; }
-
-  .hero-content { padding: 5rem 5% 3rem; max-width: 100%; }
-  .hero h1 { font-size: 2.5rem; }
-
-  .process-grid { grid-template-columns: 1fr; gap: 1px; }
-  .services-grid { grid-template-columns: 1fr; }
-
-  .about { grid-template-columns: 1fr; gap: 3rem; }
-  .about-img-accent { display: none; }
-  .about-badge { left: 1rem; top: 1rem; }
-  .about-features { grid-template-columns: 1fr; }
-
-  .seans-section { grid-template-columns: 1fr; }
-  .seans-img-wrap { height: 300px; }
-  .seans-content { padding: 3rem 2rem; }
-
-  .testimonials-grid { grid-template-columns: 1fr; }
-
-  .contact-section { grid-template-columns: 1fr; }
-  .contact-info { padding: 3rem 2rem; }
-  .contact-form-wrap { padding: 3rem 2rem; }
-  .form-row { grid-template-columns: 1fr; }
-
-  footer { flex-direction: column; text-align: center; padding: 2rem 5%; }
-  .footer-links { justify-content: center; }
-
-  .map-section iframe { height: 280px; }
+.hero-title .name{
+  color:transparent;
+  background:linear-gradient(135deg,var(--olive) 0%,var(--olive-light) 50%,var(--sand) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  display:block;
 }
+.hero-rule{
+  display:flex;align-items:center;gap:14px;
+  margin:22px 0;
+}
+.hero-rule .l{flex:1;max-width:56px;height:1px;background:var(--gold-line)}
+.hero-rule .d{width:5px;height:5px;border-radius:50%;background:var(--sand)}
+.hero-sub{
+  font-size:16.5px;color:var(--ink-60);
+  font-weight:300;line-height:1.75;
+  max-width:460px;margin-bottom:36px;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
 
-@media (max-width: 480px) {
-  .hero h1 { font-size: 2rem; }
-  .hero-actions { flex-direction: column; }
-  .btn-primary, .btn-ghost { text-align: center; }
-  .section-title { font-size: 1.8rem; }
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 30px;border-radius:50px;
+  font-size:13px;font-weight:500;letter-spacing:.4px;
+  text-decoration:none;transition:all .3s var(--ease);
+  cursor:pointer;border:none;white-space:nowrap;
+}
+.btn-p{
+  background:linear-gradient(135deg,var(--olive),var(--olive-mid));
+  color:#fff;
+  box-shadow:0 4px 20px rgba(92,107,58,.22);
+}
+.btn-p:hover{
+  background:linear-gradient(135deg,var(--olive-mid),var(--olive-light));
+  transform:translateY(-2px);
+  box-shadow:0 8px 30px rgba(92,107,58,.3);
+}
+.btn-o{
+  background:var(--glass);
+  color:var(--ink);
+  border:1.5px solid var(--ink-15);
+  backdrop-filter:blur(10px);
+}
+.btn-o:hover{border-color:var(--olive);color:var(--olive);transform:translateY(-2px)}
+
+/* Hero image */
+.hero-img-wrap{
+  position:relative;display:flex;justify-content:center;align-items:center;
+}
+.hero-img-ring-out{
+  position:absolute;inset:-24px;
+  border-radius:50%;
+  border:1px solid rgba(92,107,58,.12);
+  animation:spin 35s linear infinite;
+}
+.hero-img-ring-in{
+  position:absolute;inset:-8px;
+  border-radius:50%;
+  border:1px dashed rgba(184,155,94,.18);
+  animation:spin 20s linear infinite reverse;
+}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero-img-circle{
+  width:min(400px,42vw);height:min(400px,42vw);
+  border-radius:50%;overflow:hidden;
+  position:relative;
+  box-shadow:var(--shadow-xl);
+}
+.hero-img-circle img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-img-glass{
+  position:absolute;inset:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,rgba(92,107,58,.06),transparent 50%,rgba(184,155,94,.06));
+}
+.hero-fc{
+  position:absolute;bottom:-16px;right:-16px;
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:14px 18px;
+  box-shadow:var(--shadow-md);
+  display:flex;align-items:center;gap:12px;
+}
+.hero-fc .ic{
+  width:40px;height:40px;
+  background:rgba(92,107,58,.1);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-fc .ic svg{width:20px;height:20px;fill:var(--olive)}
+.hero-fc .tx p{font-size:14px;font-weight:600;color:var(--ink)}
+.hero-fc .tx span{font-size:11px;color:var(--ink-60)}
+
+.scroll-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--ink-35);text-decoration:none;cursor:pointer;
+}
+.scroll-hint span{font-size:9.5px;letter-spacing:3px;text-transform:uppercase}
+.scroll-hint svg{width:16px;height:16px;animation:arrowBounce 1.6s ease-in-out infinite}
+@keyframes arrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ══ SECTIONS ══ */
+section{padding:112px 32px;position:relative;z-index:1}
+.sc{max-width:1360px;margin:0 auto}
+.sh{text-align:center;margin-bottom:72px}
+.s-tag{
+  display:inline-block;padding:5px 16px;
+  border:1px solid rgba(92,107,58,.22);
+  border-radius:50px;
+  color:var(--olive);
+  font-size:10.5px;font-weight:500;letter-spacing:2.5px;
+  text-transform:uppercase;margin-bottom:14px;
+  background:rgba(92,107,58,.05);
+}
+.s-title{font-size:clamp(26px,3.8vw,42px);margin-bottom:14px;color:var(--ink)}
+.s-rule{display:flex;align-items:center;justify-content:center;gap:10px}
+.s-rule .l{width:36px;height:1px;background:var(--gold-line)}
+.s-rule .d{width:5px;height:5px;border-radius:50%;background:var(--sand)}
+
+/* ══ ABOUT ══ */
+.about{background:var(--cream-deep)}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+
+.about-img-wrap{position:relative}
+.about-img{
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.about-img img{width:100%;height:440px;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.about-img:hover img{transform:scale(1.03)}
+.corner{
+  position:absolute;pointer-events:none;
+  width:52px;height:52px;
+}
+.corner.tl{top:-14px;left:-14px;border-top:1.5px solid var(--olive-mid);border-left:1.5px solid var(--olive-mid);border-top-left-radius:6px}
+.corner.br{bottom:-14px;right:-14px;border-bottom:1.5px solid var(--sand);border-right:1.5px solid var(--sand);border-bottom-right-radius:6px}
+
+.bio-card{
+  margin-top:28px;
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-md);
+  overflow:hidden;
+  display:grid;grid-template-columns:3px 1fr;
+}
+.bio-bar{background:linear-gradient(180deg,var(--olive),var(--sand))}
+.bio-body{padding:28px 26px 26px}
+.bio-lbl{font-size:9.5px;letter-spacing:3px;color:var(--olive);text-transform:uppercase;display:block;margin-bottom:12px}
+.bio-body p{color:var(--ink-60);font-size:13.5px;line-height:1.85;margin-bottom:14px}
+.bio-body p:last-child{margin-bottom:0}
+.bio-body strong{color:var(--olive);font-weight:600}
+
+.about-r h3{
+  font-size:19px;color:var(--ink);margin-bottom:18px;
+  display:flex;align-items:center;gap:9px;
+  padding-bottom:10px;border-bottom:1px solid var(--ink-07);
+}
+.about-r h3 svg{width:18px;height:18px;color:var(--olive)}
+.about-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.about-item{
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius-sm);
+  padding:16px 18px;
+  box-shadow:var(--shadow-sm);
+  transition:all .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.about-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2.5px;
+  background:linear-gradient(180deg,var(--olive),var(--sand));
+  opacity:0;transition:opacity .3s var(--ease);
+}
+.about-item:hover{transform:translateX(5px);box-shadow:var(--shadow-md);border-color:rgba(92,107,58,.15)}
+.about-item:hover::before{opacity:1}
+.about-item h4{font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px;font-family:'DM Sans',sans-serif}
+.about-item p{font-size:12.5px;color:var(--ink-60)}
+
+.certs{margin-top:52px}
+.certs h3{font-size:22px;margin-bottom:22px;text-align:center;color:var(--ink)}
+.cert-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:8px}
+.cert{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius-xs);
+  padding:10px 14px;text-align:center;
+  font-size:11.5px;color:var(--ink-60);
+  box-shadow:var(--shadow-sm);
+  transition:all .25s var(--ease);
+}
+.cert:hover{background:rgba(92,107,58,.07);border-color:rgba(92,107,58,.18);color:var(--ink);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+
+/* ══ SERVICES ══ */
+.services{background:var(--cream)}
+.srv-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(284px,1fr));gap:14px}
+.srv-card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:26px;
+  box-shadow:var(--shadow-sm);
+  transition:all .35s var(--ease);
+  position:relative;overflow:hidden;
+}
+.srv-card::before{
+  content:'';
+  position:absolute;inset:0;border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(92,107,58,.03),transparent);
+  opacity:0;transition:opacity .35s var(--ease);
+}
+.srv-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-xl);
+  border-color:rgba(92,107,58,.18);
+}
+.srv-card:hover::before{opacity:1}
+.srv-ic{
+  width:50px;height:50px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+  transition:transform .3s var(--ease);
+}
+.srv-card:hover .srv-ic{transform:scale(1.08)}
+.srv-ic svg{width:24px;height:24px;color:var(--olive)}
+.srv-card h3{font-size:15.5px;margin-bottom:6px;color:var(--ink);font-family:'Playfair Display',serif;transition:color .3s var(--ease)}
+.srv-card:hover h3{color:var(--olive)}
+.srv-prov{font-size:10.5px;color:var(--ink-35);margin-bottom:9px;letter-spacing:.2px}
+.srv-desc{font-size:12.5px;color:var(--ink-60);line-height:1.65}
+
+/* Seans Showcase */
+.seans-box{
+  margin-top:60px;
+  display:grid;grid-template-columns:1fr 1fr;
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-xl);
+  border:1px solid var(--glass-border);
+}
+.seans-img{overflow:hidden;height:430px}
+.seans-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .6s var(--ease)}
+.seans-img:hover img{transform:scale(1.04)}
+.seans-txt{
+  background:var(--glass);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  padding:52px 48px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.seans-txt .s-tag{display:inline-block;margin-bottom:14px}
+.seans-txt h3{font-size:28px;color:var(--ink);margin-bottom:14px;line-height:1.3}
+.seans-rule{display:flex;align-items:center;gap:10px;margin:14px 0 20px}
+.seans-rule .l{width:28px;height:1px;background:var(--gold-line)}
+.seans-rule .d{width:4px;height:4px;border-radius:50%;background:var(--sand)}
+.seans-txt p{font-size:13.5px;color:var(--ink-60);line-height:1.85;margin-bottom:12px}
+.seans-txt p:last-of-type{margin-bottom:28px}
+
+.srv-cta{text-align:center;margin-top:56px}
+.srv-cta p{color:var(--ink-60);margin-bottom:22px;font-size:14px}
+
+/* ══ CONTACT ══ */
+.contact{background:var(--cream-deep)}
+.contact-g{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.cc-g{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cc{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow-sm);
+  transition:all .3s var(--ease);
+}
+.cc:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(92,107,58,.14)}
+.cc.fw{grid-column:span 2}
+.cc-hd{display:flex;align-items:flex-start;gap:13px}
+.cc-ic{
+  width:42px;height:42px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cc-ic svg{width:20px;height:20px}
+.cc h3{font-size:15px;margin-bottom:5px;color:var(--ink)}
+.cc p{font-size:12.5px;color:var(--ink-60);line-height:1.6;white-space:pre-line}
+.cc-link{
+  display:inline-flex;align-items:center;gap:5px;margin-top:9px;
+  color:var(--olive);text-decoration:none;font-size:11.5px;font-weight:500;
+  letter-spacing:.3px;transition:gap .25s var(--ease);
+}
+.cc-link:hover{gap:9px}
+.cc-link svg{width:12px;height:12px}
+
+.c-right{display:flex;flex-direction:column;gap:14px}
+.c-map{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:6px;flex:1;min-height:270px;
+  box-shadow:var(--shadow-sm);
+}
+.c-map iframe{width:100%;height:100%;min-height:270px;border-radius:10px;border:none;filter:sepia(12%) saturate(88%)}
+.c-acts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.c-act{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:15px 22px;border-radius:50px;
+  font-size:13.5px;font-weight:500;text-decoration:none;
+  transition:all .3s var(--ease);
+}
+.c-act.wa{background:#25D366;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.25)}
+.c-act.wa:hover{background:#1fa855;transform:scale(1.02);box-shadow:0 8px 24px rgba(37,211,102,.3)}
+.c-act.ph{background:linear-gradient(135deg,var(--olive),var(--olive-mid));color:#fff;box-shadow:0 4px 16px rgba(92,107,58,.22)}
+.c-act.ph:hover{background:linear-gradient(135deg,var(--olive-mid),var(--olive-light));transform:scale(1.02)}
+.c-act svg{width:18px;height:18px}
+
+.c-msg{margin-top:52px}
+.c-msg-card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:44px;text-align:center;
+  max-width:680px;margin:0 auto;
+  box-shadow:var(--shadow-md);
+}
+.c-msg-rule{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px}
+.c-msg-rule .l{width:28px;height:1px;background:var(--gold-line)}
+.c-msg-rule svg{width:16px;height:16px;color:var(--sand);fill:var(--sand)}
+.c-msg-card h3{font-size:19px;margin-bottom:9px;color:var(--ink)}
+.c-msg-card p{color:var(--ink-60);font-size:13.5px}
+
+/* ══ FOOTER ══ */
+footer{
+  background:#222018;
+  position:relative;overflow:hidden;z-index:1;
+}
+footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--olive-mid),var(--sand),var(--olive-mid),transparent);
+}
+.foot-bg{position:absolute;inset:0;opacity:.03}
+.foot-bg .c{position:absolute;border:1px solid #fff;border-radius:50%}
+.foot-bg .c:nth-child(1){top:40px;left:40px;width:130px;height:130px}
+.foot-bg .c:nth-child(2){bottom:40px;right:40px;width:200px;height:200px}
+.foot-bg .c:nth-child(3){top:50%;left:22%;width:100px;height:100px}
+.foot-c{max-width:1360px;margin:0 auto;padding:80px 32px 40px;position:relative;z-index:1}
+.foot-g{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.5fr;gap:44px}
+.foot-brand p{color:rgba(242,237,216,.55);font-size:13px;line-height:1.75;margin:14px 0 18px}
+.foot-soc{display:flex;gap:9px}
+.foot-soc a{
+  width:36px;height:36px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s var(--ease);
+}
+.foot-soc a:hover{background:var(--olive);border-color:var(--olive);transform:translateY(-2px)}
+.foot-soc a svg{width:16px;height:16px}
+.foot-col h4{font-size:14.5px;margin-bottom:20px;color:rgba(242,237,216,.85)}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:9px}
+.foot-col a{color:rgba(242,237,216,.5);text-decoration:none;font-size:13px;transition:color .25s var(--ease)}
+.foot-col a:hover{color:var(--olive-light)}
+.foot-ci{display:flex;align-items:flex-start;gap:10px;margin-bottom:13px}
+.foot-ci svg{width:16px;height:16px;color:var(--olive-light);margin-top:2px;flex-shrink:0}
+.foot-ci p{color:rgba(242,237,216,.5);font-size:12.5px;line-height:1.65}
+.foot-ci a{color:rgba(242,237,216,.75);text-decoration:none;transition:color .25s var(--ease)}
+.foot-ci a:hover{color:var(--olive-light)}
+.foot-bot{
+  border-top:1px solid rgba(255,255,255,.07);
+  margin-top:56px;padding-top:22px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.foot-bot p{color:rgba(242,237,216,.3);font-size:11.5px}
+.foot-bot .heart{display:inline-flex;align-items:center;gap:5px}
+.foot-bot .heart svg{width:12px;height:12px;fill:var(--sand);color:var(--sand)}
+
+/* ══ FLOAT BTNS ══ */
+.float-wrap{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:9px}
+.fb{
+  width:46px;height:46px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;border:none;
+  box-shadow:var(--shadow-md);
+  transition:all .3s var(--ease);
+}
+.fb:hover{transform:scale(1.1)}
+.fb.wa{background:#25D366;color:#fff}
+.fb.wa:hover{background:#1fa855}
+.fb.top{
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  color:var(--olive);
+  opacity:0;visibility:hidden;transform:translateY(16px);
+}
+.fb.top.on{opacity:1;visibility:visible;transform:translateY(0)}
+.fb svg{width:20px;height:20px}
+
+/* ══ ANIMATIONS ══ */
+.fi{opacity:0;transform:translateY(28px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.fl{opacity:0;transform:translateX(-28px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.fr{opacity:0;transform:translateX(28px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.fs{opacity:0;transform:scale(.94);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.fi.v,.fl.v,.fr.v,.fs.v{opacity:1;transform:none}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){
+  .hero-c{grid-template-columns:1fr;gap:56px;text-align:center}
+  .hero-content{order:2}
+  .hero-btns{justify-content:center}
+  .hero-rule{justify-content:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-img-wrap{order:1}
+  .hero-img-circle{width:280px;height:280px}
+  .about-g{grid-template-columns:1fr}
+  .contact-g{grid-template-columns:1fr}
+  .foot-g{grid-template-columns:repeat(2,1fr)}
+  .seans-box{grid-template-columns:1fr}
+  .seans-txt{padding:36px 32px}
+  .seans-img{height:300px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .mob-btn{display:block}
+  .mob-menu{display:block}
+  section{padding:72px 20px}
+  .hero{padding:100px 20px 60px}
+  .hero-img-circle{width:230px;height:230px}
+  .hero-fc{display:none}
+  .cc-g{grid-template-columns:1fr}
+  .cc.fw{grid-column:span 1}
+  .c-acts{grid-template-columns:1fr}
+  .foot-g{grid-template-columns:1fr;gap:28px}
+  .foot-bot{flex-direction:column;text-align:center}
+  .cert-g{grid-template-columns:repeat(2,1fr)}
+  .bio-body{padding:22px 18px}
+}
+@media(max-width:480px){
+  section{padding:56px 14px}
+  .hero{padding:88px 14px 60px}
+  .hero-img-circle{width:190px;height:190px}
+  .btn{width:100%;justify-content:center}
+  .cert-g{grid-template-columns:1fr}
+  .nav-c{padding:0 2px}
+  .seans-txt{padding:28px 20px}
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">
-    Esra Çalış Yılmaz
-    <span>Uzm. Klinik Psikolog</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#home">Ana Sayfa</a></li>
-    <li><a href="#about">Hakkımda</a></li>
-    <li><a href="#services">Hizmetler</a></li>
-    <li><a href="#contact">İletişim</a></li>
-    <li><a href="https://wa.me/905519893235" class="nav-cta">Randevu Al</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menü">
-    <span></span><span></span><span></span>
-  </button>
+<!-- Loading -->
+<div id="ls">
+  <div class="ls-inner">
+    <svg class="ls-logo" viewBox="0 0 200 200" fill="none">
+      <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#5C6B3A"/><stop offset="100%" stop-color="#B89B5E"/></linearGradient></defs>
+      <circle cx="100" cy="100" r="95" stroke="url(#lg)" stroke-width=".8" fill="none"/>
+      <circle cx="100" cy="100" r="78" stroke="url(#lg)" stroke-width=".4" fill="none"/>
+      <path d="M100 20Q132 60 162 100Q132 140 100 180Q68 140 38 100Q68 60 100 20Z" stroke="url(#lg)" stroke-width=".7" fill="none"/>
+      <path d="M18 100Q60 68 100 38Q140 68 182 100Q140 132 100 162Q60 132 18 100Z" stroke="url(#lg)" stroke-width=".7" fill="none"/>
+      <circle cx="100" cy="100" r="11" stroke="url(#lg)" stroke-width=".8" fill="none"/>
+      <circle cx="100" cy="100" r="3.5" fill="url(#lg)"/>
+    </svg>
+    <div class="ls-bar"><div class="ls-fill"></div></div>
+    <p class="ls-txt">YÜKLENİYOR</p>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="nav-c">
+    <a href="#home" class="nav-logo">
+      <svg viewBox="0 0 260 65" fill="none">
+        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#5C6B3A"/><stop offset="100%" stop-color="#B89B5E"/></linearGradient></defs>
+        <circle cx="28" cy="32" r="22" stroke="url(#ng)" stroke-width="1" fill="none"/>
+        <path d="M28 12Q38 22 48 32Q38 42 28 52Q18 42 8 32Q18 22 28 12Z" stroke="url(#ng)" stroke-width=".8" fill="none"/>
+        <circle cx="28" cy="32" r="5" stroke="url(#ng)" stroke-width=".7" fill="none"/>
+        <circle cx="28" cy="32" r="2" fill="url(#ng)"/>
+        <line x1="60" y1="14" x2="60" y2="50" stroke="rgba(92,107,58,.15)" stroke-width="1"/>
+        <text x="72" y="35" font-family="Playfair Display" font-size="18" font-weight="600" fill="#28261E">Esra Çalış</text>
+        <text x="72" y="50" font-family="DM Sans" font-size="9" fill="rgba(40,38,30,.4)" letter-spacing="2.5">KLİNİK PSİKOLOG</text>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Ana Sayfa</a>
+      <a href="#about">Hakkımda</a>
+      <a href="#services">Hizmetler</a>
+      <a href="#contact">İletişim</a>
+    </div>
+    <a href="https://wa.me/905519893235" target="_blank" class="nav-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Randevu Al
+    </a>
+    <button class="mob-btn" onclick="toggleMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#home" onclick="closeMobile()">Ana Sayfa</a>
-  <a href="#about" onclick="closeMobile()">Hakkımda</a>
-  <a href="#services" onclick="closeMobile()">Hizmetler</a>
-  <a href="#contact" onclick="closeMobile()">İletişim</a>
-  <a href="https://wa.me/905519893235">Randevu Al</a>
+<!-- Mobile Menu -->
+<div class="mob-overlay" onclick="toggleMenu()"></div>
+<div class="mob-menu">
+  <a href="#home" onclick="toggleMenu()">Ana Sayfa</a>
+  <a href="#about" onclick="toggleMenu()">Hakkımda</a>
+  <a href="#services" onclick="toggleMenu()">Hizmetler</a>
+  <a href="#contact" onclick="toggleMenu()">İletişim</a>
+  <a href="https://wa.me/905519893235" target="_blank" class="nav-btn" onclick="toggleMenu()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Randevu Al
+  </a>
 </div>
 
-<!-- HERO -->
+<!-- Hero -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow fade-in">Uzman Klinik Psikolog</div>
-    <h1 class="fade-in">Esra Çalış <em>Yılmaz</em></h1>
-    <p class="hero-sub fade-in">Çocuk, ergen ve yetişkin bireyler için güvenli, destekleyici ve profesyonel psikolojik danışmanlık ve terapi hizmetleri.</p>
-    <div class="hero-actions fade-in">
-      <a href="https://wa.me/905519893235" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        Randevu Al
-      </a>
-      <a href="#about" class="btn-ghost">Daha Fazla Bilgi</a>
-    </div>
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
-  <div class="hero-scroll"><span>Keşfet</span></div>
-</section>
-
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="section-tag fade-in">Terapi Süreci</div>
-  <h2 class="section-title fade-in">Sizi Neler <em style="font-style:italic;color:var(--olive-light)">Bekliyor?</em></h2>
-  <div class="process-grid">
-    <div class="process-item fade-in">
-      <div class="process-num">01</div>
-      <h3>İlişki Kurma</h3>
-      <p>Terapötik ilişkinin sağlıklı oluşumu terapi süreci için büyük bir kazanımdır. Güvenli ve yargısız bir alan yaratılır.</p>
-    </div>
-    <div class="process-item fade-in">
-      <div class="process-num">02</div>
-      <h3>Değerlendirme</h3>
-      <p>Yaşadığınız tıkanmışlıkların yargısızca konuşulduğu, anlaşıldığı ve değerlendirildiği aşamadır.</p>
-    </div>
-    <div class="process-item fade-in">
-      <div class="process-num">03</div>
-      <h3>Hedef Belirleme</h3>
-      <p>Problemlerin çözümü adına değerleriniz doğrultusunda uygun hedefler belirlenir. Amaç size özgü ilerlemektir.</p>
-    </div>
-    <div class="process-item fade-in">
-      <div class="process-num">04</div>
-      <h3>Müdahale & Sonuç</h3>
-      <p>İhtiyaçlarınıza paralel müdahaleler gerçekleştirilir. Kalıcı beceriler kazandırılarak özgür bir yaşama adım atılır.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" style="padding: 6rem 8%;">
-  <div class="about">
-    <div class="about-img-wrap fade-in">
-      <img src="Esra_profil.webp" alt="Uzm. Klinik Psk. Esra Çalış Yılmaz" class="about-img-main">
-      <img src="Esramanzara.webp" alt="Terapi Ortamı" class="about-img-accent">
-      <div class="about-badge">
-        <strong>8+</strong>
-        <span>Yıl<br>Deneyim</span>
+  <div class="hero-c">
+    <div class="hero-content fl">
+      <div class="hero-tag">
+        <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Uzman Klinik Psikolog
+      </div>
+      <h1 class="hero-title">
+        <span>Esra</span>
+        <span class="name">Çalış Yılmaz</span>
+      </h1>
+      <div class="hero-rule"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+      <p class="hero-sub">Çocuk, ergen ve yetişkin bireyler için profesyonel psikolojik danışmanlık ve terapi hizmetleri</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/905519893235" target="_blank" class="btn btn-p">Randevu Al</a>
+        <a href="#about" class="btn btn-o">Daha Fazla Bilgi</a>
       </div>
     </div>
-    <div class="about-text">
-      <div class="section-tag fade-in">Hakkımda</div>
-      <h2 class="section-title fade-in">Uzm. Klinik Psk.<br><em style="font-style:italic;color:var(--olive)">Esra Çalış Yılmaz</em></h2>
-      <div class="fade-in">
-        <p><strong>Uzman Klinik Psikolog Esra Çalış Yılmaz</strong>, lisans eğitimini başarıyla tamamladıktan sonra Klinik Psikoloji alanında yüksek lisans derecesi almıştır.</p>
-        <p>Çocuk, ergen ve yetişkin bireylere yönelik bireysel terapi, aile danışmanlığı ve çift terapisi alanlarında profesyonel hizmet vermektedir. Bilimsel temelli, etik ve danışan odaklı bir yaklaşımla çalışmaktadır.</p>
-        <p>İstanbul Göktürk'te faaliyet gösteren Esra Çalış Yılmaz, her danışanın benzersiz olduğuna ve terapi sürecinin bu bireyselliğe göre şekillendirilmesi gerektiğine inanmaktadır.</p>
+    <div class="hero-img-wrap fr">
+      <div class="hero-img-ring-out"></div>
+      <div class="hero-img-ring-in"></div>
+      <div class="hero-img-circle">
+        <img src="Esra-profil.webp" alt="Esra Çalış Yılmaz" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+        <div class="hero-img-glass"></div>
       </div>
-      <div class="about-features fade-in">
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
+      <div class="hero-fc">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <div class="tx"><p> Bütüncül Yaklaşım </p><span> Klinik Deneyim </span></div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint">
+    <span>Keşfet</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </a>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="sc">
+    <div class="sh fi">
+      <span class="s-tag">Hakkımda</span>
+      <h2 class="s-title">Profesyonel Yolculuğum</h2>
+      <div class="s-rule"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+    </div>
+    <div class="about-g">
+      <div class="fl">
+        <div class="about-img-wrap">
+          <div class="about-img">
+            <img src="https://static.wixstatic.com/media/14becb_0c745f2134b3443e81d63234f8c64a19~mv2.jpg/v1/crop/x_113,y_53,w_701,h_699/fill/w_398,h_398,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/0-1.jpg" alt="Esra Çalış Yılmaz - Seans" loading="lazy">
           </div>
-          <p>Çocuk & Ergen Terapisi</p>
+          <div class="corner tl"></div>
+          <div class="corner br"></div>
         </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        <div class="bio-card">
+          <div class="bio-bar"></div>
+          <div class="bio-body">
+            <span class="bio-lbl">Biyografi</span>
+            <p>Uzman Klinik Psikolog <strong>Esra Çalış Yılmaz</strong>, lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü onur derecesiyle tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını "Prenatal (Doğum öncesi) Dönemin yetişkinlik yaşantısıyla ilişkisi" konulu çalışması ile tamamladı.</p>
+            <p>Yetişkin danışanlarla; kaygı bozuklukları, panik atak, depresyon, stres yönetimi, performans kaygısı, yas süreci, kronik ağrıya eşlik eden psikolojik durumlar, bağımlılık türleri, ilişki ve bağlanma sorunları ile kompleks travma alanlarında çalışmalar yürütülmektedir.</p>
+            <p>Çocuk ve ergenlerle; davranış problemleri, travmatik yaşantılar, öfke kontrol güçlükleri, dikkat eksikliği, öğrenme güçlükleri, benlik gelişimi ve ayrılma kaygısı gibi konular ele alınmaktadır.</p>
           </div>
-          <p>Yetişkin Bireysel Terapi</p>
-        </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-          </div>
-          <p>Aile Danışmanlığı</p>
-        </div>
-        <div class="about-feature">
-          <div class="about-feature-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <p>Online Terapi</p>
         </div>
       </div>
-      <a href="https://wa.me/905519893235" class="btn-primary fade-in">Randevu Al</a>
+      <div class="about-r fr">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Eğitim
+        </h3>
+        <div class="about-list">
+          <div class="about-item"><h4>Lisans Eğitimi</h4><p>Nişantaşı Üniversitesi Psikoloji Bölümü — Onur Derecesi</p></div>
+          <div class="about-item"><h4>Yüksek Lisans</h4><p>Arel Üniversitesi Klinik Psikoloji — "Prenatal Dönemin Yetişkinlik Yaşantısıyla İlişkisi"</p></div>
+        </div>
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          Deneyim
+        </h3>
+        <div class="about-list">
+          <div class="about-item"><h4>Gönüllü Çalışmalar</h4><p>Kanserli Çocuklara Umut Vakfı, Bakırköy Adliyesi, Çeşitli Sivil Toplum Kuruluşları</p></div>
+          <div class="about-item"><h4>Uzmanlık Alanları</h4><p>Çocuk, ergen ve yetişkin bireyler; bağlanma güçlükleri, panik bozuklukları, depresyon, stres ve yas süreçleri</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="certs fi">
+      <h3>Sertifikalar ve Eğitimler</h3>
+      <div class="cert-g">
+        <div class="cert">EMDR 1. ve 2. Düzey</div>
+        <div class="cert">EMDR &amp; Bağlanma</div>
+        <div class="cert">Gebelik ve EMDR</div>
+        <div class="cert">Kalp Merkezli Hipnoterapi</div>
+        <div class="cert">Somatik Deneyimleme</div>
+        <div class="cert">Çocuk Merkezli Oyun Terapisi</div>
+        <div class="cert">Filial Terapi</div>
+        <div class="cert">Kum Tepsisi Terapisi</div>
+        <div class="cert">Rorschach ve CAT Testleri</div>
+        <div class="cert">Cognitive Assesment System (CAS)</div>
+        <div class="cert">YBT-PASS Bilişsel Müdahale</div>
+        <div class="cert">MOXO Dikkat Testi</div>
+        <div class="cert">PERGEL Performans Geliştirme</div>
+        <div class="cert">Aile Danışmanlığı</div>
+        <div class="cert">Kısa Süreli Çözüm Odaklı Terapi</div>
+        <div class="cert">Bilişsel Davranışçı Terapi</div>
+        <div class="cert">Şema Terapi</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services-section" id="services">
-  <div class="section-tag fade-in">Uzmanlık Alanları</div>
-  <h2 class="section-title fade-in">Sunulan <em>Hizmetler</em></h2>
-  <div class="services-grid">
-    <div class="service-card fade-in">
-      <div class="service-num">01</div>
-      <h3>Bireysel Terapi</h3>
-      <p>Kaygı, depresyon, özgüven sorunları, travma ve kişisel gelişim gibi bireysel konularda yüz yüze veya online seans imkânı.</p>
+<!-- Services -->
+<section class="services" id="services">
+  <div class="sc">
+    <div class="sh fi">
+      <span class="s-tag" style="border-color:rgba(184,155,94,.25);color:var(--sand);background:rgba(184,155,94,.06)">Hizmetler</span>
+      <h2 class="s-title">Terapi ve Danışmanlık Hizmetleri</h2>
+      <p style="color:var(--ink-60);max-width:580px;margin:12px auto 0;font-size:14px">Eklektik yaklaşım ile her bireyin ihtiyacına uygun, bilimsel temelli terapi yöntemleri</p>
+      <div class="s-rule" style="margin-top:22px"><div class="l"></div><div class="d"></div><div class="l"></div></div>
     </div>
-    <div class="service-card fade-in">
-      <div class="service-num">02</div>
-      <h3>Çocuk Terapisi</h3>
-      <p>Oyun terapisi ve yaratıcı yöntemlerle çocukların duygusal, davranışsal ve gelişimsel ihtiyaçlarına yönelik destek.</p>
+    <div class="srv-g">
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>Çocuk Merkezli Oyun Terapisi</h3><p class="srv-prov">Oyun Terapileri Derneği, Birgül Demiroğlu Bakay</p><p class="srv-desc">Çocukların duygusal ve davranışsal zorluklarını oyun yoluyla ifade etmelerini sağlayan terapi yöntemi.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Filial Terapi</h3><p class="srv-prov">Oyun Terapileri Derneği, Mary Fry</p><p class="srv-desc">Ebeveynlere çocuklarıyla daha sağlıklı iletişim kurma becerileri kazandıran terapi yaklaşımı.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></div><h3>Kum Tepsisi Terapisi</h3><p class="srv-prov">Simge Psikoloji, Marshall Lyles</p><p class="srv-desc">Bilinçdışı dünyayı sembollerle ifade ederek içsel iyileşmeyi destekleyen projektif terapi.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div><h3>Rorschach ve CAT Testleri</h3><p class="srv-prov">Rorschach ve Projektif Testler Derneği, Neslihan Zabcı</p><p class="srv-desc">Çocuğun ruhsal işleyişinin değerlendirilmesi için kullanılan projektif testler.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>EMDR 1. ve 2. Düzey</h3><p class="srv-prov">Ay Enstitüsü, Asena Yurtsever</p><p class="srv-desc">Göz hareketleriyle duyarsızlaştırma ve yeniden işleme — travma tedavisinde kanıta dayalı yöntem.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><h3>EMDR &amp; Bağlanma</h3><p class="srv-prov">Ay Enstitüsü, Asena Yurtsever</p><p class="srv-desc">Yetişkinlerde bağlanma travmalarının EMDR ile çalışılması.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/></svg></div><h3>Gebelik ve EMDR</h3><p class="srv-prov">Terapi Bilimleri Akademisi, Prof. Dr. Önder Kavakçı</p><p class="srv-desc">Gebelik sürecinde travmalar, doğum korkusu, kayıp deneyimleri ve annelik kaygılarıyla çalışma.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/></svg></div><h3>Kalp Merkezli Hipnoterapi</h3><p class="srv-prov">Wellness Institute, Reyhana Seedat</p><p class="srv-desc">Yetişkinler ve çocuklarla uygulanan, içsel huzur ve iyileşmeyi destekleyen hipnoterapi.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Cognitive Assesment System</h3><p class="srv-prov">İstanbul Üniversitesi, Tamer Ergin</p><p class="srv-desc">Çocukların bilişsel süreçlerini değerlendiren kapsamlı test sistemi.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h3>YBT-PASS Bilişsel Müdahale</h3><p class="srv-prov">İstanbul Üniversitesi, Tamer Ergin</p><p class="srv-desc">Öğrenme problemlerine yönelik bilişsel müdahale programı.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h3>PERGEL Performans Geliştirme</h3><p class="srv-prov">Arkabahçe Danışmanlık, Dr. Olcay Güner</p><p class="srv-desc">Sınav kaygısı yaşayan öğrenciler için performans geliştirme programı.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div><h3>MOXO Dikkat Testi</h3><p class="srv-prov">MOXO Türkiye</p><p class="srv-desc">Dikkat, zamanlama, dürtüsellik ve hiperaktivite performans ölçümü.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Aile Danışmanlığı</h3><p class="srv-prov">MEB Onaylı 450 Saat</p><p class="srv-desc">Aile içi iletişim, çatışma çözümü ve ilişki güçlendirme danışmanlığı.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><h3>Kısa Süreli Çözüm Odaklı Terapi</h3><p class="srv-prov">Dr. Nevin Dölek</p><p class="srv-desc">Hedef odaklı, çözüm üreten kısa süreli terapi yaklaşımı.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(92,107,58,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div><h3>Bilişsel Davranışçı Terapi</h3><p class="srv-prov">Kapsamlı Eğitim</p><p class="srv-desc">Düşünce ve davranış kalıplarını değiştirerek psikolojik iyileşmeyi destekleme.</p></div>
+      <div class="srv-card fs"><div class="srv-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div><h3>Şema Terapi</h3><p class="srv-prov">Kapsamlı Eğitim</p><p class="srv-desc">Derinlemesine kişilik örüntülerini anlama ve dönüştürme terapisi.</p></div>
     </div>
-    <div class="service-card fade-in">
-      <div class="service-num">03</div>
-      <h3>Ergen Terapisi</h3>
-      <p>Kimlik gelişimi, akran ilişkileri, okul kaygısı ve aile içi çatışma gibi ergenlik dönemine özgü konularda destek.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-num">04</div>
-      <h3>Aile Danışmanlığı</h3>
-      <p>Aile içi iletişim sorunları, ebeveynlik becerileri ve aile dinamiklerinin iyileştirilmesine yönelik çalışmalar.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-num">05</div>
-      <h3>Online Terapi</h3>
-      <p>Bulunduğunuz konumdan güvenli ve etkin biçimde terapi hizmetine ulaşın. Esnek seans saatleri ile yanınızdayım.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-num">06</div>
-      <h3>Psikolojik Değerlendirme</h3>
-      <p>Çeşitli psikolojik testler ve değerlendirme araçları ile mevcut durumunuza somut ve bilimsel bir perspektiften yaklaşılır.</p>
-    </div>
-  </div>
-</section>
 
-<!-- SEANS -->
-<div class="seans-section">
-  <div class="seans-img-wrap fade-in">
-    <img src="Esra-_seans.webp" alt="Esra Çalış Yılmaz - Seans">
-  </div>
-  <div class="seans-content fade-in">
-    <div class="section-tag">Seans Bilgisi</div>
-    <h2 class="section-title">İlk Adımı<br>Atmak İçin<br>Hazır mısınız?</h2>
-    <ul class="seans-list">
-      <li>Yüz yüze ve online seans imkânı</li>
-      <li>Gizlilik ve güven ön planda</li>
-      <li>Esnek randevu saatleri</li>
-      <li>Bireysel, çocuk ve ergen seansları</li>
-      <li>İstanbul Göktürk merkezi konumu</li>
-    </ul>
-    <a href="https://wa.me/905519893235" class="btn-white">WhatsApp ile Randevu Al</a>
-  </div>
-</div>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-tag fade-in">Danışan Deneyimleri</div>
-  <h2 class="section-title fade-in">Yorumlar</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card fade-in">
-      <p class="testimonial-text">Esra hanım ile çalışmak benim için gerçek bir dönüm noktası oldu. Sabırlı, anlayışlı ve çok profesyonel yaklaşımıyla sürecimi kolaylaştırdı.</p>
-      <div class="testimonial-name">— Danışan, Bireysel Terapi</div>
-    </div>
-    <div class="testimonial-card fade-in">
-      <p class="testimonial-text">Çocuğumun terapisini Esra hanıma emanet ettim. Hem çocuğum hem de biz ebeveynler olarak çok büyük bir fark hissettik. Teşekkürler.</p>
-      <div class="testimonial-name">— Danışan Velisi, Çocuk Terapisi</div>
-    </div>
-    <div class="testimonial-card fade-in">
-      <p class="testimonial-text">Online seans için kuşkularım vardı ama Esra hanım bu süreci çok sıcak ve güvenli bir hale getirdi. Her seans gerçekten değerliydi.</p>
-      <div class="testimonial-name">— Danışan, Online Terapi</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <div class="contact-info">
-    <div class="section-tag">İletişim</div>
-    <h2 class="section-title">Bize<br>Ulaşın</h2>
-    <div class="contact-details">
-      <div class="contact-item">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="contact-item-text">
-          <strong>WhatsApp</strong>
-          <a href="https://wa.me/905519893235">+90 551 989 32 35</a>
-        </div>
+    <!-- Seans Showcase -->
+    <div class="seans-box fi">
+      <div class="seans-img">
+        <img src="Esra-seans.webp" alt="Seans" style="width:100%;height:100%;object-fit:cover;">
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="contact-item-text">
-          <strong>Adres</strong>
-          İstanbul, Göktürk
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/><polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="contact-item-text">
-          <strong>Çalışma Saatleri</strong>
-          Pazartesi – Cumartesi: 09:00 – 19:00
-        </div>
+      <div class="seans-txt">
+        <span class="s-tag" style="border-color:rgba(92,107,58,.22);color:var(--olive);background:rgba(92,107,58,.05)">Danışanlarımdan</span>
+        <h3>Çocukların Gözünden</h3>
+        <div class="seans-rule"><div class="l"></div><div class="d"></div></div>
+        <p>Her bireyin iyileşme süreci kendine özgüdür. Oyun ve sanatın bilimsel tekniklerle harmanlandığı bu süreçte, danışanlarımın bana duydukları güveni bu sevimli portrelerde görmek en değerli anlardan birini oluşturuyor.</p>
+        <p> </p>
+        <a href="https://wa.me/905519893235" target="_blank" class="btn btn-p">Randevu Al</a>
       </div>
     </div>
-    <div class="social-links">
-      <!-- WhatsApp -->
-      <a href="https://wa.me/905519893235" class="social-link" aria-label="WhatsApp" style="background:#25D366;border-color:#25D366;">
-        <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      </a>
-      <!-- Instagram -->
-      <a href="#" class="social-link" aria-label="Instagram" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border:none;">
-        <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <!-- LinkedIn -->
-      <a href="#" class="social-link" aria-label="LinkedIn" style="background:#0077B5;border-color:#0077B5;">
-        <svg viewBox="0 0 24 24" fill="#fff"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+
+    <div class="srv-cta fi">
+      <p>Size en uygun terapi yöntemi hakkında bilgi almak için iletişime geçin</p>
+      <a href="https://wa.me/905519893235" target="_blank" class="btn btn-p">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Ücretsiz Ön Görüşme
       </a>
     </div>
   </div>
+</section>
 
-  <div class="contact-form-wrap">
-    <div class="section-tag">Randevu Talebi</div>
-    <h2 class="section-title">Mesaj<br>Gönderin</h2>
-    <form id="contactForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Ad Soyad</label>
-          <input type="text" placeholder="Adınız Soyadınız" required>
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="sc">
+    <div class="sh fi">
+      <span class="s-tag" style="border-color:rgba(184,155,94,.25);color:var(--sand);background:rgba(184,155,94,.06)">İletişim</span>
+      <h2 class="s-title">Benimle İletişime Geçin</h2>
+      <p style="color:var(--ink-60);max-width:480px;margin:12px auto 0;font-size:14px">Sorularınız için benimle iletişime geçebilir, randevu alabilirsiniz</p>
+      <div class="s-rule" style="margin-top:22px"><div class="l"></div><div class="d"></div><div class="l"></div></div>
+    </div>
+    <div class="contact-g">
+      <div class="cc-g">
+        <div class="cc fs">
+          <div class="cc-hd">
+            <div class="cc-ic" style="background:rgba(37,211,102,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><h3>WhatsApp</h3><p>0551 989 3235</p><a href="https://wa.me/905519893235" target="_blank" class="cc-link">Mesaj Gönder <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Telefon</label>
-          <input type="tel" placeholder="+90 5XX XXX XX XX">
+        <div class="cc fs">
+          <div class="cc-hd">
+            <div class="cc-ic" style="background:rgba(225,48,108,.08)"><svg viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+            <div><h3>Instagram</h3><p>@psikologesracalis</p><a href="https://instagram.com/psikologesracalis" target="_blank" class="cc-link">Takip Et <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+          </div>
+        </div>
+        <div class="cc fs">
+          <div class="cc-hd">
+            <div class="cc-ic" style="background:rgba(10,102,194,.08)"><svg viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+            <div><h3>LinkedIn</h3><p>Esra Çalış Yılmaz</p><a href="https://www.linkedin.com/in/esra-%C3%A7al%C4%B1%C5%9F-719a5a1ba/" target="_blank" class="cc-link">Bağlan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>
+          </div>
+        </div>
+        <div class="cc fs">
+          <div class="cc-hd">
+            <div class="cc-ic" style="background:rgba(92,107,58,.08)"><svg viewBox="0 0 24 24" fill="none" stroke="#5C6B3A" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><h3>Çalışma Saatleri</h3><p>Pzt–Cum: 09:00–19:00
+Cmt: 10:00–16:00</p></div>
+          </div>
+        </div>
+        <div class="cc fw fs">
+          <div class="cc-hd">
+            <div class="cc-ic" style="background:rgba(184,155,94,.09)"><svg viewBox="0 0 24 24" fill="none" stroke="#B89B5E" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <h3>Adres</h3>
+              <p>3 Oda Danışmanlık Merkezi
+Koray Bianco Residence, Göktürk Merkez
+Nazlı Sk. No:5, 34077 Eyüpsultan/İstanbul</p>
+              <a href="https://maps.google.com/?q=Koray+Bianco+Residence+Göktürk" target="_blank" class="cc-link">Haritada Görüntüle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label>E-posta</label>
-        <input type="email" placeholder="ornek@email.com">
+      <div class="c-right fr">
+        <div class="c-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.8574567890123!2d28.89123456789012!3d41.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA3JzI0LjQiTiAyOMKwNTMnMjguNCJF!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="c-acts">
+          <a href="https://wa.me/905519893235" target="_blank" class="c-act wa">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:05519893235" class="c-act ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Ara
+          </a>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Hizmet Türü</label>
-        <select>
-          <option value="">Seçiniz...</option>
-          <option>Bireysel Terapi</option>
-          <option>Çocuk Terapisi</option>
-          <option>Ergen Terapisi</option>
-          <option>Aile Danışmanlığı</option>
-          <option>Online Terapi</option>
-          <option>Psikolojik Değerlendirme</option>
-        </select>
+    </div>
+    <div class="c-msg fi">
+      <div class="c-msg-card">
+        <div class="c-msg-rule">
+          <div class="l"></div>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <div class="l"></div>
+        </div>
+        <h3>"Her bireyin kendine özgü bir yaşam öyküsü vardır."</h3>
+        <p>Bu sürecin daha sağlıklı ve dengeli ilerlemesi için profesyonel destek.</p>
       </div>
-      <div class="form-group">
-        <label>Mesajınız</label>
-        <textarea placeholder="Randevu talebiniz veya sormak istediğiniz konuları yazabilirsiniz..."></textarea>
-      </div>
-      <button type="submit" class="form-submit">Mesaj Gönder</button>
-    </form>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- MAP -->
-<div class="map-section">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48118.19!2d28.8742!3d41.1856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb2c9bb9e2ca37%3A0x85b34e4a5b3e2b!2sG%C3%B6kt%C3%BCrk%2C%20Eyüpsultan%2Fİstanbul!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-    title="Esra Çalış Yılmaz Konum">
-  </iframe>
-</div>
-
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
-  <div class="footer-logo">Uzm. Klinik Psk. Esra Çalış Yılmaz</div>
-  <nav class="footer-links">
-    <a href="#home">Ana Sayfa</a>
-    <a href="#about">Hakkımda</a>
-    <a href="#services">Hizmetler</a>
-    <a href="#contact">İletişim</a>
-  </nav>
-  <div class="footer-copy">© 2025 Esra Çalış Yılmaz. Tüm hakları saklıdır.</div>
+  <div class="foot-bg"><div class="c"></div><div class="c"></div><div class="c"></div></div>
+  <div class="foot-c">
+    <div class="foot-g">
+      <div class="foot-brand">
+        <svg viewBox="0 0 200 58" fill="none">
+          <text x="0" y="36" font-family="Playfair Display" font-size="21" font-weight="600" fill="rgba(242,237,216,.88)">Esra Çalış</text>
+          <text x="0" y="51" font-family="DM Sans" font-size="9" fill="rgba(242,237,216,.35)" letter-spacing="2.5">KLİNİK PSİKOLOG</text>
+        </svg>
+        <p>Uzman Klinik Psikolog olarak çocuk, ergen ve yetişkin bireylere profesyonel psikolojik danışmanlık hizmeti sunuyorum.</p>
+        <div class="foot-soc">
+          <a href="https://instagram.com/psikologesracalis" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(242,237,216,.7)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://wa.me/905519893235" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(242,237,216,.7)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="https://www.linkedin.com/in/esra-%C3%A7al%C4%B1%C5%9F-719a5a1ba/" target="_blank"><svg viewBox="0 0 24 24" fill="rgba(242,237,216,.7)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Hızlı Linkler</h4>
+        <ul>
+          <li><a href="#home">Ana Sayfa</a></li>
+          <li><a href="#about">Hakkımda</a></li>
+          <li><a href="#services">Hizmetler</a></li>
+          <li><a href="#contact">İletişim</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="#services">Çocuk Oyun Terapisi</a></li>
+          <li><a href="#services">EMDR Terapisi</a></li>
+          <li><a href="#services">Aile Danışmanlığı</a></li>
+          <li><a href="#services">Bilişsel Davranışçı Terapi</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>İletişim</h4>
+        <div class="foot-ci">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div><p>Telefon</p><a href="tel:05519893235">0551 989 3235</a></div>
+        </div>
+        <div class="foot-ci">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><p>Adres</p><span style="color:rgba(242,237,216,.55);font-size:12.5px;line-height:1.65;display:block">Göktürk Merkez Mah., Nazlı Sk. No:5<br>Koray Bianco Residence, Kat 1 D:207<br>Eyüpsultan / İstanbul</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© <span id="yr"></span> Uzm. Klinik Psk. Esra Çalış Yılmaz. Tüm hakları saklıdır.</p>
+      <p class="heart">Made with <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> in Istanbul</p>
+    </div>
+  </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/905519893235" class="wa-float" aria-label="WhatsApp ile iletişim">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<!-- Float Buttons -->
+<div class="float-wrap">
+  <a href="https://wa.me/905519893235" target="_blank" class="fb wa">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <button class="fb top" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</div>
 
 <script>
-// Nav scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('ls').classList.add('out')},1800)});
+window.addEventListener('scroll',()=>{
+  const n=document.getElementById('nav');
+  window.scrollY>50?n.classList.add('scrolled'):n.classList.remove('scrolled');
+  const t=document.getElementById('topBtn');
+  window.scrollY>600?t.classList.add('on'):t.classList.remove('on');
 });
-
-// Hamburger
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-function closeMobile() {
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
+function toggleMenu(){
+  document.querySelector('.mob-menu').classList.toggle('open');
+  document.querySelector('.mob-overlay').classList.toggle('open');
 }
-
-// Close on scroll
-window.addEventListener('scroll', () => {
-  if (mobileMenu.classList.contains('open')) closeMobile();
-});
-
-// Fade in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      observer.unobserve(entry.target);
-    }
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.1,rootMargin:'0px 0px -44px 0px'});
+document.querySelectorAll('.fi,.fl,.fr,.fs').forEach(el=>obs.observe(el));
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth'});
   });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Form
-document.getElementById('contactForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Mesajınız İletildi ✓';
-  btn.style.background = 'var(--olive-light)';
-  setTimeout(() => {
-    btn.textContent = 'Mesaj Gönder';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
 });
 </script>
 </body>
