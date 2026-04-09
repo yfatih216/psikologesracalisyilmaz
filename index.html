@@ -20,11 +20,31 @@
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;color:var(--text);background:var(--warm);overflow-x:hidden;width:100%;}
 
-/* NAV */
+/* ── LOADER ── */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--dark);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;
+  transition:opacity .6s ease, visibility .6s ease;
+}
+#loader.hidden{opacity:0;visibility:hidden;}
+.loader-logo{display:flex;flex-direction:column;align-items:center;gap:.8rem;animation:logo-in 1s ease forwards;}
+.loader-logo svg{width:72px;height:72px;}
+.loader-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:#fff;letter-spacing:.08em;text-align:center;}
+.loader-name span{display:block;font-size:.62rem;font-family:'Jost',sans-serif;font-weight:300;letter-spacing:.25em;color:var(--olive-pale);text-transform:uppercase;margin-top:.3rem;}
+.loader-bar{width:180px;height:1px;background:rgba(255,255,255,.12);border-radius:1px;overflow:hidden;}
+.loader-bar-fill{height:100%;width:0;background:linear-gradient(to right,var(--olive),var(--gold));animation:fill-bar 1.8s ease forwards .3s;}
+@keyframes logo-in{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fill-bar{from{width:0;}to{width:100%;}}
+
+/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,252,248,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,94,58,0.1);transition:all .3s;}
 nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--olive);text-decoration:none;line-height:1.3;flex-shrink:0;}
-.nav-logo span{display:block;font-size:.58rem;font-family:'Jost',sans-serif;font-weight:300;letter-spacing:.15em;color:var(--olive-pale);text-transform:uppercase;}
+.nav-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;flex-shrink:0;}
+.nav-logo svg{width:38px;height:38px;flex-shrink:0;}
+.nav-logo-text{line-height:1.25;}
+.nav-logo-text strong{display:block;font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:500;color:var(--olive);}
+.nav-logo-text span{display:block;font-size:.56rem;font-family:'Jost',sans-serif;font-weight:300;letter-spacing:.18em;color:var(--olive-pale);text-transform:uppercase;}
 .nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none;}
 .nav-links a{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text);text-decoration:none;font-weight:400;transition:color .3s;position:relative;white-space:nowrap;}
 .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--olive);transform:scaleX(0);transition:transform .3s;}
@@ -43,7 +63,7 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .mobile-menu a{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text);text-decoration:none;padding:.5rem 0;border-bottom:1px solid var(--olive-mist);}
 .mobile-menu .mob-cta{background:var(--olive);color:#fff;text-align:center;padding:.8rem;border:none;border-radius:2px;margin-top:.3rem;}
 
-/* HERO */
+/* ── HERO ── */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background-image:url('Autumn.webp');background-size:cover;background-position:center;filter:brightness(.32) saturate(.8);}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(42,46,36,.75) 0%,rgba(74,94,58,.3) 60%,transparent 100%);}
@@ -63,22 +83,23 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .hero-scroll::after{content:'';width:1px;height:34px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);}
 @keyframes blink{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
 
-/* SECTIONS */
+/* ── SECTIONS ── */
 .sec{padding:5rem 6%;}
 .sec-tag{font-size:.63rem;letter-spacing:.28em;text-transform:uppercase;color:var(--olive-pale);margin-bottom:.8rem;display:flex;align-items:center;gap:.7rem;}
 .sec-tag::before{content:'';width:26px;height:1px;background:var(--olive-pale);flex-shrink:0;}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:1.4rem;}
 
-/* PROCESS */
+/* ── PROCESS ── */
 .process{background:var(--cream);}
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:3rem;background:var(--olive-mist);}
-.p-item{background:var(--cream);padding:2rem 1.6rem;transition:background .3s;}
+.p-item{background:var(--cream);padding:2rem 1.6rem;transition:background .3s;display:flex;flex-direction:column;gap:1rem;}
 .p-item:hover{background:var(--olive-cream);}
-.p-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--olive-mist);line-height:1;margin-bottom:.8rem;}
-.p-item h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--olive);margin-bottom:.6rem;}
+.p-icon{width:52px;height:52px;background:var(--olive-cream);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.p-icon svg{width:24px;height:24px;stroke:var(--olive);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.p-item h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--olive);}
 .p-item p{font-size:.81rem;line-height:1.72;color:var(--muted);}
 
-/* ABOUT */
+/* ── ABOUT ── */
 .about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
 .about-img-wrap{position:relative;}
 .about-img-main{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;}
@@ -87,12 +108,8 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .about-badge span{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8;}
 .about-text p{font-size:.86rem;line-height:1.85;color:var(--muted);margin-bottom:.9rem;}
 .about-text p strong{color:var(--olive);font-weight:500;}
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.4rem 0;}
-.edu-item{background:var(--cream);padding:1rem;border-radius:2px;border-left:2px solid var(--olive);}
-.edu-item h4{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);margin-bottom:.3rem;}
-.edu-item p{font-size:.78rem;color:var(--muted);line-height:1.5;}
 
-/* EDUCATION SECTION */
+/* ── EDUCATION ── */
 .education-section{background:var(--warm);}
 .edu-full-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.5rem;}
 .edu-block h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--olive);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid var(--olive-mist);}
@@ -101,15 +118,7 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .edu-card p{font-size:.76rem;color:var(--muted);line-height:1.55;}
 .edu-card .edu-year{font-size:.68rem;letter-spacing:.1em;color:var(--olive-pale);text-transform:uppercase;margin-top:.3rem;}
 
-/* CERTS */
-.certs-section{background:var(--cream);}
-.certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:2.5rem;background:var(--olive-mist);}
-.cert-item{background:var(--cream);padding:1.4rem;transition:background .3s;}
-.cert-item:hover{background:var(--olive-cream);}
-.cert-item h4{font-size:.78rem;font-weight:500;color:var(--olive);margin-bottom:.35rem;line-height:1.4;}
-.cert-item p{font-size:.71rem;color:var(--muted);line-height:1.5;}
-
-/* SERVICES */
+/* ── SERVICES ── */
 .srv-section{background:var(--dark);position:relative;overflow:hidden;}
 .srv-section::before{content:'';position:absolute;inset:0;background-image:url('Esramanzara.webp');background-size:cover;background-position:center;opacity:.07;}
 .srv-section .sec-tag{color:var(--olive-pale);}
@@ -124,7 +133,7 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .srv-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:.7rem;}
 .srv-card p{font-size:.8rem;line-height:1.72;color:rgba(255,255,255,.46);}
 
-/* SEANS */
+/* ── SEANS ── */
 .seans-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:540px;}
 .seans-img{position:relative;overflow:hidden;}
 .seans-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
@@ -140,12 +149,12 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .btn-w{background:#fff;color:var(--olive);padding:.82rem 1.8rem;border-radius:2px;text-decoration:none;font-size:.73rem;letter-spacing:.12em;text-transform:uppercase;transition:all .3s;display:inline-block;font-weight:500;align-self:flex-start;}
 .btn-w:hover{background:var(--olive-cream);}
 
-/* QUOTE */
+/* ── QUOTE ── */
 .quote-sec{background:var(--olive);padding:3.5rem 6%;text-align:center;}
 .quote-sec blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:300;font-style:italic;color:#fff;max-width:660px;margin:0 auto .8rem;line-height:1.5;}
 .quote-sec cite{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--olive-mist);}
 
-/* CONTACT */
+/* ── CONTACT ── */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;}
 .cnt-info{background:var(--dark);padding:4.5rem 4rem;position:relative;overflow:hidden;}
 .cnt-info::before{content:'';position:absolute;inset:0;background-image:url('Esramanzara.webp');background-size:cover;background-position:center;opacity:.1;}
@@ -168,27 +177,32 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .soc-li{background:#0077B5;}
 .soc-btn:hover{transform:scale(1.1);}
 
-/* FORM */
+/* ── FORM ── */
 .cnt-form{background:var(--warm);padding:4.5rem 4rem;}
 .cnt-form .sec-tag{color:var(--olive-pale);}
 .cnt-form .sec-title{font-size:1.9rem;margin-bottom:1.8rem;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
-.fg{margin-bottom:1rem;}
+.fg{margin-bottom:1rem;position:relative;}
 .fg label{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.fg label .req{color:var(--olive);margin-left:2px;}
 .fg input,.fg select,.fg textarea{width:100%;padding:.75rem .9rem;background:var(--cream);border:1px solid var(--olive-mist);border-radius:2px;font-family:'Jost',sans-serif;font-size:.84rem;color:var(--text);transition:border-color .3s;outline:none;appearance:none;-webkit-appearance:none;}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--olive);background:#fff;}
+.fg input:invalid:not(:placeholder-shown),.fg select:invalid:not([value=""]):focus,.fg textarea:invalid:not(:placeholder-shown){border-color:#c0392b;}
 .fg textarea{resize:vertical;min-height:95px;}
 .f-btn{width:100%;background:var(--olive);color:#fff;border:none;padding:.9rem;border-radius:2px;font-family:'Jost',sans-serif;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-top:.2rem;}
 .f-btn:hover{background:var(--olive-light);}
+.form-note{font-size:.7rem;color:var(--muted);margin-top:.6rem;text-align:center;}
 
-/* MAP */
+/* ── MAP ── */
 .map-sec{padding:0;}
 .map-sec iframe{width:100%;height:380px;display:block;border:none;filter:grayscale(25%) contrast(1.05);}
 
-/* FOOTER */
+/* ── FOOTER ── */
 footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.07);}
-.f-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,.8);font-weight:400;margin-bottom:.7rem;}
+.f-brand-wrap{display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;}
+.f-brand-wrap svg{width:32px;height:32px;flex-shrink:0;}
+.f-brand{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:rgba(255,255,255,.8);font-weight:400;}
 .f-desc{font-size:.76rem;color:rgba(255,255,255,.35);line-height:1.7;}
 .f-col h5{font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--olive-pale);margin-bottom:.9rem;}
 .f-col ul{list-style:none;}
@@ -198,77 +212,57 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 .footer-bot{display:flex;align-items:center;justify-content:space-between;padding-top:1.3rem;flex-wrap:wrap;gap:.8rem;}
 .f-copy{font-size:.7rem;color:rgba(255,255,255,.22);}
 
-/* WA FLOAT */
+/* ── WA FLOAT ── */
 .wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s;animation:wa-pulse 3s infinite;}
 .wa-float:hover{transform:scale(1.1);}
 .wa-float svg{width:26px;height:26px;fill:#fff;}
 @keyframes wa-pulse{0%,100%{box-shadow:0 4px 18px rgba(37,211,102,.4);}50%{box-shadow:0 4px 28px rgba(37,211,102,.68);}}
 
-/* FADE */
+/* ── FADE ── */
 .fi{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease;}
 .fi.vis{opacity:1;transform:translateY(0);}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
   .process-grid{grid-template-columns:repeat(2,1fr);}
-  .certs-grid{grid-template-columns:repeat(2,1fr);}
   .srv-grid{grid-template-columns:repeat(2,1fr);}
   .footer-top{grid-template-columns:1fr 1fr;}
   .sec{padding:4.5rem 5%;}
 }
-
 @media(max-width:768px){
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  
   .sec{padding:3.5rem 4%;}
-  
   .hero-content{padding:90px 4% 3rem;max-width:100%;}
   .hero h1{font-size:2.2rem;}
   .hero-sub{font-size:.85rem;}
   .hero-actions{flex-direction:column;align-items:flex-start;}
   .btn-p,.btn-g{width:100%;text-align:center;justify-content:center;}
-  
   .process-grid{grid-template-columns:1fr;gap:2px;}
-  
   .about-wrap{grid-template-columns:1fr;gap:2.5rem;}
   .about-img-main{aspect-ratio:4/3;}
   .about-badge{left:.8rem;top:.8rem;}
-  .edu-grid{grid-template-columns:1fr;}
-  
   .edu-full-grid{grid-template-columns:1fr;gap:2rem;}
-  
-  .certs-grid{grid-template-columns:1fr 1fr;}
-  
   .srv-grid{grid-template-columns:1fr;}
-  
   .seans-wrap{grid-template-columns:1fr;}
   .seans-img{height:260px;}
   .seans-cnt{padding:3rem 4%;}
   .seans-cnt .sec-title{font-size:1.7rem;}
-  
   .contact-wrap{grid-template-columns:1fr;}
   .cnt-info{padding:3rem 4%;}
   .cnt-form{padding:3rem 4%;}
   .form-row{grid-template-columns:1fr;}
-  
   .footer-top{grid-template-columns:1fr 1fr;gap:1.5rem;}
   footer{padding:2.5rem 4% 1.5rem;}
   .footer-bot{flex-direction:column;align-items:flex-start;}
-  
   .map-sec iframe{height:240px;}
-  
   .quote-sec{padding:2.5rem 4%;}
 }
-
 @media(max-width:480px){
   .sec{padding:3rem 4%;}
   .hero h1{font-size:1.9rem;}
-  .hero-eye{font-size:.6rem;}
-  .certs-grid{grid-template-columns:1fr;}
   .footer-top{grid-template-columns:1fr;}
   .footer-bot{align-items:center;text-align:center;}
-  .process-grid{gap:1px;}
   .seans-cnt{padding:2.5rem 4%;}
   .cnt-info,.cnt-form{padding:2.5rem 4%;}
 }
@@ -276,9 +270,44 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 </head>
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">
+    <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" stroke="#4a5e3a" stroke-width="1.2" opacity=".4"/>
+      <circle cx="36" cy="36" r="28" stroke="#4a5e3a" stroke-width=".6" opacity=".25"/>
+      <!-- Yaprak / dal motifi -->
+      <path d="M36 52 C36 52 20 44 20 30 C20 22 28 16 36 20 C44 16 52 22 52 30 C52 44 36 52 36 52Z" stroke="#4a5e3a" stroke-width="1.4" fill="none" opacity=".7"/>
+      <path d="M36 52 L36 24" stroke="#c9a96e" stroke-width="1" stroke-linecap="round" opacity=".8"/>
+      <path d="M36 38 C36 38 28 34 27 28" stroke="#8a9e79" stroke-width=".8" stroke-linecap="round" fill="none" opacity=".7"/>
+      <path d="M36 42 C36 42 44 38 45 32" stroke="#8a9e79" stroke-width=".8" stroke-linecap="round" fill="none" opacity=".7"/>
+      <!-- ECY harfleri küçük -->
+      <text x="36" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="7" fill="#c9a96e" letter-spacing="3" opacity=".9">ECY</text>
+    </svg>
+    <div class="loader-name">
+      Esra Çalış Yılmaz
+      <span>Uzm. Klinik Psikolog</span>
+    </div>
+  </div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
 <!-- NAV -->
 <nav id="nav">
-  <a href="#home" class="nav-logo">Esra Çalış Yılmaz<span>Uzm. Klinik Psikolog</span></a>
+  <a href="#home" class="nav-logo">
+    <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" stroke="#4a5e3a" stroke-width="1.2" opacity=".35"/>
+      <path d="M36 52 C36 52 20 44 20 30 C20 22 28 16 36 20 C44 16 52 22 52 30 C52 44 36 52 36 52Z" stroke="#4a5e3a" stroke-width="1.4" fill="none" opacity=".75"/>
+      <path d="M36 52 L36 24" stroke="#c9a96e" stroke-width="1" stroke-linecap="round"/>
+      <path d="M36 38 C36 38 28 34 27 28" stroke="#8a9e79" stroke-width=".8" stroke-linecap="round" fill="none"/>
+      <path d="M36 42 C36 42 44 38 45 32" stroke="#8a9e79" stroke-width=".8" stroke-linecap="round" fill="none"/>
+      <text x="36" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="7" fill="#c9a96e" letter-spacing="3">ECY</text>
+    </svg>
+    <div class="nav-logo-text">
+      <strong>Esra Çalış Yılmaz</strong>
+      <span>Uzm. Klinik Psikolog</span>
+    </div>
+  </a>
   <ul class="nav-links">
     <li><a href="#home">Ana Sayfa</a></li>
     <li><a href="#about">Hakkımda</a></li>
@@ -322,10 +351,34 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
   <div class="sec-tag fi">Terapi Süreci</div>
   <h2 class="sec-title fi">Sizi Neler <em style="font-style:italic;color:var(--olive-light)">Bekliyor?</em></h2>
   <div class="process-grid">
-    <div class="p-item fi"><div class="p-num">01</div><h3>İlişki Kurma</h3><p>Terapötik ilişkinin sağlıklı oluşumu terapi süreci için büyük kazanımdır. Güvenli, yargısız bir alan yaratılır.</p></div>
-    <div class="p-item fi"><div class="p-num">02</div><h3>Problemleri Değerlendirme</h3><p>Yaşadığınız tıkanmışlıkların yargısızca konuşulduğu, anlaşıldığı ve değerlendirildiği aşamadır.</p></div>
-    <div class="p-item fi"><div class="p-num">03</div><h3>Hedef Belirleme</h3><p>Değerleriniz doğrultusunda size özgü hedefler belirlenir. Amaç sizin için en uygun yolla ilerlemektir.</p></div>
-    <div class="p-item fi"><div class="p-num">04</div><h3>Müdahale & Sonuç</h3><p>İhtiyaçlarınıza paralel müdahaleler gerçekleştirilir. Kalıcı beceriler kazandırılarak özgür bir yaşama adım atılır.</p></div>
+    <div class="p-item fi">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>İlişki Kurma</h3>
+      <p>Terapötik ilişkinin sağlıklı oluşumu terapi süreci için büyük kazanımdır. Güvenli, yargısız bir alan yaratılır.</p>
+    </div>
+    <div class="p-item fi">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      </div>
+      <h3>Problemleri Değerlendirme</h3>
+      <p>Yaşadığınız tıkanmışlıkların yargısızca konuşulduğu, anlaşıldığı ve değerlendirildiği aşamadır.</p>
+    </div>
+    <div class="p-item fi">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <h3>Hedef Belirleme</h3>
+      <p>Değerleriniz doğrultusunda size özgü hedefler belirlenir. Amaç sizin için en uygun yolla ilerlemektir.</p>
+    </div>
+    <div class="p-item fi">
+      <div class="p-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3>Müdahale & Sonuç</h3>
+      <p>İhtiyaçlarınıza paralel müdahaleler gerçekleştirilir. Kalıcı beceriler kazandırılarak özgür bir yaşama adım atılır.</p>
+    </div>
   </div>
 </section>
 
@@ -334,20 +387,17 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
   <div class="about-wrap">
     <div class="about-img-wrap fi">
       <img src="Esra_profil.webp" alt="Uzm. Klinik Psk. Esra Çalış Yılmaz" class="about-img-main">
-      <div class="about-badge"><strong></strong><span>Bütüncül Yaklaşım<br>Klinik Deneyim</span></div>
+      <div class="about-badge"><strong>8+</strong><span>Yıl<br>Deneyim</span></div>
     </div>
     <div>
       <div class="sec-tag fi">Hakkımda</div>
       <h2 class="sec-title fi">Uzm. Klinik Psk.<br><em style="font-style:italic;color:var(--olive)">Esra Çalış Yılmaz</em></h2>
       <div class="about-text fi">
-        <p><strong>Uzman Klinik Psikolog Esra Çalış Yılmaz</strong>;lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü onur derecesiyle tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını “Prenatal (Doğum öncesi) Dönemin yetişkinlik yaşantısıyla ilişkisi” konulu çalışması ile tamamladı.
-<p>EMDR Avrupa onaylı EMDR Eğitmeni Asena Yurtsever tarafından düzenlenen EMDR (Göz Hareketleriyle Duyarsızlaştırma ve Yeniden İşleme) 1. Ve 2. Düzey eğitimini ve ardından ‘EMDR terapisi ile Yetişkinlerde Bağlanma Travmaları’ eğitimini tamamladı. Prof. Dr. Önder Kavakçı tarafından düzenlenen ‘Gebelik ve EMDR’ eğitimi ile gebelik sürecinde travmalar, doğum korkusu, kayıp deneyimleri ve annelik kaygılarıyla aktif olarak çalışmaktadır. Wellness Institute akredite eğitmeni Reyhana Seedat’tan “Kalp Merkezli Hipnoterapi” eğitimi alarak yetişkinler ve çocuklarla uygulamaya başladı.
-Oyun Terapileri Derneği tarafından düzenlenen, Association for Play Therapy (APT) onaylı ve tescilli Oyun Terapisti ve Eğitmeni Birgül Emiroğlu Bakay’ın “Çocuk Merkezli Oyun Terapisi” eğitimini ve (APT) onaylı terapist Dr. Mary Fry tarafından psiko-eğitimsel bir yaklaşım olan Filial Terapi eğitimini tamamladı. Marshall Lyles’ın Association for Play Therapy (APT) tarafından onaylı “Travma ve Bağlanma Odaklı İleri Seviye Kum Tepsisi Terapisi” eğitimini tamamladı. Rorschach ve Projektif Testler Derneğinde Neslihan Zabcı tarafından verilen ve 2 yıl süren Çocuğun Ruhsal İşleyişinin Değerlendirilmesi (Rorschach ve CAT) eğitimini tamamlamış olup süpervizyon sürecine devam etmektedir.
-İstanbul Üniversitesi Sürekli Eğitim Merkezi tarafından düzenlenen çocukların bilişsel süreçlerini değerlendirmek amacıyla yapılan CAS Testi (Cognitive Assesment System) eğitimini tamamlayarak aktif olarak uygulamaktadır. Yine İstanbul Üniversitesi Sürekli Eğitim Merkezi’nde Tamer Ergin tarafından verilen “YBT-PASS Öğrenme Problemlerine Bilişsel Müdahale Programı” eğitimi aldı ve çocuklarla Bilişsel Müdahale Programı ile çalışmalarını sürdürmektedir. MOXO Türkiye tarafından Çeldiricili Dikkat Testi olarak tanımlanan, çocuk-ergen ve yetişkinlerde Dikkat, Zamanlama, Dürtüsellik ve Hiperaktivite performansını ölçen MOXO test eğitimini tamamlamış ve aktif olarak uygulamaktadır.
-Sınavlara yönelik bir performans geliştirme programı olan PERGEL programını Dr. Olcay Güner’den alarak sınav kaygısı yaşayan öğrencilerle aktif olarak çalışmalarını sürdürmektedir. Millî Eğitim Bakanlığı onaylı 450 saatlik Aile Danışmanlığı eğitimini tamamladı.</p>
-<p>Çocukların yaşlara göre gelişimlerini gözlemlemek amacıyla çeşitli anaokullarında stajlar yaptı. Bakırköy Adliyesi’nde suça sürüklenen çocukların topluma kazandırılması amacıyla çeşitli çalışmalar yürüttü. Lisans dönemi boyunca birçok sivil toplum kuruluşlarında gönüllü olarak yapılan çalışmalarda yer aldı. Kanserli Çocuklara Umut Vakfı’nda Çocuk Evi Etkinlik Gönüllüsü ve Aile Evi Destek gönüllüsü olarak aktif olarak yer aldı. “Sanatla Hayata Renk Kat” projesiyle Cerrahpaşa Tıp Fakültesi hastanesi Onkoloji servisinde çocuklara psikososyal destek vermek amacıyla çalışmalar gerçekleştirmiştir. Çocuk, ergen ve yetişkin bireyler ile ilişki ve bağlanma güçlükleri, panik bozuklukları, depresyon, stres, performans kaygısı, yas süreçleri, kronik ağrı rahatsızlıkları, bağımlılık sorunları, davranışsal zorluklar, özgüven eksiklikleri, çocuklarda oryantasyon ve okula uyum problemleri, kaygı, korku, öfke, ve kompleks travmalar gibi çeşitli psikolojik konularda destek sağlamaktadır.
-Çocuk Merkezli Oyun Terapisi, Filial Terapi, Bilişsel Davranışçı Terapi, Kısa Süreli Çözüm Odaklı Terapi, EMDR, Kalp Merkezli Hipnoterapi, Kum Tepsisi Terapisi eğitim ve süpervizyonlarını tamamlayarak seanslarını eklektik biçimde sürdürmektedir.</p>
-          </div>
+        <p><strong>Uzman Klinik Psikolog Esra Çalış Yılmaz</strong>; lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü onur derecesiyle tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını <em>"Prenatal (Doğum öncesi) Dönemin yetişkinlik yaşantısıyla ilişkisi"</em> konulu çalışması ile tamamladı.</p>
+        <p>EMDR Avrupa onaylı EMDR Eğitmeni Asena Yurtsever tarafından düzenlenen EMDR 1. ve 2. Düzey eğitimini ve ardından 'EMDR terapisi ile Yetişkinlerde Bağlanma Travmaları' eğitimini tamamladı. Prof. Dr. Önder Kavakçı tarafından düzenlenen 'Gebelik ve EMDR' eğitimi ile gebelik sürecinde travmalar, doğum korkusu, kayıp deneyimleri ve annelik kaygılarıyla aktif olarak çalışmaktadır.</p>
+        <p>Oyun Terapileri Derneği tarafından düzenlenen APT onaylı "Çocuk Merkezli Oyun Terapisi" ve Filial Terapi eğitimlerini tamamladı. Marshall Lyles'ın "Travma ve Bağlanma Odaklı İleri Seviye Kum Tepsisi Terapisi" eğitimini tamamladı. Kanserli Çocuklara Umut Vakfı'nda gönüllü olarak yer aldı. "Sanatla Hayata Renk Kat" projesiyle Cerrahpaşa Tıp Fakültesi Onkoloji servisinde çocuklara psikososyal destek verdi.</p>
+        <p>Çocuk Merkezli Oyun Terapisi, Filial Terapi, Bilişsel Davranışçı Terapi, Kısa Süreli Çözüm Odaklı Terapi, EMDR, Kalp Merkezli Hipnoterapi, Kum Tepsisi Terapisi eğitim ve süpervizyonlarını tamamlayarak seanslarını eklektik biçimde sürdürmektedir.</p>
+      </div>
       <a href="https://wa.me/905519893235" class="btn-p fi" style="margin-top:.5rem;">Ücretsiz Ön Görüşme</a>
     </div>
   </div>
@@ -373,8 +423,9 @@ Sınavlara yönelik bir performans geliştirme programı olan PERGEL programın�
       </div>
       <div class="edu-card">
         <h4>Gönüllü Çalışmalar</h4>
-        <p>Kanserli Çocuklara Umut Vakfı</p>
-        <p>Bakırköy Adliyesi</p>
+        <p>Kanserli Çocuklara Umut Vakfı — Çocuk Evi Etkinlik Gönüllüsü</p>
+        <p>Bakırköy Adliyesi — Suça sürüklenen çocuklar</p>
+        <p>Cerrahpaşa Tıp Fakültesi Onkoloji — "Sanatla Hayata Renk Kat" Projesi</p>
         <p>Çeşitli Sivil Toplum Kuruluşları</p>
       </div>
     </div>
@@ -469,30 +520,47 @@ Sınavlara yönelik bir performans geliştirme programı olan PERGEL programın�
       </a>
     </div>
   </div>
+
+  <!-- FORM — Formspree ile pskesracalis@gmail.com -->
   <div class="cnt-form">
     <div class="sec-tag">Randevu Talebi</div>
     <h2 class="sec-title">Mesaj<br>Gönderin</h2>
-    <form id="cForm">
+    <form id="cForm" action="https://formspree.io/f/pskesracalis" method="POST" novalidate>
+      <input type="hidden" name="_replyto" value="pskesracalis@gmail.com">
+      <input type="hidden" name="_subject" value="Yeni Randevu Talebi — psikologesracalisyilmaz.com">
       <div class="form-row">
-        <div class="fg"><label>Ad Soyad</label><input type="text" placeholder="Adınız Soyadınız" required></div>
-        <div class="fg"><label>Telefon</label><input type="tel" placeholder="+90 5XX XXX XX XX"></div>
+        <div class="fg">
+          <label>Ad Soyad <span class="req">*</span></label>
+          <input type="text" name="ad_soyad" placeholder="Adınız Soyadınız" required minlength="2">
+        </div>
+        <div class="fg">
+          <label>Telefon <span class="req">*</span></label>
+          <input type="tel" name="telefon" placeholder="+90 5XX XXX XX XX" required pattern="[0-9+\s\-]{10,15}">
+        </div>
       </div>
-      <div class="fg"><label>E-posta</label><input type="email" placeholder="ornek@email.com"></div>
       <div class="fg">
-        <label>Hizmet Türü</label>
-        <select>
+        <label>E-posta <span class="req">*</span></label>
+        <input type="email" name="eposta" placeholder="ornek@email.com" required>
+      </div>
+      <div class="fg">
+        <label>Hizmet Türü <span class="req">*</span></label>
+        <select name="hizmet" required>
           <option value="">Seçiniz...</option>
-          <option>Çocuk Merkezli Oyun Terapisi</option>
-          <option>Filial Terapi</option>
-          <option>EMDR Terapisi</option>
-          <option>Bireysel Terapi</option>
-          <option>Aile Danışmanlığı</option>
-          <option>Online Terapi</option>
-          <option>Psikolojik Değerlendirme</option>
+          <option value="Çocuk Merkezli Oyun Terapisi">Çocuk Merkezli Oyun Terapisi</option>
+          <option value="Filial Terapi">Filial Terapi</option>
+          <option value="EMDR Terapisi">EMDR Terapisi</option>
+          <option value="Bireysel Terapi">Bireysel Terapi</option>
+          <option value="Aile Danışmanlığı">Aile Danışmanlığı</option>
+          <option value="Online Terapi">Online Terapi</option>
+          <option value="Psikolojik Değerlendirme">Psikolojik Değerlendirme</option>
         </select>
       </div>
-      <div class="fg"><label>Mesajınız</label><textarea placeholder="Randevu talebiniz veya sormak istediğiniz konuları yazabilirsiniz..."></textarea></div>
-      <button type="submit" class="f-btn">Mesaj Gönder</button>
+      <div class="fg">
+        <label>Mesajınız <span class="req">*</span></label>
+        <textarea name="mesaj" placeholder="Randevu talebiniz veya sormak istediğiniz konuları yazabilirsiniz..." required minlength="10"></textarea>
+      </div>
+      <button type="submit" class="f-btn" id="submitBtn">Mesaj Gönder</button>
+      <p class="form-note">* ile işaretli alanlar zorunludur. Mesajınız pskesracalis@gmail.com adresine iletilir.</p>
     </form>
   </div>
 </div>
@@ -506,7 +574,17 @@ Sınavlara yönelik bir performans geliştirme programı olan PERGEL programın�
 <footer>
   <div class="footer-top">
     <div>
-      <div class="f-brand">Uzm. Klinik Psk. Esra Çalış Yılmaz</div>
+      <div class="f-brand-wrap">
+        <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="36" cy="36" r="34" stroke="#4a5e3a" stroke-width="1.2" opacity=".35"/>
+          <path d="M36 52 C36 52 20 44 20 30 C20 22 28 16 36 20 C44 16 52 22 52 30 C52 44 36 52 36 52Z" stroke="#4a5e3a" stroke-width="1.4" fill="none" opacity=".75"/>
+          <path d="M36 52 L36 24" stroke="#c9a96e" stroke-width="1" stroke-linecap="round"/>
+          <path d="M36 38 C36 38 28 34 27 28" stroke="#8a9e79" stroke-width=".8" stroke-linecap="round" fill="none"/>
+          <path d="M36 42 C36 42 44 38 45 32" stroke="#8a9e79" stroke-width=".8" stroke-linecap="round" fill="none"/>
+          <text x="36" y="62" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="7" fill="#c9a96e" letter-spacing="3">ECY</text>
+        </svg>
+        <div class="f-brand">Uzm. Klinik Psk.<br>Esra Çalış Yılmaz</div>
+      </div>
       <p class="f-desc">Çocuk, ergen ve yetişkin bireyler için bilimsel temelli, eklektik yaklaşımla psikolojik danışmanlık ve terapi hizmetleri. İstanbul Göktürk.</p>
     </div>
     <div class="f-col">
@@ -549,20 +627,107 @@ Sınavlara yönelik bir performans geliştirme programı olan PERGEL programın�
 </a>
 
 <script>
+// Loader
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('hidden');
+  },2000);
+});
+
+// Nav scroll
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
+
+// Hamburger
 const hbg=document.getElementById('hbg'),mob=document.getElementById('mob');
 hbg.addEventListener('click',()=>{hbg.classList.toggle('open');mob.classList.toggle('open');});
 function cm(){hbg.classList.remove('open');mob.classList.remove('open');}
 window.addEventListener('scroll',()=>{if(mob.classList.contains('open'))cm();});
+
+// Fade in
 const obs=new IntersectionObserver((e)=>{e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('vis'),i*60);obs.unobserve(en.target);}});},{threshold:.08});
 document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
-document.getElementById('cForm').addEventListener('submit',e=>{
+
+// Form
+const form=document.getElementById('cForm');
+const btn=document.getElementById('submitBtn');
+form.addEventListener('submit',async(e)=>{
   e.preventDefault();
-  const b=e.target.querySelector('.f-btn');
-  b.textContent='Mesajınız İletildi ✓';
-  b.style.background='var(--olive-light)';
-  setTimeout(()=>{b.textContent='Mesaj Gönder';b.style.background='';e.target.reset();},3000);
+  
+  // Validation
+  const fields=form.querySelectorAll('[required]');
+  let valid=true;
+  fields.forEach(f=>{
+    if(!f.value.trim()||(f.tagName==='SELECT'&&f.value==='')){
+      f.style.borderColor='#c0392b';
+      valid=false;
+    } else {
+      f.style.borderColor='';
+    }
+  });
+  if(!valid){
+    btn.textContent='Lütfen zorunlu alanları doldurun';
+    btn.style.background='#c0392b';
+    setTimeout(()=>{btn.textContent='Mesaj Gönder';btn.style.background='';},2500);
+    return;
+  }
+
+  // Formspree gönderimi
+  btn.textContent='Gönderiliyor...';
+  btn.disabled=true;
+  
+  try{
+    const data=new FormData(form);
+    // Formspree endpoint — pskesracalis@gmail.com için 
+    // Formspree'ye kayıt olduktan sonra gerçek form ID'sini buraya girin
+    const res=await fetch('https://formspree.io/f/xdkozwqk',{
+      method:'POST',
+      body:data,
+      headers:{Accept:'application/json'}
+    });
+    
+    if(res.ok){
+      btn.textContent='Mesajınız İletildi ✓';
+      btn.style.background='var(--olive-light)';
+      form.reset();
+      setTimeout(()=>{btn.textContent='Mesaj Gönder';btn.style.background='';btn.disabled=false;},4000);
+    } else {
+      // Fallback: mailto
+      const name=form.querySelector('[name="ad_soyad"]').value;
+      const phone=form.querySelector('[name="telefon"]').value;
+      const email=form.querySelector('[name="eposta"]').value;
+      const service=form.querySelector('[name="hizmet"]').value;
+      const msg=form.querySelector('[name="mesaj"]').value;
+      const mailBody=`Ad Soyad: ${name}%0ATelefon: ${phone}%0AE-posta: ${email}%0AHizmet: ${service}%0AMesaj: ${msg}`;
+      window.location.href=`mailto:pskesracalis@gmail.com?subject=Randevu Talebi&body=${mailBody}`;
+      btn.textContent='Mesaj Gönder';
+      btn.disabled=false;
+    }
+  }catch(err){
+    // Fallback: mailto
+    const name=form.querySelector('[name="ad_soyad"]').value;
+    const phone=form.querySelector('[name="telefon"]').value;
+    const email=form.querySelector('[name="eposta"]').value;
+    const service=form.querySelector('[name="hizmet"]').value;
+    const msg=form.querySelector('[name="mesaj"]').value;
+    const mailBody=`Ad Soyad: ${name}%0ATelefon: ${phone}%0AE-posta: ${email}%0AHizmet: ${service}%0AMesaj: ${msg}`;
+    window.location.href=`mailto:pskesracalis@gmail.com?subject=Randevu Talebi&body=${mailBody}`;
+    btn.textContent='Mesaj Gönder';
+    btn.disabled=false;
+  }
+});
+
+// Real-time validation
+form.querySelectorAll('[required]').forEach(f=>{
+  f.addEventListener('blur',()=>{
+    if(!f.value.trim()||(f.tagName==='SELECT'&&f.value===''))
+      f.style.borderColor='#c0392b';
+    else
+      f.style.borderColor='var(--olive-mist)';
+  });
+  f.addEventListener('input',()=>{
+    if(f.value.trim()) f.style.borderColor='var(--olive-mist)';
+  });
 });
 </script>
 </body>
