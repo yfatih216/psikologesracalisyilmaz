@@ -188,7 +188,7 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .blog-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(74,94,58,.12);}
 .blog-card-icon{height:100px;display:flex;align-items:center;justify-content:center;background:var(--olive-cream);}
 .blog-card-icon svg{width:40px;height:40px;stroke:var(--olive);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;}
-.blog-card-body{padding:1.4rem;}
+.blog-card-{padding:1.4rem;}
 .blog-card-tag{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--olive-pale);margin-bottom:.5rem;}
 .blog-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--dark);margin-bottom:.6rem;line-height:1.35;}
 .blog-card-text{font-size:.78rem;line-height:1.7;color:var(--muted);}
@@ -844,6 +844,19 @@ document.querySelectorAll('#cForm [required]').forEach(f=>{
   f.addEventListener('blur',()=>{if(!f.value.trim()||(f.tagName==='SELECT'&&f.value===''))f.style.borderColor='#c0392b';else f.style.borderColor='var(--olive-mist)';});
   f.addEventListener('input',()=>{if(f.value.trim())f.style.borderColor='var(--olive-mist)';});
 });
+</script>
+  <script>
+  if ('scrollRestoration' in history) { // scrollRestoration (kaydırma hatırlama)
+    history.scrollRestoration = 'manual'; // manual (elle kontrol et)
+  }
+
+  window.addEventListener("load", function () { // load (sayfa tamamen yüklendiğinde)
+    window.scrollTo(0, 0); // en üste git
+
+    setTimeout(function () { // setTimeout (kısa gecikme)
+      window.scrollTo(0, 0); // tekrar en üste git (override etmek = zorla uygulamak)
+    }, 50);
+  });
 </script>
 </body>
 </html>
