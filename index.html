@@ -809,8 +809,7 @@ window.addEventListener('scroll',()=>{if(mob.classList.contains('open'))cm();});
 
 // Fade in
 const obs=new IntersectionObserver((e)=>{e.forEach((en,i)=>{if(en.isIntersecting){setTimeout(()=>en.target.classList.add('vis'),i*60);obs.unobserve(en.target);}});},{threshold:.08});
-document.querySelectorAll('.fi, .fi-left, .fi-right').forEach(el=>obs.observe(el));.forEach(el=>obs.observe(el));
-
+document.querySelectorAll('.fi, .fi-left, .fi-right').forEach(el=>obs.observe(el));
 // FAQ
 function toggleFaq(btn){
   const item=btn.parentElement;
