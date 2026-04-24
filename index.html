@@ -162,6 +162,36 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .p-icon svg{width:24px;height:24px;stroke:var(--olive);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .p-item h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--olive);}
 .p-item p{font-size:.81rem;line-height:1.72;color:var(--muted);}
+
+/* ABOUT - YENİ */
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.about-img-wrap{position:relative;}
+.about-img-main{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;}
+.about-badge{position:absolute;top:2rem;left:-1.5rem;background:var(--olive);color:#fff;padding:1.1rem 1.3rem;border-radius:2px;text-align:center;}
+.about-badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;line-height:1.4;}
+.about-badge span{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8;}
+/* yeni sağ taraf */
+.about-bio-quote{font-size:.9rem;line-height:1.9;color:var(--muted);border-left:2px solid var(--gold);padding-left:1rem;margin-bottom:1.4rem;font-style:italic;}
+.about-who{display:flex;align-items:center;gap:.5rem;padding:.9rem 0;border-top:1px solid var(--olive-mist);border-bottom:1px solid var(--olive-mist);margin-bottom:1.4rem;flex-wrap:wrap;}
+.about-who-item{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-style:italic;color:var(--olive);letter-spacing:.02em;}
+.about-who-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.about-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1.4rem;}
+.about-card{background:var(--cream);border-radius:2px;padding:1rem .9rem;border-top:2px solid var(--gold);}
+.about-card-icon{width:30px;height:30px;background:var(--olive-cream);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:.6rem;}
+.about-card-icon svg{width:13px;height:13px;stroke:var(--olive);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.about-card h4{font-size:.72rem;font-weight:500;color:var(--dark);margin-bottom:.3rem;letter-spacing:.02em;}
+.about-card p{font-size:.69rem;color:var(--muted);line-height:1.65;}
+.about-expand-btn{display:flex;align-items:center;gap:.5rem;background:none;border:1px solid var(--olive-mist);padding:.55rem 1.1rem;border-radius:2px;font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive-light);cursor:pointer;transition:background .2s;}
+.about-expand-btn:hover{background:var(--olive-cream);}
+.about-expand-btn svg{width:11px;height:11px;stroke:var(--olive-light);fill:none;stroke-width:2;stroke-linecap:round;transition:transform .3s;}
+.about-expand-btn.open svg{transform:rotate(180deg);}
+.about-full-bio{overflow:hidden;max-height:0;transition:max-height .5s ease;}
+.about-full-bio.open{max-height:2400px;}
+.about-full-bio-inner{margin-top:1rem;background:var(--cream);padding:1.4rem 1.3rem 1.4rem 1.5rem;border-left:2px solid var(--olive-cream);}
+.about-full-bio-inner p{font-size:.83rem;line-height:2;color:var(--muted);margin-bottom:1rem;}
+.about-full-bio-inner p:last-child{margin-bottom:0;}
+.about-full-bio-inner strong{color:var(--olive);font-weight:500;}
+
 /* ABOUT */
 .about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
 .about-img-wrap{position:relative;}
@@ -325,6 +355,10 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
   .testi-grid{grid-template-columns:repeat(2,1fr);}
   .footer-top{grid-template-columns:1fr 1fr;}
   .sec{padding:4.5rem 5%;}
+}
+
+@media(max-width:768px){
+  .about-cards{grid-template-columns:1fr;}
 }
 @media(max-width:768px){
   .nav-links{display:none;}
@@ -505,25 +539,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>Klinik Deneyim</span>
       </div>
     </div>
-    <div>
-      <div class="sec-tag fi">Hakkımda</div>
-      <h2 class="sec-title fi">Uzm. Klinik Psk.<br><em style="font-style:italic;color:var(--olive)">Esra Çalış Yılmaz</em></h2>
-      <div class="about-text fi">
-        <p><strong>Uzman Klinik Psikolog Esra Çalış Yılmaz</strong>; lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü onur derecesiyle tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını "Prenatal (Doğum öncesi) Dönemin yetişkinlik yaşantısıyla ilişkisi" konulu çalışması ile tamamladı.
-EMDR Avrupa onaylı EMDR Eğitmeni Asena Yurtsever tarafından düzenlenen EMDR (Göz Hareketleriyle Duyarsızlaştırma ve Yeniden İşleme) 1. Ve 2. Düzey eğitimini ve ardından 'EMDR terapisi ile Yetişkinlerde Bağlanma Travmaları' eğitimini tamamladı. Prof. Dr. Önder Kavakçı tarafından düzenlenen 'Gebelik ve EMDR' eğitimi ile gebelik sürecinde travmalar, doğum korkusu, kayıp deneyimleri ve annelik kaygılarıyla aktif olarak çalışmaktadır. 
-          Wellness Institute akredite eğitmeni Reyhana Seedat'tan "Kalp Merkezli Hipnoterapi" eğitimi alarak yetişkinler ve çocuklarla uygulamaya başladı.
-Oyun Terapileri Derneği tarafından düzenlenen, Association for Play Therapy (APT) onaylı ve tescilli Oyun Terapisti ve Eğitmeni Birgül Emiroğlu Bakay'ın "Çocuk Merkezli Oyun Terapisi" eğitimini ve (APT) onaylı terapist Dr. Mary Fry tarafından psiko-eğitimsel bir yaklaşım olan Filial Terapi eğitimini tamamladı. Marshall Lyles'ın Association for Play Therapy (APT) tarafından onaylı "Travma ve Bağlanma Odaklı İleri Seviye Kum Tepsisi Terapisi" eğitimini tamamladı. 
-          Rorschach ve Projektif Testler Derneğinde Neslihan Zabcı tarafından verilen ve 2 yıl süren Çocuğun Ruhsal İşleyişinin Değerlendirilmesi (Rorschach ve CAT) eğitimini tamamlamış olup süpervizyon sürecine devam etmektedir.
-İstanbul Üniversitesi Sürekli Eğitim Merkezi tarafından düzenlenen çocukların bilişsel süreçlerini değerlendirmek amacıyla yapılan CAS Testi (Cognitive Assesment System) eğitimini tamamlayarak aktif olarak uygulamaktadır. Yine İstanbul Üniversitesi Sürekli Eğitim Merkezi'nde Tamer Ergin tarafından verilen "YBT-PASS Öğrenme Problemlerine Bilişsel Müdahale Programı" eğitimi aldı ve çocuklarla Bilişsel Müdahale Programı ile çalışmalarını sürdürmektedir. 
-          MOXO Türkiye tarafından Çeldiricili Dikkat Testi olarak tanımlanan, çocuk-ergen ve yetişkinlerde Dikkat, Zamanlama, Dürtüsellik ve Hiperaktivite performansını ölçen MOXO test eğitimini tamamlamış ve aktif olarak uygulamaktadır.
-Sınavlara yönelik bir performans geliştirme programı olan PERGEL programını Dr. Olcay Güner'den alarak sınav kaygısı yaşayan öğrencilerle aktif olarak çalışmalarını sürdürmektedir. Millî Eğitim Bakanlığı onaylı 450 saatlik Aile Danışmanlığı eğitimini tamamladı.
-Çocukların yaşlara göre gelişimlerini gözlemlemek amacıyla çeşitli anaokullarında stajlar yaptı. Bakırköy Adliyesi'nde suça sürüklenen çocukların topluma kazandırılması amacıyla çeşitli çalışmalar yürüttü. Lisans dönemi boyunca birçok sivil toplum kuruluşlarında gönüllü olarak yapılan çalışmalarda yer aldı. 
-          Kanserli Çocuklara Umut Vakfı'nda Çocuk Evi Etkinlik Gönüllüsü ve Aile Evi Destek gönüllüsü olarak aktif olarak yer aldı. "Sanatla Hayata Renk Kat" projesiyle Cerrahpaşa Tıp Fakültesi hastanesi Onkoloji servisinde çocuklara psikososyal destek vermek amacıyla çalışmalar gerçekleştirmiştir. 
-          Çocuk, ergen ve yetişkin bireyler ile ilişki ve bağlanma güçlükleri, panik bozuklukları, depresyon, stres, performans kaygısı, yas süreçleri, kronik ağrı rahatsızlıkları, bağımlılık sorunları, davranışsal zorluklar, özgüven eksiklikleri, çocuklarda oryantasyon ve okula uyum problemleri, kaygı, korku, öfke, ve kompleks travmalar gibi çeşitli psikolojik konularda destek sağlamaktadır.
-Çocuk Merkezli Oyun Terapisi, Filial Terapi, Bilişsel Davranışçı Terapi, Kısa Süreli Çözüm Odaklı Terapi, EMDR, Kalp Merkezli Hipnoterapi, Kum Tepsisi Terapisi eğitim ve süpervizyonlarını tamamlayarak seanslarını eklektik biçimde sürdürmektedi
-        </p>
+    <div class="fi">
+      <div class="sec-tag">Hakkımda</div>
+      <h2 class="sec-title">Uzm. Klinik Psk.<br><em style="font-style:italic;color:var(--olive)">Esra Çalış Yılmaz</em></h2>
+
+      <p class="about-bio-quote">Çocukluktan yetişkinliğe, her hikayenin kendi dilini konuştuğuna inanan ve buna göre çalışan bir klinik psikolog.</p>
+
+      <div class="about-who">
+        <span class="about-who-item">Çocuklar</span>
+        <div class="about-who-dot"></div>
+        <span class="about-who-item">Ergenler</span>
+        <div class="about-who-dot"></div>
+        <span class="about-who-item">Yetişkinler</span>
+        <div class="about-who-dot"></div>
+        <span class="about-who-item">Aileler</span>
+        <div class="about-who-dot"></div>
+        <span class="about-who-item">Yüz yüze &amp; Online</span>
       </div>
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-p fi" style="margin-top:.5rem;" target="_blank" rel="noopener">Ücretsiz Ön Görüşme</a>
+
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h4>Çocuk &amp; Ergen</h4>
+          <p>Oyun terapisi, Filial Terapi, CAS ve MOXO ile gelişimsel destek.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <h4>Travma &amp; EMDR</h4>
+          <p>EMDR, Hipnoterapi ve Kum Tepsisi ile travma çalışması.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h4>Yetişkin &amp; Aile</h4>
+          <p>Bireysel terapi, aile danışmanlığı ve çözüm odaklı yaklaşım.</p>
+        </div>
+      </div>
+
+      <button class="about-expand-btn" id="aboutBioBtn" onclick="toggleAboutBio()">
+        Tam biyografiyi oku
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+
+      <div class="about-full-bio" id="aboutFullBio">
+        <div class="about-full-bio-inner">
+          <p><strong>Uzman Klinik Psikolog Esra Çalış Yılmaz</strong>, lisans eğitimini Nişantaşı Üniversitesi Psikoloji bölümünü <strong>onur derecesiyle</strong> tamamladı. Arel Üniversitesi Klinik Psikoloji Yüksek Lisans programını <em>"Prenatal (Doğum öncesi) Dönemin yetişkinlik yaşantısıyla ilişkisi"</em> konulu tezi ile bitirdi.</p>
+          <p>EMDR Avrupa onaylı eğitmen <strong>Asena Yurtsever</strong>'den EMDR 1. ve 2. Düzey eğitimlerini ve "EMDR Terapisi ile Yetişkinlerde Bağlanma Travmaları" eğitimini tamamladı. <strong>Prof. Dr. Önder Kavakçı</strong>'dan "Gebelik ve EMDR" eğitimi alarak gebelik sürecindeki travmalar, doğum korkusu, kayıp deneyimleri ve annelik kaygılarıyla aktif olarak çalışmaktadır.</p>
+          <p>Wellness Institute akredite eğitmeni <strong>Reyhana Seedat</strong>'tan <em>"Kalp Merkezli Hipnoterapi"</em> eğitimi alarak yetişkinler ve çocuklarla uygulamaya başladı.</p>
+          <p>APT onaylı Oyun Terapisti ve Eğitmeni <strong>Birgül Emiroğlu Bakay</strong>'dan <em>"Çocuk Merkezli Oyun Terapisi"</em>; APT onaylı terapist <strong>Dr. Mary Fry</strong>'dan <em>Filial Terapi</em>; <strong>Marshall Lyles</strong>'tan <em>"Travma ve Bağlanma Odaklı İleri Seviye Kum Tepsisi Terapisi"</em> eğitimlerini tamamladı.</p>
+          <p>Rorschach ve Projektif Testler Derneği'nde <strong>Neslihan Zabcı</strong>'dan 2 yıl süren <em>Rorschach ve CAT</em> eğitimini tamamlayarak süpervizyon sürecine devam etmektedir. İstanbul Üniversitesi bünyesinde <strong>CAS Testi</strong>, <strong>YBT-PASS Bilişsel Müdahale Programı</strong> ve <strong>MOXO Dikkat Testi</strong> eğitimlerini alarak aktif biçimde uygulamaktadır.</p>
+          <p><strong>Dr. Olcay Güner</strong>'den PERGEL Performans Programı eğitimi alarak sınav kaygısı yaşayan öğrencilerle çalışmalarını sürdürmektedir. <strong>Millî Eğitim Bakanlığı</strong> onaylı 450 saatlik Aile Danışmanlığı eğitimini tamamladı.</p>
+          <p>Çeşitli anaokullarında staj yaptı; Bakırköy Adliyesi'nde suça sürüklenen çocuklarla topluma kazandırma çalışmaları yürüttü. <strong>Kanserli Çocuklara Umut Vakfı</strong>'nda Çocuk Evi ve Aile Evi gönüllüsü olarak görev yaptı. <em>"Sanatla Hayata Renk Kat"</em> projesiyle Cerrahpaşa Tıp Fakültesi Onkoloji Servisi'nde çocuklara psikososyal destek verdi.</p>
+          <p>Çocuk, ergen ve yetişkin bireylerle; ilişki ve bağlanma güçlükleri, panik bozuklukları, depresyon, stres, performans kaygısı, yas süreçleri, kronik ağrı, bağımlılık, davranışsal zorluklar, özgüven eksiklikleri, okula uyum ve kompleks travmalar gibi geniş bir yelpazede çalışmaktadır.</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-p" style="margin-top:1.2rem;display:inline-flex;" target="_blank" rel="noopener">Ücretsiz Ön Görüşme</a>
     </div>
   </div>
 </section>
@@ -956,6 +1026,17 @@ document.getElementById('cForm').addEventListener('submit',async(e)=>{
     btn.textContent='Mesaj Gönder';btn.disabled=false;
   }
 });
+
+
+// About Bio Toggle
+function toggleAboutBio(){
+  const bio=document.getElementById('aboutFullBio');
+  const btn=document.getElementById('aboutBioBtn');
+  const isOpen=bio.classList.contains('open');
+  bio.classList.toggle('open');
+  btn.classList.toggle('open');
+  btn.firstChild.textContent=isOpen?'Tam biyografiyi oku':'Kapat ';
+}
 
 // Blog Modals
 const modalData = {
