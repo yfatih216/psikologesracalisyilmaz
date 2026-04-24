@@ -446,6 +446,10 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 .cta-strip-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--dark);padding:.9rem 2.2rem;border-radius:2px;text-decoration:none;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,transform .2s;}
 .cta-strip-btn:hover{background:#c8a84b;transform:translateY(-2px);}
 .cta-strip-btn svg{width:16px;height:16px;fill:currentColor;}
+
+.modal-cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;}
+.blog-modal-cta-mail{background:transparent;color:var(--olive);border:1.5px solid var(--olive);}
+.blog-modal-cta-mail:hover{background:var(--olive-cream);}
 </style>
 </head>
 <body>
@@ -1063,6 +1067,18 @@ document.getElementById('cForm').addEventListener('submit',async(e)=>{
 
 
 // About Bio Toggle
+
+function toggleContactPopup(btn) {
+  const popup = document.getElementById('ctaPopup');
+  popup.classList.toggle('open');
+  document.addEventListener('click', function handler(e) {
+    if (!btn.closest('.contact-popup-wrap').contains(e.target)) {
+      popup.classList.remove('open');
+      document.removeEventListener('click', handler);
+    }
+  });
+}
+
 function toggleAboutBio(){
   const bio=document.getElementById('aboutFullBio');
   const btn=document.getElementById('aboutBioBtn');
@@ -1093,7 +1109,16 @@ const modalData = {
       </ul>
       <h3>Neden Etkili?</h3>
       <p>EMDR, geleneksel terapilerin aksine olayı uzun uzun konuşmayı gerektirmez. Beyin, anıyı yeniden işleyerek duygusal yükünü azaltır. Sonunda olay hatırlanabilir olmaya devam eder, ancak artık travmatik bir şarj taşımaz — sadece geçmişte kalmış bir deneyim hâline gelir.</p>
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20EMDR%20terapisi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">EMDR hakkında bilgi al</a>
+      <div class="modal-cta-row">
+        <a href="https://wa.me/905519893235?text=Merhaba%2C%20EMDR%20terapisi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20EMDR%20hakkında%20bilgi%20al%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta blog-modal-cta-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-posta
+        </a>
+      </div>
     `
   },
   hipno: {
@@ -1115,7 +1140,16 @@ const modalData = {
       </ul>
       <h3>Seanslar Nasıl İlerler?</h3>
       <p>Her seans güvenli bir rahatlamayla başlar. Bilinçdışındaki olumsuz inanç ve duygulara ulaşılır; yargısız bir alanda yeniden işlenerek olumlu kaynaklar ve güçlü hislerin yerleşmesi desteklenir. Çocuklar ve yetişkinlerle uygulanabilir.</p>
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20Kalp%20Merkezli%20Hipnoterapi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">Hipnoterapi hakkında bilgi al</a>
+      <div class="modal-cta-row">
+        <a href="https://wa.me/905519893235?text=Merhaba%2C%20Kalp%20Merkezli%20Hipnoterapi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20Hipnoterapi%20hakkında%20bilgi%20al%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta blog-modal-cta-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-posta
+        </a>
+      </div>
     `
   },
   cas: {
@@ -1136,7 +1170,16 @@ const modalData = {
       </ul>
       <h3>Erken Değerlendirmenin Önemi</h3>
       <p>Erken dönemde yapılan kapsamlı değerlendirme, çocuğun hayatı boyunca kullanacağı güçlü öğrenme mekanizmalarını kazanmasına zemin hazırlar. Sorunu isimlendirmek, çözümün ilk adımıdır.</p>
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20CAS%20testi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">CAS değerlendirmesi için bilgi al</a>
+      <div class="modal-cta-row">
+        <a href="https://wa.me/905519893235?text=Merhaba%2C%20CAS%20testi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20CAS%20değerlendirmesi%20için%20bilgi%20al%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta blog-modal-cta-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-posta
+        </a>
+      </div>
     `
   },
   duygusal: {
@@ -1157,7 +1200,16 @@ const modalData = {
       </ul>
       <h3>Nasıl Bir Süreç?</h3>
       <p>Değerlendirme süreci, çocuğu yargılamaz; onu anlamayı hedefler. Oyun temelli gözlemler, standart testler ve ebeveyn görüşmeleriyle bütünsel bir tablo oluşturulur. Bu tablo, terapötik çalışmanın en doğru yola girmesini sağlar.</p>
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20%C3%A7ocu%C4%9Fum%20i%C3%A7in%20de%C4%9Flendirme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">Değerlendirme için bilgi al</a>
+      <div class="modal-cta-row">
+        <a href="https://wa.me/905519893235?text=Merhaba%2C%20%C3%A7ocu%C4%9Fum%20i%C3%A7in%20de%C4%9Flendirme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20Değerlendirme%20için%20bilgi%20al%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta blog-modal-cta-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-posta
+        </a>
+      </div>
     `
   },
   kum: {
@@ -1178,7 +1230,16 @@ const modalData = {
       </ul>
       <h3>Bilimsel Temeli</h3>
       <p>Carl Jung ve Margaret Lowenfeld'in çalışmalarından doğan kum tepsi terapisi, bugün travma odaklı ve bağlanma temelli yaklaşımlarla zenginleştirilmiş bir yöntemdir. Seans sonunda dokunusal deneyim, zihinsel organizasyonu destekler; odaklanma becerisini ve duygusal düzenlemeyi güçlendirir.</p>
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20Kum%20Tepsi%20Terapisi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">Kum tepsi terapisi için bilgi al</a>
+      <div class="modal-cta-row">
+        <a href="https://wa.me/905519893235?text=Merhaba%2C%20Kum%20Tepsi%20Terapisi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20Kum%20tepsi%20terapisi%20için%20bilgi%20al%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta blog-modal-cta-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-posta
+        </a>
+      </div>
     `
   },
   oyun: {
@@ -1201,7 +1262,16 @@ const modalData = {
       </ul>
       <h3>Ebeveynler Sürecin Neresinde?</h3>
       <p>Oyun terapisi yalnızca çocuğu değil, aileyi de dönüştürür. Filial Terapi gibi ebeveyn destekli yaklaşımlarla anne-baba da çocuğun terapötik oyun ortağı hâline gelir. Bu, hem bağlanmayı güçlendirir hem de kazanılan becerilerin günlük hayata taşınmasını sağlar.</p>
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20Oyun%20Terapisi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">Oyun terapisi için bilgi al</a>
+      <div class="modal-cta-row">
+        <a href="https://wa.me/905519893235?text=Merhaba%2C%20Oyun%20Terapisi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20Oyun%20terapisi%20için%20bilgi%20al%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="blog-modal-cta blog-modal-cta-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-posta
+        </a>
+      </div>
     `
   }
 };
