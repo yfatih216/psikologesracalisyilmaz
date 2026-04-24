@@ -443,8 +443,11 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 .cta-strip-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3vw,2.4rem);font-weight:400;color:#fff;line-height:1.3;margin-bottom:.6rem;}
 .cta-strip-title em{font-style:italic;color:var(--gold);}
 .cta-strip-sub{font-size:.82rem;color:rgba(255,255,255,.65);margin-bottom:2rem;line-height:1.7;}
+.cta-strip-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 .cta-strip-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--dark);padding:.9rem 2.2rem;border-radius:2px;text-decoration:none;font-family:'Jost',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,transform .2s;}
 .cta-strip-btn:hover{background:#c8a84b;transform:translateY(-2px);}
+.cta-strip-btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);}
+.cta-strip-btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px);}
 .cta-strip-btn svg{width:16px;height:16px;fill:currentColor;}
 
 .modal-cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;}
@@ -813,10 +816,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cta-strip-tag">İlk Adım</div>
     <h2 class="cta-strip-title">Değişim için<br><em>doğru zamanlama şimdi.</em></h2>
     <p class="cta-strip-sub">Sorularınızı paylaşın, size en uygun seans seçeneğini birlikte belirleyelim.<br>Yüz yüze · Online · Esnek randevu</p>
-    <a href="#" class="cta-strip-btn" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20randevu%20almak%20istiyorum.')">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.97 0C5.373 0 0 5.373 0 11.97c0 2.096.546 4.14 1.587 5.945L0 24l6.305-1.654A11.932 11.932 0 0011.97 23.94C18.566 23.94 24 18.567 24 11.97 24 5.373 18.566 0 11.97 0zm0 21.908a9.927 9.927 0 01-5.056-1.38l-.363-.215-3.742.981.999-3.648-.236-.374a9.928 9.928 0 01-1.522-5.302c0-5.484 4.462-9.946 9.946-9.946 5.483 0 9.945 4.462 9.945 9.946-.001 5.483-4.463 9.938-9.971 9.938z"/></svg>
-      Hemen Randevu Al
-    </a>
+    <div class="cta-strip-actions">
+      <a href="https://wa.me/905519893235?text=Merhaba%2C%20randevu%20almak%20istiyorum." class="cta-strip-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        WhatsApp ile Yaz
+      </a>
+      <a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20randevu%20almak%20istiyorum." class="cta-strip-btn cta-strip-btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        E-posta Gönder
+      </a>
+    </div>
   </div>
 </div>
 
@@ -903,6 +912,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cnt-item">
         <div class="cnt-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
         <div class="cnt-txt"><strong>WhatsApp / Telefon</strong><a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">0551 989 32 35</a></div>
+      </div>
+      <div class="cnt-item">
+        <div class="cnt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="cnt-txt"><strong>E-posta</strong><a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20randevu%20almak%20istiyorum.">pskesracalis@gmail.com</a></div>
       </div>
       <div class="cnt-item">
         <div class="cnt-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
