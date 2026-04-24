@@ -92,8 +92,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --gold:#c9a96e;--gold-light:#e8d5a8;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;color:var(--text);background:var(--warm);overflow-x:hidden;width:100%;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:'Jost',sans-serif;color:var(--text);background:var(--warm);overflow-x:hidden;width:100%;max-width:100%;}
 /* LOADER */
 #loader{position:fixed;inset:0;z-index:9999;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .6s ease,visibility .6s ease;}
 #loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
@@ -393,6 +393,25 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
   .footer-bot{flex-direction:column;align-items:flex-start;}
   .map-sec iframe{height:240px;}
   .quote-sec{padding:2.5rem 4%;}
+  /* CTA Strip mobile */
+  .cta-strip{padding:3.5rem 4%;}
+  .cta-strip-actions{flex-direction:column;align-items:center;gap:.75rem;}
+  .cta-strip-btn{width:100%;max-width:300px;justify-content:center;}
+  /* About who - wrap on mobile */
+  .about-who{flex-wrap:wrap;gap:.4rem;}
+  /* Modal tabs mobile */
+  .blog-modal-tabs{padding:0 1rem;margin:-1.4rem -1.4rem 1.2rem;}
+  .blog-modal{padding:1.4rem;}
+  .blog-modal-title{font-size:1.3rem;}
+  /* Uni popup full width on mobile */
+  .uni-popup{min-width:92vw;left:4vw !important;}
+  /* Dual modal CTA row */
+  .modal-cta-row{flex-direction:column;gap:.5rem;}
+  .modal-cta-row .blog-modal-cta{width:100%;justify-content:center;}
+  /* About cards grid */
+  .about-cards{grid-template-columns:1fr;}
+  /* Process section */
+  .process-grid{gap:1px;}
 }
 @media(max-width:480px){
   .sec{padding:3rem 4%;}
@@ -402,6 +421,12 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
   .footer-bot{align-items:center;text-align:center;}
   .seans-cnt{padding:2.5rem 4%;}
   .cnt-info,.cnt-form{padding:2.5rem 4%;}
+  .cta-strip{padding:3rem 4%;}
+  .cta-strip-title{font-size:1.6rem;}
+  .blog-modal-tab{font-size:.7rem;padding:.75rem .8rem .65rem;letter-spacing:.05em;}
+  .about-who-item{font-size:.85rem;}
+  .about-card{padding:.9rem .8rem;}
+  .sec-title{font-size:clamp(1.5rem,6vw,2rem);}
 }
 
 /* BLOG MODAL */
@@ -1114,12 +1139,21 @@ function showContactChoice(e, waUrl) {
   // Position near button
   const r = btn.getBoundingClientRect();
   const pw = 220, ph = 100;
-  let left = r.left + r.width/2 - pw/2;
-  let top = r.top - ph - 12 + window.scrollY;
-  if (left < 8) left = 8;
-  if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
-  if (top < window.scrollY + 8) top = r.bottom + 12 + window.scrollY;
-  popup.style.cssText = `position:absolute;left:${left}px;top:${top}px;`;
+  const isMobile = window.innerWidth < 600;
+  let left, top;
+  if (isMobile) {
+    left = window.innerWidth * 0.04;
+    const pw2 = window.innerWidth * 0.92;
+    top = r.bottom + 10 + window.scrollY;
+    popup.style.cssText = `position:absolute;left:${left}px;top:${top}px;width:${pw2}px;`;
+  } else {
+    left = r.left + r.width/2 - pw/2;
+    top = r.top - ph - 12 + window.scrollY;
+    if (left < 8) left = 8;
+    if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+    if (top < window.scrollY + 8) top = r.bottom + 12 + window.scrollY;
+    popup.style.cssText = `position:absolute;left:${left}px;top:${top}px;`;
+  }
   setTimeout(() => popup.classList.add('open'), 10);
   function outside(ev) {
     if (!popup.contains(ev.target) && ev.target !== btn) {
