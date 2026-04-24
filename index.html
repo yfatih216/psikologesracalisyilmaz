@@ -450,6 +450,14 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 .modal-cta-row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;}
 .blog-modal-cta-mail{background:transparent;color:var(--olive);border:1.5px solid var(--olive);}
 .blog-modal-cta-mail:hover{background:var(--olive-cream);}
+
+/* UNIVERSAL CONTACT CHOICE POPUP */
+.uni-popup{position:absolute;z-index:9999;background:var(--warm);border:1px solid var(--olive-mist);border-radius:4px;box-shadow:0 8px 28px rgba(42,46,36,.18);padding:.5rem;min-width:210px;opacity:0;transform:translateY(6px);transition:opacity .18s,transform .18s;pointer-events:none;}
+.uni-popup.open{opacity:1;transform:translateY(0);pointer-events:all;}
+.uni-popup-opt{display:flex;align-items:center;gap:.75rem;padding:.65rem 1rem;border-radius:2px;text-decoration:none;color:var(--dark);font-family:'Jost',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.05em;transition:background .15s;}
+.uni-popup-opt:hover{background:var(--cream);}
+.uni-popup-opt svg{width:17px;height:17px;flex-shrink:0;color:var(--olive);}
+.uni-popup-div{height:1px;background:var(--olive-mist);margin:.25rem 0;}
 </style>
 </head>
 <body>
@@ -495,7 +503,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><a href="#education">Eğitim</a></li>
     <li><a href="#services">Hizmetler</a></li>
     <li><a href="#contact">İletişim</a></li>
-    <li><a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="nav-cta" target="_blank" rel="noopener">Randevu Al</a></li>
+    <li><a href="#" class="nav-cta" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">Randevu Al</a></li>
   </ul>
   <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
 </nav>
@@ -505,7 +513,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="#education" onclick="cm()">Eğitim</a>
   <a href="#services" onclick="cm()">Hizmetler</a>
   <a href="#contact" onclick="cm()">İletişim</a>
-  <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="mob-cta" target="_blank" rel="noopener">Randevu Al</a>
+  <a href="#" class="mob-cta" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">Randevu Al</a>
 </div>
 <!-- HERO -->
 <section class="hero" id="home">
@@ -516,7 +524,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1 class="fi">Esra Çalış <em>Yılmaz</em></h1>
     <p class="hero-sub fi">Çocuk, ergen ve yetişkin bireyler için bilimsel temelli, bütüncül ve danışan odaklı psikolojik danışmanlık ve terapi hizmetleri.</p>
     <div class="hero-actions fi">
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-p" target="_blank" rel="noopener">
+      <a href="#" class="btn-p" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
         Randevu Al
       </a>
@@ -616,7 +624,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-p" style="margin-top:1.2rem;display:inline-flex;" target="_blank" rel="noopener">Ücretsiz Ön Görüşme</a>
+      <a href="#" class="btn-p" style="margin-top:1.2rem;display:inline-flex;" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">Ücretsiz Ön Görüşme</a>
     </div>
   </div>
 </section>
@@ -764,7 +772,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li>Eklektik ve bilimsel temelli yaklaşım</li>
       <li>İstanbul Göktürk'te </li>
     </ul>
-    <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="btn-w" target="_blank" rel="noopener">WhatsApp ile Randevu Al</a>
+    <a href="#" class="btn-w" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">Randevu Al</a>
   </div>
 </div>
 <!-- TESTIMONIALS -->
@@ -805,7 +813,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cta-strip-tag">İlk Adım</div>
     <h2 class="cta-strip-title">Değişim için<br><em>doğru zamanlama şimdi.</em></h2>
     <p class="cta-strip-sub">Sorularınızı paylaşın, size en uygun seans seçeneğini birlikte belirleyelim.<br>Yüz yüze · Online · Esnek randevu</p>
-    <a href="https://wa.me/905519893235?text=Merhaba%2C%20randevu%20almak%20istiyorum." class="cta-strip-btn" target="_blank" rel="noopener">
+    <a href="#" class="cta-strip-btn" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20randevu%20almak%20istiyorum.')">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.97 0C5.373 0 0 5.373 0 11.97c0 2.096.546 4.14 1.587 5.945L0 24l6.305-1.654A11.932 11.932 0 0011.97 23.94C18.566 23.94 24 18.567 24 11.97 24 5.373 18.566 0 11.97 0zm0 21.908a9.927 9.927 0 01-5.056-1.38l-.363-.215-3.742.981.999-3.648-.236-.374a9.928 9.928 0 01-1.522-5.302c0-5.484 4.462-9.946 9.946-9.946 5.483 0 9.945 4.462 9.945 9.946-.001 5.483-4.463 9.938-9.971 9.938z"/></svg>
       Hemen Randevu Al
     </a>
@@ -852,7 +860,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="faq-a">
         <div class="faq-a-inner">
           WhatsApp üzerinden hızlıca iletişime geçebilirsiniz. Mesajınız anında iletilir ve en kısa sürede dönüş yapılır.<br><br>
-          <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">→ WhatsApp ile hemen randevu al</a>
+          <a href="#" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">→ WhatsApp ile hemen randevu al</a>
         </div>
       </div>
     </div>
@@ -864,7 +872,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="faq-a">
         <div class="faq-a-inner">
           WhatsApp üzerinden veya bu sayfadaki iletişim formunu doldurarak kolayca randevu talep edebilirsiniz. İlk adımı atmak yeterli — gerisini birlikte planlayalım.<br><br>
-          <a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">→ WhatsApp ile hemen randevu al</a>
+          <a href="#" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">→ WhatsApp ile hemen randevu al</a>
         </div>
       </div>
     </div>
@@ -991,6 +999,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h5>İletişim</h5>
       <ul>
         <li><a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">0551 989 32 35</a></li>
+        <li><a href="mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi">pskesracalis@gmail.com</a></li>
         <li><a href="https://instagram.com/psikologesracalis" target="_blank" rel="noopener">@psikologesracalis</a></li>
         <li><a href="#contact">Göktürk, Eyüpsultan</a></li>
       </ul>
@@ -1068,6 +1077,46 @@ document.getElementById('cForm').addEventListener('submit',async(e)=>{
 
 // About Bio Toggle
 
+function showContactChoice(e, waUrl) {
+  e.preventDefault(); e.stopPropagation();
+  // Remove any existing popup
+  const old = document.getElementById('uniPopup');
+  if (old) { old.remove(); return; }
+  const btn = e.currentTarget;
+  const mailHref = 'mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20randevu%20almak%20istiyorum.';
+  const popup = document.createElement('div');
+  popup.id = 'uniPopup';
+  popup.className = 'uni-popup';
+  popup.innerHTML = `
+    <a href="${waUrl}" class="uni-popup-opt" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      WhatsApp ile Yaz
+    </a>
+    <div class="uni-popup-div"></div>
+    <a href="${mailHref}" class="uni-popup-opt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      E-posta Gönder
+    </a>`;
+  document.body.appendChild(popup);
+  // Position near button
+  const r = btn.getBoundingClientRect();
+  const pw = 220, ph = 100;
+  let left = r.left + r.width/2 - pw/2;
+  let top = r.top - ph - 12 + window.scrollY;
+  if (left < 8) left = 8;
+  if (left + pw > window.innerWidth - 8) left = window.innerWidth - pw - 8;
+  if (top < window.scrollY + 8) top = r.bottom + 12 + window.scrollY;
+  popup.style.cssText = `position:absolute;left:${left}px;top:${top}px;`;
+  setTimeout(() => popup.classList.add('open'), 10);
+  function outside(ev) {
+    if (!popup.contains(ev.target) && ev.target !== btn) {
+      popup.classList.remove('open');
+      setTimeout(() => popup.remove(), 200);
+      document.removeEventListener('click', outside);
+    }
+  }
+  setTimeout(() => document.addEventListener('click', outside), 50);
+}
 function toggleContactPopup(btn) {
   const popup = document.getElementById('ctaPopup');
   popup.classList.toggle('open');
