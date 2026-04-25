@@ -319,6 +319,14 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .blog-card-text{font-size:.78rem;line-height:1.7;color:var(--muted);}
 .blog-card-cta{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);margin-top:.8rem;font-weight:500;}
 .blog-card-cta svg{width:12px;height:12px;stroke:var(--olive);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+/* BLOG CATEGORIES */
+.blog-categories{margin-top:2.5rem;}
+.blog-cat-group{margin-bottom:3rem;}
+.blog-cat-group:last-child{margin-bottom:0;}
+.blog-cat-label{font-family:'Jost',sans-serif;font-size:.67rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;padding-bottom:.75rem;border-bottom:1px solid var(--olive-mist);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;}
+.blog-cat-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--olive);}
+.blog-cat-group .blog-grid{margin-top:0;grid-template-columns:repeat(3,1fr);}
+.blog-card-soon{opacity:.55;pointer-events:none;cursor:default;}
 /* QUOTE */
 .quote-sec{background:var(--olive);padding:3.5rem 6%;text-align:center;}
 .quote-sec blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:300;font-style:italic;color:#fff;max-width:660px;margin:0 auto .8rem;line-height:1.5;}
@@ -826,83 +834,118 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="sec blog-section">
   <div class="sec-tag fi">Bilgi & Farkındalık</div>
   <h2 class="sec-title fi">Terapide <em style="font-style:italic;color:var(--olive-light)">Ne, Neden?</em></h2>
-  <div class="blog-grid">
+  <div class="blog-categories">
 
-    <!-- 1. EMDR -->
-    <div class="blog-card fi" onclick="openModal('emdr')">
-      <div class="blog-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-tag">Terapi Yöntemi</div>
-        <div class="blog-card-title">EMDR'nin Mantığı: Zihnimizin Kendi Onarma Sistemi</div>
-        <div class="blog-card-text">Travmalar bazen zihnimizde "donmuş" kalır. EMDR, beynin doğal iyileşme kapasitesini nasıl devreye sokar?</div>
-        <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+    <!-- CATEGORY 1: Çocuk ve Gelişim -->
+    <div class="blog-cat-group">
+      <div class="blog-cat-label">Çocuk ve Gelişim</div>
+      <div class="blog-grid">
+
+        <!-- OYUN TERAPİSİ -->
+        <div class="blog-card fi" onclick="openDualModal('oyun','cas')">
+          <div class="blog-card-icon">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Çocuk Terapisi</div>
+            <div class="blog-card-title">Oyun Terapisi Çocuğunuza Ne Kazandırır?</div>
+            <div class="blog-card-text">Oyun çocuğun dilidir. Terapi odasında bu dili kullanmak neden bu kadar güçlü bir iyileşme yolu?</div>
+            <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </div>
+
+        <!-- NEDEN CAS -->
+        <div class="blog-card fi" onclick="openModal('cas')">
+          <div class="blog-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Bilişsel Değerlendirme</div>
+            <div class="blog-card-title">Öğrenme Yolculuğuna Bilimsel Bir Bakış: Neden CAS?</div>
+            <div class="blog-card-text">Klasik zeka testlerinin göremediğini CAS görür. Çocuğunuzun potansiyelini tam olarak anlamak için.</div>
+            <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </div>
+
+        <!-- ÇOCUKLAR İÇİN DUYGUSAL DEĞERLENDİRME -->
+        <div class="blog-card fi" onclick="openModal('duygusal')">
+          <div class="blog-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Çocuk Psikolojisi</div>
+            <div class="blog-card-title">Çocuklar İçin Duygusal Değerlendirme Neden Önemlidir?</div>
+            <div class="blog-card-text">Çocuklar yetişkinler gibi hissettiklerini anlatamaz. Erken değerlendirme neden hayat değiştirir?</div>
+            <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- 2. KALP MERKEZLİ HİPNOTERAPİ -->
-    <div class="blog-card fi" onclick="openDualModal('hipno','emdr')">
-      <div class="blog-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-tag">Terapi Yöntemi</div>
-        <div class="blog-card-title">Kalp Merkezli Hipnoterapi: Derinliklere Yolculuk</div>
-        <div class="blog-card-text">Bilinçdışı engellerinizi nazikçe aşarak köklü değişim sağlayan bu yöntem nedir, kime uygun?</div>
-        <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+    <!-- CATEGORY 2: Travma ve Terapi Yöntemleri -->
+    <div class="blog-cat-group">
+      <div class="blog-cat-label">Travma ve Terapi Yöntemleri</div>
+      <div class="blog-grid">
+
+        <!-- EMDR -->
+        <div class="blog-card fi" onclick="openModal('emdr')">
+          <div class="blog-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Terapi Yöntemi</div>
+            <div class="blog-card-title">EMDR'nin Mantığı: Zihnimizin Kendi Onarma Sistemi</div>
+            <div class="blog-card-text">Travmalar bazen zihnimizde "donmuş" kalır. EMDR, beynin doğal iyileşme kapasitesini nasıl devreye sokar?</div>
+            <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </div>
+
+        <!-- KALP MERKEZLİ HİPNOTERAPİ -->
+        <div class="blog-card fi" onclick="openDualModal('hipno','emdr')">
+          <div class="blog-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Terapi Yöntemi</div>
+            <div class="blog-card-title">Kalp Merkezli Hipnoterapi: Derinliklere Yolculuk</div>
+            <div class="blog-card-text">Bilinçdışı engellerinizi nazikçe aşarak köklü değişim sağlayan bu yöntem nedir, kime uygun?</div>
+            <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </div>
+
+        <!-- KUM TEPSİ -->
+        <div class="blog-card fi" onclick="openModal('kum')">
+          <div class="blog-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Terapi Yöntemi</div>
+            <div class="blog-card-title">Kum Tepsi Terapisi: Kelimelerin Yetmediği Yerde Başlayan İyileşme</div>
+            <div class="blog-card-text">Küçük figürler, kum ve sınırsız bir iç dünya. Anlatılamayan tam burada kendini bulur.</div>
+            <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- 3. NEDEN CAS -->
-    <div class="blog-card fi" onclick="openModal('cas')">
-      <div class="blog-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-tag">Bilişsel Değerlendirme</div>
-        <div class="blog-card-title">Öğrenme Yolculuğuna Bilimsel Bir Bakış: Neden CAS?</div>
-        <div class="blog-card-text">Klasik zeka testlerinin göremediğini CAS görür. Çocuğunuzun potansiyelini tam olarak anlamak için.</div>
-        <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </div>
+    <!-- CATEGORY 3: Yetişkin Psikolojisi -->
+    <div class="blog-cat-group">
+      <div class="blog-cat-label">Yetişkin Psikolojisi</div>
+      <div class="blog-grid">
 
-    <!-- 4. ÇOCUKLAR İÇİN DUYGUSAL DEĞERLENDİRME -->
-    <div class="blog-card fi" onclick="openModal('duygusal')">
-      <div class="blog-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-tag">Çocuk Psikolojisi</div>
-        <div class="blog-card-title">Çocuklar İçin Duygusal Değerlendirme Neden Önemlidir?</div>
-        <div class="blog-card-text">Çocuklar yetişkinler gibi hissettiklerini anlatamaz. Erken değerlendirme neden hayat değiştirir?</div>
-        <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </div>
+        <div class="blog-card fi blog-card-soon">
+          <div class="blog-card-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-tag">Yakında</div>
+            <div class="blog-card-title">Kaygı, bağlanma ve kimlik üzerine yeni içerikler yolda</div>
+            <div class="blog-card-text">İlişki örüntüleri, yetişkin gelişimi ve psikolojik dönüşüm üzerine farkındalık yazıları çok yakında burada.</div>
+          </div>
+        </div>
 
-    <!-- 5. KUM TEPSİ -->
-    <div class="blog-card fi" onclick="openModal('kum')">
-      <div class="blog-card-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-tag">Terapi Yöntemi</div>
-        <div class="blog-card-title">Kum Tepsi Terapisi: Kelimelerin Yetmediği Yerde Başlayan İyileşme</div>
-        <div class="blog-card-text">Küçük figürler, kum ve sınırsız bir iç dünya. Anlatılamayan tam burada kendini bulur.</div>
-        <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-      </div>
-    </div>
-
-    <!-- 6. OYUN TERAPİSİ -->
-    <div class="blog-card fi" onclick="openDualModal('oyun','cas')">
-      <div class="blog-card-icon">
-        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-tag">Çocuk Terapisi</div>
-        <div class="blog-card-title">Oyun Terapisi Çocuğunuza Ne Kazandırır?</div>
-        <div class="blog-card-text">Oyun çocuğun dilidir. Terapi odasında bu dili kullanmak neden bu kadar güçlü bir iyileşme yolu?</div>
-        <span class="blog-card-cta">Devamını oku <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </div>
     </div>
 
