@@ -206,6 +206,11 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .about-text p strong{color:var(--olive);font-weight:500;}
 /* EDUCATION */
 .education-section{background:var(--warm);}
+.edu-more-btn{margin-top:1rem;background:none;border:1.5px solid var(--olive);color:var(--olive);padding:.6rem 1.4rem;border-radius:2rem;cursor:pointer;font-size:.9rem;display:flex;align-items:center;gap:.4rem;transition:all .3s;}
+.edu-more-btn:hover{background:var(--olive);color:#fff;}
+.edu-more-btn svg{transition:transform .3s;}
+.edu-more-btn.open svg{transform:rotate(180deg);}
+.edu-more-wrap{margin-top:0;}
 .edu-full-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.5rem;}
 .edu-block h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--olive);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid var(--olive-mist);}
 .edu-card{background:var(--cream);padding:1.2rem 1.4rem;border-radius:2px;border-left:3px solid var(--olive);margin-bottom:.8rem;}
@@ -690,18 +695,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="edu-card"><h4>EMDR & Bağlanma</h4><p>Ay Enstitüsü, Asena Yurtsever</p></div>
       <div class="edu-card"><h4>Gebelik ve EMDR</h4><p>Terapi Bilimleri Akademisi, Prof. Dr. Önder Kavakçı</p></div>
       <div class="edu-card"><h4>Kalp Merkezli Hipnoterapi</h4><p>Wellness Institute, Reyhana Seedat</p></div>
-      <div class="edu-card"><h4>Somatik Deneyimleme</h4><p>Travma odaklı beden temelli terapi</p></div>
-      <div class="edu-card"><h4>Çocuk Merkezli Oyun Terapisi</h4><p>Oyun Terapileri Derneği, Birgül Demiroğlu Bakay</p></div>
-      <div class="edu-card"><h4>Filial Terapi</h4><p>Oyun Terapileri Derneği, Mary Fry</p></div>
-      <div class="edu-card"><h4>Kum Tepsisi Terapisi</h4><p>Simge Psikoloji, Marshall Lyles</p></div>
-      <div class="edu-card"><h4>Rorschach & CAT Testleri</h4><p>Rorschach ve Projektif Testler Derneği, Neslihan Zabcı</p></div>
-      <div class="edu-card"><h4>Cognitive Assessment System (CAS)</h4><p>İstanbul Üniversitesi, Tamer Ergin</p></div>
-      <div class="edu-card"><h4>YBT-PASS Bilişsel Müdahale</h4><p>İstanbul Üniversitesi, Tamer Ergin</p></div>
-      <div class="edu-card"><h4>MOXO Dikkat Testi</h4><p>MOXO Türkiye</p></div>
-      <div class="edu-card"><h4>PERGEL Performans Geliştirme</h4><p>Arkabahçe Danışmanlık, Dr. Olcay Güner</p></div>
-      <div class="edu-card"><h4>Aile Danışmanlığı</h4><p>MEB Onaylı 450 Saat</p></div>
-      <div class="edu-card"><h4>Kısa Süreli Çözüm Odaklı Terapi</h4><p>Dr. Nevin Dölek</p></div>
-      <div class="edu-card"><h4>Bilişsel Davranışçı Terapi & Şema Terapi</h4><p>Kapsamlı eğitimler</p></div>
+      <div class="edu-more-wrap" id="eduMoreWrap" style="display:none;">
+        <div class="edu-card"><h4>Somatik Deneyimleme</h4><p>Travma odaklı beden temelli terapi</p></div>
+        <div class="edu-card"><h4>Çocuk Merkezli Oyun Terapisi</h4><p>Oyun Terapileri Derneği, Birgül Demiroğlu Bakay</p></div>
+        <div class="edu-card"><h4>Filial Terapi</h4><p>Oyun Terapileri Derneği, Mary Fry</p></div>
+        <div class="edu-card"><h4>Kum Tepsisi Terapisi</h4><p>Simge Psikoloji, Marshall Lyles</p></div>
+        <div class="edu-card"><h4>Rorschach & CAT Testleri</h4><p>Rorschach ve Projektif Testler Derneği, Neslihan Zabcı</p></div>
+        <div class="edu-card"><h4>Cognitive Assessment System (CAS)</h4><p>İstanbul Üniversitesi, Tamer Ergin</p></div>
+        <div class="edu-card"><h4>YBT-PASS Bilişsel Müdahale</h4><p>İstanbul Üniversitesi, Tamer Ergin</p></div>
+        <div class="edu-card"><h4>MOXO Dikkat Testi</h4><p>MOXO Türkiye</p></div>
+        <div class="edu-card"><h4>PERGEL Performans Geliştirme</h4><p>Arkabahçe Danışmanlık, Dr. Olcay Güner</p></div>
+        <div class="edu-card"><h4>Aile Danışmanlığı</h4><p>MEB Onaylı 450 Saat</p></div>
+        <div class="edu-card"><h4>Kısa Süreli Çözüm Odaklı Terapi</h4><p>Dr. Nevin Dölek</p></div>
+        <div class="edu-card"><h4>Bilişsel Davranışçı Terapi & Şema Terapi</h4><p>Kapsamlı eğitimler</p></div>
+      </div>
+      <button class="edu-more-btn" id="eduMoreBtn" onclick="toggleEduMore()">
+        Tüm Sertifikaları Gör <svg viewBox="0 0 24 24" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -1408,6 +1418,17 @@ function switchTab(btn, panelId) {
   modal.querySelector('#' + panelId).classList.add('active');
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function toggleEduMore() {
+  const wrap = document.getElementById('eduMoreWrap');
+  const btn = document.getElementById('eduMoreBtn');
+  const isOpen = wrap.style.display !== 'none';
+  wrap.style.display = isOpen ? 'none' : 'block';
+  btn.classList.toggle('open', !isOpen);
+  btn.innerHTML = isOpen
+    ? 'Tüm Sertifikaları Gör <svg viewBox="0 0 24 24" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>'
+    : 'Daha Az Göster <svg viewBox="0 0 24 24" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>';
+}
 
 document.querySelectorAll('#cForm [required]').forEach(f=>{
   f.addEventListener('blur',()=>{if(!f.value.trim()||(f.tagName==='SELECT'&&f.value===''))f.style.borderColor='#c0392b';else f.style.borderColor='var(--olive-mist)';});
