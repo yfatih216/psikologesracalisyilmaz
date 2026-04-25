@@ -206,6 +206,11 @@ nav.scrolled{height:60px;box-shadow:0 2px 24px rgba(74,94,58,0.1);}
 .about-text p strong{color:var(--olive);font-weight:500;}
 /* EDUCATION */
 .education-section{background:var(--warm);}
+.srv-card{cursor:pointer;position:relative;overflow:hidden;}
+.srv-preview{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.7) 100%);padding:1.2rem 1.4rem 1.4rem;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(4px);}
+.srv-card:hover .srv-preview{transform:translateY(0);}
+.srv-preview p{color:rgba(255,255,255,.9);font-size:.85rem;line-height:1.5;margin:0 0 .6rem;}
+.srv-preview-cta{color:var(--gold);font-size:.8rem;letter-spacing:.05em;}
 .edu-more-btn{margin-top:1rem;background:none;border:1.5px solid var(--olive);color:var(--olive);padding:.6rem 1.4rem;border-radius:2rem;cursor:pointer;font-size:.9rem;display:flex;align-items:center;gap:.4rem;transition:all .3s;}
 .edu-more-btn:hover{background:var(--olive);color:#fff;}
 .edu-more-btn svg{transition:transform .3s;}
@@ -718,16 +723,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- SERVICES -->
 <section class="sec srv-section" id="services">
   <div class="sec-tag fi">Uzmanlık Alanları</div>
-  <h2 class="sec-title fi">Terapi & Danışmanlık <em>Hizmetleri</em></h2>
+  <h2 class="sec-title fi">Danışmanlık <em>Hizmetleri</em></h2>
   <div class="srv-grid">
-    <div class="srv-card fi"><div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><h3>Çocuk Merkezli Oyun Terapisi</h3><p>Çocukların duygusal ve davranışsal zorluklarını oyun yoluyla ifade etmelerini sağlayan, bilimsel temelli terapi yöntemi.</p></div>
-    <div class="srv-card fi"><div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><h3>Filial Terapi</h3><p>Ebeveynlere çocuklarıyla daha sağlıklı iletişim kurma becerileri kazandıran terapi yaklaşımı.</p></div>
-    <div class="srv-card fi"><div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>EMDR Terapisi</h3><p>Göz hareketleriyle duyarsızlaştırma ve yeniden işleme — travma tedavisinde altın standart, kanıta dayalı yöntem.</p></div>
-    <div class="srv-card fi"><div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h3>Bireysel Terapi</h3><p>Kaygı, depresyon, panik atak, stres, yas ve bağlanma sorunları gibi yetişkin bireysel danışmanlık hizmetleri.</p></div>
-    <div class="srv-card fi"><div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Aile Danışmanlığı</h3><p>Aile içi iletişim, çatışma çözümü, ebeveynlik becerileri — MEB onaylı 450 saatlik uzmanlık eğitimiyle.</p></div>
-    <div class="srv-card fi"><div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>Online Terapi</h3><p>Bulunduğunuz konumdan güvenli ve etkin biçimde terapi hizmetine ulaşın. Esnek seans saatleri ile yanınızdayım.</p></div>
+
+    <!-- 1. Çocuk & Ergen -->
+    <div class="srv-card fi" onclick="openSrvModal('cocuk')">
+      <div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <h3>Çocuk & Ergen Danışmanlığı</h3>
+      <p>Her çocuğun iç dünyası kendine özgü bir dil konuşur.</p>
+      <div class="srv-preview">
+        <p>Oyun terapisi, Filial Terapi ve bilişsel değerlendirme araçlarıyla bu dil görünür kılınır. CAS ve MOXO testleriyle bilişsel profil belirlenir.</p>
+        <span class="srv-preview-cta">Devamını oku →</span>
+      </div>
+    </div>
+
+    <!-- 2. Yetişkin & Bireysel -->
+    <div class="srv-card fi" onclick="openSrvModal('yetiskin')">
+      <div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+      <h3>Yetişkin & Bireysel Danışmanlık</h3>
+      <p>Travma, kaygı, yas ve bağlanma örüntüleri üzerine derin çalışma.</p>
+      <div class="srv-preview">
+        <p>EMDR ve bütüncül klinik yöntemlerle derinlemesine ele alınır.</p>
+        <span class="srv-preview-cta">Devamını oku →</span>
+      </div>
+    </div>
+
+    <!-- 3. Aile -->
+    <div class="srv-card fi" onclick="openSrvModal('aile')">
+      <div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h3>Aile Terapisi & Ebeveyn Danışmanlığı</h3>
+      <p>Aile sistemi içindeki dinamikler kanıta dayalı bir perspektifle ele alınır.</p>
+      <div class="srv-preview">
+        <p>Ebeveynlerin çocuklarıyla daha sağlıklı bir ilişki kurabilmesi ve yaşanan zorluklara işlevsel yaklaşımlar geliştirmesi hedeflenir.</p>
+        <span class="srv-preview-cta">Devamını oku →</span>
+      </div>
+    </div>
+
+    <!-- 4. Online -->
+    <div class="srv-card fi" onclick="openSrvModal('online')">
+      <div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3>Online Danışmanlık</h3>
+      <p>Mekan değişir, terapötik ilişkinin niteliği değişmez.</p>
+      <div class="srv-preview">
+        <p>Nerede olursanız olun, yüz yüze seans kalitesinde klinik hizmet.</p>
+        <span class="srv-preview-cta">Devamını oku →</span>
+      </div>
+    </div>
+
+    <!-- 5. EMDR -->
+    <div class="srv-card fi" onclick="openSrvModal('emdr-srv')">
+      <div class="srv-num"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" width="38" height="38"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>EMDR Terapisi</h3>
+      <p>Zorlayıcı deneyimlerin zihinde yeniden işlenmesini hedefleyen bilimsel temelli psikoterapi.</p>
+      <div class="srv-preview">
+        <p>Yaşantılarımız bazen yoğun duygularla birlikte depolanabilir. EMDR bu anıların daha uyumlu biçimde anlamlandırılmasına yardımcı olur.</p>
+        <span class="srv-preview-cta">Devamını oku →</span>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- SERVİS MODALLERİ -->
+<div class="blog-modal-overlay" id="srvModalOverlay" onclick="closeSrvModal()">
+  <div class="blog-modal" onclick="event.stopPropagation()">
+    <button class="blog-modal-close" onclick="closeSrvModal()">✕</button>
+    <div class="blog-modal-tag" id="srvModalTag"></div>
+    <h2 class="blog-modal-title" id="srvModalTitle"></h2>
+    <div class="blog-modal-body" id="srvModalBody"></div>
+    <div class="modal-cta-row">
+      <a href="https://wa.me/905519893235?text=Merhaba,%20danışmanlık%20hakkında%20bilgi%20almak%20istiyorum." class="btn-primary" onclick="showContactChoice(event,this.href)">Randevu Al</a>
+    </div>
+  </div>
+</div>
 <section class="sec blog-section">
   <div class="sec-tag fi">Bilgi & Farkındalık</div>
   <h2 class="sec-title fi">Terapide <em style="font-style:italic;color:var(--olive-light)">Ne, Neden?</em></h2>
@@ -1418,6 +1486,71 @@ function switchTab(btn, panelId) {
   modal.querySelector('#' + panelId).classList.add('active');
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+const srvData = {
+  'cocuk': {
+    tag: 'Danışmanlık',
+    title: 'Çocuk & Ergen Danışmanlığı',
+    body: `<p>Her çocuğun iç dünyası kendine özgü bir dil konuşur. Oyun terapisi, Filial Terapi ve bilişsel değerlendirme araçlarıyla bu dil görünür kılınır. CAS ve MOXO testleriyle bilişsel profil belirlenir; sınav kaygısı yaşayan çocuklar için PERGEL Performans Programı uygulanır.</p>
+    <h4 style="margin:1.2rem 0 .5rem;color:var(--olive-light);">Çocuk Danışmanlığı — Çalışılan Alanlar</h4>
+    <ul style="padding-left:1.2rem;line-height:2;">
+      <li>Travmatik yaşantılar</li><li>Kaygı ve korkular</li><li>Davranış problemleri</li>
+      <li>Dikkat ve odaklanma sorunları</li><li>Aile içi değişimlere uyum güçlüğü</li>
+      <li>Sosyal çekilme</li><li>Duygusal regülasyon güçlükleri</li>
+    </ul>
+    <h4 style="margin:1.2rem 0 .5rem;color:var(--olive-light);">Ergen Danışmanlığı — Çalışılan Alanlar</h4>
+    <ul style="padding-left:1.2rem;line-height:2;">
+      <li>Kaygı ve sınav stresi</li><li>Aile içi çatışmalar</li><li>Özgüven sorunları</li>
+      <li>Duygu durum değişimleri</li><li>Sosyal uyum güçlükleri</li>
+      <li>Travmatik deneyimler</li><li>Davranışsal zorlanmalar</li>
+    </ul>`
+  },
+  'yetiskin': {
+    tag: 'Danışmanlık',
+    title: 'Yetişkin & Bireysel Danışmanlık',
+    body: `<p>Travma, kaygı, yas ve bağlanma örüntüleri; EMDR ve bütüncül klinik yöntemlerle derinlemesine ele alınır.</p>`
+  },
+  'aile': {
+    tag: 'Danışmanlık',
+    title: 'Aile Terapisi & Ebeveyn Danışmanlığı',
+    body: `<p>Aile sistemi içindeki dinamikler, iletişim örüntüleri ve ebeveynlik; kanıta dayalı bir perspektifle çalışılır.</p>
+    <p style="margin-top:1rem;">Ebeveyn danışmanlığı, çocukların gelişim sürecini desteklemek ve aile içi iletişimi güçlendirmek amacıyla yürütülen bir süreçtir. Bu süreçte ebeveynlerin çocuklarıyla daha sağlıklı bir ilişki kurabilmesi ve yaşanan zorluklara daha işlevsel yaklaşımlar geliştirmesi hedeflenir.</p>`
+  },
+  'online': {
+    tag: 'Danışmanlık',
+    title: 'Online Danışmanlık',
+    body: `<p>Mekan değişir, terapötik ilişkinin niteliği değişmez. Nerede olursanız olun, yüz yüze seans kalitesinde klinik hizmet sunulur.</p>`
+  },
+  'emdr-srv': {
+    tag: 'Terapi Yöntemi',
+    title: 'EMDR Terapisi',
+    body: `<p>EMDR (Göz Hareketleriyle Duyarsızlaştırma ve Yeniden İşleme), yaşanmış zorlayıcı deneyimlerin zihinde yeniden işlenmesini hedefleyen bilimsel temelli bir psikoterapi yöntemidir.</p>
+    <p style="margin-top:1rem;">Yaşantılarımız bazen zihinde "olduğu gibi" değil, yoğun duygularla birlikte depolanabilir. Bu durum, geçmişteki bazı anıların bugünkü yaşamı etkilemesine neden olabilir. EMDR, bu anıların yeniden işlenmesine ve daha uyumlu bir şekilde anlamlandırılmasına yardımcı olur.</p>
+    <h4 style="margin:1.2rem 0 .5rem;color:var(--olive-light);">Kullanım Alanları</h4>
+    <ul style="padding-left:1.2rem;line-height:2;">
+      <li>Travmatik yaşantılar</li><li>Kaygı bozuklukları</li><li>Depresyon</li>
+      <li>Panik belirtileri</li><li>Fobiler</li><li>Komplike yas süreçleri</li>
+      <li>Travma sonrası stres belirtileri</li><li>Performans kaygısı</li>
+      <li>Özgüven sorunları</li><li>Obsesif düşünceler</li>
+      <li>Bağımlılık süreçleri</li><li>Duygusal zorlanmalar</li>
+    </ul>`
+  }
+};
+
+function openSrvModal(key) {
+  const d = srvData[key];
+  if (!d) return;
+  document.getElementById('srvModalTag').textContent = d.tag;
+  document.getElementById('srvModalTitle').textContent = d.title;
+  document.getElementById('srvModalBody').innerHTML = d.body;
+  document.getElementById('srvModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSrvModal() {
+  document.getElementById('srvModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 function toggleEduMore() {
   const wrap = document.getElementById('eduMoreWrap');
