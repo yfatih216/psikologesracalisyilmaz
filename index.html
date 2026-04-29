@@ -537,6 +537,10 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 .uni-popup-opt:hover{background:var(--cream);}
 .uni-popup-opt svg{width:17px;height:17px;flex-shrink:0;color:var(--olive);}
 .uni-popup-div{height:1px;background:var(--olive-mist);margin:.25rem 0;}
+/* FORM MESSAGES */
+.form-success,.form-error{margin-top:1rem;padding:.85rem 1.1rem;border-radius:3px;font-family:'Jost',sans-serif;font-size:.8rem;font-weight:500;line-height:1.5;}
+.form-success{background:#f0f4ed;border:1px solid var(--olive-mist);color:var(--olive);}
+.form-error{background:#fdf2f2;border:1px solid #e8bfbf;color:#8b3a3a;}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -720,7 +724,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <a href="#" class="btn-p" style="margin-top:1.2rem;display:inline-flex;" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.')">Ücretsiz Ön Görüşme</a>
+      <a href="#" class="btn-p" style="margin-top:1.2rem;display:inline-flex;" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.','on-gorusme-popup')">Ücretsiz Ön Görüşme</a>
     </div>
   </div>
 </section>
@@ -1161,6 +1165,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="fg"><label>Mesajınız <span class="req">*</span></label><textarea name="mesaj" placeholder="Randevu talebiniz veya sormak istediğiniz konuları yazabilirsiniz..." required></textarea></div>
       <button type="submit" class="f-btn" id="submitBtn">Mesaj Gönder</button>
       <p class="form-note">* Zorunlu alanlar. Mesajınız pskesracalis@gmail.com adresine iletilir.</p>
+      <div class="form-success" style="display:none;">✓ Mesajınız başarıyla iletildi. En kısa sürede size dönüş yapılacak.</div>
+      <div class="form-error" style="display:none;">Bir sorun oluştu. Lütfen tekrar deneyin.</div>
     </form>
   </div>
 </div>
@@ -1223,7 +1229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <!-- WA FLOAT -->
-<a href="https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="wa-float" aria-label="WhatsApp" target="_blank" rel="noopener">
+<a href="#" class="wa-float" aria-label="WhatsApp" onclick="showContactChoice(event,'https://wa.me/905519893235?text=Merhaba%2C%20terapi%20s%C3%BCreci%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.','randevu-popup')">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 <script>
@@ -1262,11 +1268,25 @@ document.getElementById('cForm').addEventListener('submit',async(e)=>{
   btn.textContent='Gönderiliyor...';btn.disabled=true;
   try{
     const res=await fetch(e.target.action,{method:'POST',body:new FormData(e.target),headers:{Accept:'application/json'}});
-    if(res.ok){btn.textContent='Mesajınız İletildi ✓';btn.style.background='var(--olive-light)';e.target.reset();setTimeout(()=>{btn.textContent='Mesaj Gönder';btn.style.background='';btn.disabled=false;},4000);}
+    if(res.ok){
+      btn.textContent='Mesajınız İletildi ✓';btn.style.background='var(--olive-light)';
+      e.target.reset();
+      // Başarı mesajı göster + hash
+      const successEl=e.target.querySelector('.form-success');
+      if(successEl){successEl.style.display='block';}
+      history.pushState(null,'','#form-gonderildi');
+      setTimeout(()=>{
+        btn.textContent='Mesaj Gönder';btn.style.background='';btn.disabled=false;
+        if(successEl){successEl.style.display='none';}
+      },5000);
+    }
     else{throw new Error();}
   }catch{
     const f=e.target;
     const b=encodeURIComponent(`Ad Soyad: ${f.ad_soyad?.value}\nTelefon: ${f.telefon?.value}\nE-posta: ${f.eposta?.value}\nHizmet: ${f.hizmet?.value}\nMesaj: ${f.mesaj?.value}`);
+    // Hata mesajı göster
+    const errorEl=document.querySelector('.form-error');
+    if(errorEl){errorEl.style.display='block';setTimeout(()=>{errorEl.style.display='none';},5000);}
     window.location.href=`mailto:pskesracalis@gmail.com?subject=Randevu Talebi&body=${b}`;
     btn.textContent='Mesaj Gönder';btn.disabled=false;
   }
@@ -1275,25 +1295,32 @@ document.getElementById('cForm').addEventListener('submit',async(e)=>{
 
 // About Bio Toggle
 
-function showContactChoice(e, waUrl) {
+function showContactChoice(e, waUrl, hashKey) {
   e.preventDefault(); e.stopPropagation();
-  // Remove any existing popup
   const old = document.getElementById('uniPopup');
   if (old) { old.remove(); return; }
+  // URL hash — popup açıldı
+  history.pushState(null, '', '#' + (hashKey || 'randevu-popup'));
   const btn = e.currentTarget;
   const mailHref = 'mailto:pskesracalis@gmail.com?subject=Randevu%20Talebi&body=Merhaba%2C%20randevu%20almak%20istiyorum.';
+  const telHref = 'tel:+905519893235';
   const popup = document.createElement('div');
   popup.id = 'uniPopup';
   popup.className = 'uni-popup';
   popup.innerHTML = `
-    <a href="${waUrl}" class="uni-popup-opt" target="_blank" rel="noopener">
+    <a href="${waUrl}" class="uni-popup-opt" target="_blank" rel="noopener" onclick="history.pushState(null,'','#whatsapp-baslandi')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
       WhatsApp ile Yaz
     </a>
     <div class="uni-popup-div"></div>
-    <a href="${mailHref}" class="uni-popup-opt">
+    <a href="${mailHref}" class="uni-popup-opt" onclick="history.pushState(null,'','#email-baslandi')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       E-posta Gönder
+    </a>
+    <div class="uni-popup-div"></div>
+    <a href="${telHref}" class="uni-popup-opt" onclick="history.pushState(null,'','#telefon-baslandi')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012.86 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Ara: 0551 989 32 35
     </a>`;
   document.body.appendChild(popup);
   // Position near button
