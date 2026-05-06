@@ -541,6 +541,9 @@ footer{background:var(--dark);padding:3rem 6% 1.8rem;}
 .form-success,.form-error{margin-top:1rem;padding:.85rem 1.1rem;border-radius:3px;font-family:'Jost',sans-serif;font-size:.8rem;font-weight:500;line-height:1.5;}
 .form-success{background:#f0f4ed;border:1px solid var(--olive-mist);color:var(--olive);}
 .form-error{background:#fdf2f2;border:1px solid #e8bfbf;color:#8b3a3a;}
+
+/* Anchor navigasyon - fixed nav arkasında kalmasın */
+section, #contact { scroll-margin-top: 80px; }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -1688,14 +1691,14 @@ document.querySelectorAll('#cForm [required]').forEach(f=>{
 });
 </script>
   <script>
-  if ('scrollRestoration' in history) { // scrollRestoration (kaydırma hatırlama)
-    history.scrollRestoration = 'manual'; // manual (elle kontrol et)
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
   }
-  window.addEventListener("load", function () { // load (sayfa tamamen yüklendiğinde)
-    window.scrollTo(0, 0); // en üste git
-    setTimeout(function () { // setTimeout (kısa gecikme)
-      window.scrollTo(0, 0); // tekrar en üste git (override etmek = zorla uygulamak)
-    }, 50);
+  window.addEventListener("load", function () {
+    // Hash yoksa en üste git (hash varsa anchor URL'i çalışsın)
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
   });
 </script>
 </body>
